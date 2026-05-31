@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running Analytics</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--bg:#0a0c0f;--surf:#111418;--card:#161b22;--brd:#21262d;--acc:#00ff88;--acc2:#ff6b35;--acc3:#4d9fff;--acc4:#ff4dff;--acc5:#ffd700;--txt:#e6edf3;--mut:#7d8590;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;
+--z1:#00ff88;--z2:#ffd700;--z3:#ff6b35;--z1bg:rgba(0,255,136,.12);--z2bg:rgba(255,215,0,.12);--z3bg:rgba(255,107,53,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,136,.03)1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.03)1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+.app{display:grid;grid-template-columns:285px 1fr;min-height:100vh;position:relative;z-index:1}
+@media(max-width:700px){.app{grid-template-columns:1fr}}
+/* SIDEBAR */
+.sidebar{background:var(--surf);border-right:1px solid var(--brd);display:flex;flex-direction:column;height:100vh;position:sticky;top:0;overflow:hidden}
+.sb-head{padding:13px 12px 9px;border-bottom:1px solid var(--brd);flex-shrink:0}
+.sb-title{font-family:var(--mono);font-size:10px;color:var(--acc);letter-spacing:2px;margin-bottom:8px}
+.sb-actions{display:flex;gap:4px;flex-wrap:wrap}
+.btn-new{background:var(--acc);color:#000;border:none;padding:6px 0;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer;border-radius:4px;flex:1;min-width:48px;transition:background .15s}
+.btn-new:hover{background:#00cc6a}
+.btn-fit{background:var(--acc3);color:#000;border:none;padding:6px 8px;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer;border-radius:4px;transition:background .15s}
+.btn-fit:hover{background:#3a8ae8}
+.btn-shoes{background:var(--card);border:1px solid var(--brd);color:var(--mut);padding:6px 7px;font-family:var(--mono);font-size:10px;cursor:pointer;border-radius:4px;transition:all .15s}
+.btn-shoes:hover{color:var(--txt);border-color:var(--mut)}
+.btn-zones{background:var(--card);border:1px solid var(--brd);color:var(--mut);padding:6px 7px;font-family:var(--mono);font-size:10px;cursor:pointer;border-radius:4px;transition:all .15s}
+.btn-zones:hover{color:var(--acc5);border-color:var(--acc5)}
+.btn-icon{background:var(--card);border:1px solid var(--brd);color:var(--mut);width:28px;height:28px;border-radius:4px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.btn-icon:hover{color:var(--txt);border-color:var(--mut)}
+.sb-search{padding:7px 12px;border-bottom:1px solid var(--brd);flex-shrink:0}
+.sb-search input{width:100%;background:var(--card);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:5px 8px;border-radius:4px;outline:none}
+.sb-search input:focus{border-color:var(--acc)}
+.sb-search input::placeholder{color:var(--mut)}
+.grp-tabs{display:flex;padding:6px 12px;border-bottom:1px solid var(--brd);gap:0;flex-shrink:0}
+.grp-tab{background:none;border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;padding:3px 0;cursor:pointer;flex:1;text-align:center;transition:all .15s}
+.grp-tab:first-child{border-radius:3px 0 0 3px}
+.grp-tab:last-child{border-radius:0 3px 3px 0}
+.grp-tab+.grp-tab{border-left:none}
+.grp-tab.active{background:rgba(0,255,136,.12);border-color:var(--acc);color:var(--acc)}
+.sb-list{flex:1;overflow-y:auto;padding:5px 0}
+.sb-list::-webkit-scrollbar{width:3px}
+.sb-list::-webkit-scrollbar-thumb{background:var(--brd)}
+.grp-hdr{display:flex;align-items:center;justify-content:space-between;padding:6px 12px 3px;cursor:pointer;user-select:none}
+.grp-lbl{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase}
+.grp-cnt{font-family:var(--mono);font-size:9px;color:var(--brd);background:var(--card);padding:2px 5px;border-radius:3px}
+.grp-arr{font-size:9px;color:var(--mut);transition:transform .2s}
+.grp-arr.col{transform:rotate(-90deg)}
+.grp-body{overflow:hidden;transition:max-height .25s ease}
+.s-item{display:flex;align-items:center;gap:8px;padding:6px 12px;cursor:pointer;transition:background .12s;border-left:2px solid transparent}
+.s-item:hover{background:rgba(255,255,255,.03)}
+.s-item.active{background:rgba(0,255,136,.06);border-left-color:var(--acc)}
+.s-item.hl{border-left-color:var(--acc5)}
+.s-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.s-info{flex:1;min-width:0}
+.s-name{font-family:var(--mono);font-size:10px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-meta{font-family:var(--mono);font-size:9px;color:var(--mut);margin-top:1px}
+.s-right{text-align:right;flex-shrink:0}
+.s-pace{font-family:var(--mono);font-size:10px;color:var(--mut)}
+.s-dist{font-family:var(--mono);font-size:9px;color:var(--mut)}
+.s-star{font-size:9px;color:var(--acc5)}
+.sb-empty{padding:20px 12px;text-align:center;color:var(--mut);font-family:var(--mono);font-size:11px;line-height:2}
+/* MAIN */
+.main{overflow-y:auto;padding:18px 15px}
+.main::-webkit-scrollbar{width:3px}
+.main::-webkit-scrollbar-thumb{background:var(--brd)}
+.m-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:9px}
+.m-title{font-family:var(--mono);font-size:clamp(14px,2.2vw,22px);font-weight:700;letter-spacing:-1px;color:var(--acc);text-shadow:0 0 22px rgba(0,255,136,.25)}
+.m-sub{font-size:11px;color:var(--mut);margin-top:2px;font-family:var(--mono)}
+.badge{background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.3);color:var(--acc);font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:3px;letter-spacing:1px}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--brd);border-radius:7px;padding:10px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac,var(--acc));opacity:.5}
+.stat-lbl{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.stat-val{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--txt);line-height:1}
+.stat-unit{font-size:9px;color:var(--mut);margin-top:2px}
+/* MILEAGE ROW */
+.mileage-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+.mile-card{background:var(--card);border:1px solid var(--brd);border-radius:7px;padding:10px;position:relative;overflow:hidden}
+.mile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--zc)}
+.mile-lbl{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;color:var(--zc)}
+.mile-val{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--txt);line-height:1}
+.mile-sub{font-size:9px;color:var(--mut);margin-top:2px;font-family:var(--mono)}
+/* CHARTS ROW */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:900px){.charts-row{grid-template-columns:1fr}}
+.chart-box{background:var(--card);border:1px solid var(--brd);border-radius:9px;padding:14px;position:relative;overflow:hidden}
+.chart-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),transparent)}
+.ch-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.ch-title{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--txt);letter-spacing:.5px}
+.ch-wrap{position:relative;height:220px}
+.ch-wrap-tall{position:relative;height:250px}
+.no-data{display:flex;align-items:center;justify-content:center;height:100%;color:var(--mut);font-family:var(--mono);font-size:11px;flex-direction:column;gap:5px}
+.no-data-icon{font-size:20px;opacity:.3}
+/* CONTROLS */
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:7px;margin-bottom:10px}
+.ctrl{background:var(--card);border:1px solid var(--brd);border-radius:7px;padding:9px}
+.ctrl-lbl{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:5px}
+.m-btns{display:flex;gap:3px;flex-wrap:wrap}
+.m-btn{background:var(--surf);border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;padding:4px 7px;cursor:pointer;border-radius:3px;transition:all .15s}
+.m-btn.active{background:rgba(0,255,136,.12);border-color:var(--acc);color:var(--acc)}
+.m-btn:hover:not(.active){border-color:var(--mut);color:var(--txt)}
+.shoe-list{display:flex;flex-direction:column;gap:4px}
+.shoe-item{display:flex;align-items:center;gap:5px;cursor:pointer;font-family:var(--mono);font-size:10px;color:var(--txt)}
+.shoe-item input{display:none}
+.shoe-chk{width:12px;height:12px;border-radius:2px;border:1.5px solid var(--brd);display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.shoe-item input:checked+.shoe-chk{border-color:currentColor;background:currentColor}
+.shoe-item input:checked+.shoe-chk::after{content:'✓';font-size:7px;color:#000;font-weight:700}
+.shoe-dot-sm{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+.ctrl select{background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:5px 7px;border-radius:3px;width:100%;outline:none;margin-bottom:4px}
+.ctrl select:last-child{margin-bottom:0}
+/* LINE CHART (big) */
+.chart-box-full{background:var(--card);border:1px solid var(--brd);border-radius:9px;padding:14px;margin-bottom:10px;position:relative;overflow:hidden}
+.chart-box-full::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),transparent)}
+/* SHOE COMPARE */
+.shoe-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:7px;margin-bottom:10px}
+.shoe-card{background:var(--card);border:1px solid var(--brd);border-radius:8px;padding:11px;position:relative;overflow:hidden}
+.shoe-card-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.shoe-card-name{font-family:var(--mono);font-size:10px;font-weight:700;margin-bottom:6px;margin-top:3px}
+.shoe-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(33,38,45,.5)}
+.shoe-row:last-child{border-bottom:none}
+.shoe-row-lbl{font-family:var(--mono);font-size:9px;color:var(--mut)}
+.shoe-row-val{font-family:var(--mono);font-size:10px;font-weight:700}
+/* ZONE LEGEND */
+.zone-legend{display:flex;gap:10px;flex-wrap:wrap}
+.z-chip{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px}
+.z-dot{width:8px;height:8px;border-radius:50%}
+/* OVERLAYS */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:center;justify-content:center;padding:12px}
+.ov.open{display:flex}
+.panel{background:var(--card);border:1px solid var(--brd);border-radius:11px;width:100%;max-width:800px;max-height:94vh;overflow-y:auto;display:flex;flex-direction:column}
+.panel::-webkit-scrollbar{width:3px}
+.panel::-webkit-scrollbar-thumb{background:var(--brd)}
+.panel-sm{max-width:500px}
+.panel-xs{max-width:400px}
+.ph{padding:12px 15px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:8px;position:sticky;top:0;background:var(--card);z-index:1}
+.ph-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ph-ttl{font-family:var(--mono);font-size:11px;font-weight:700;flex:1}
+.ph-sub{font-family:var(--mono);font-size:9px;color:var(--mut)}
+.ph-btns{display:flex;gap:4px}
+.btn-star{background:none;border:1px solid var(--brd);color:var(--mut);font-size:12px;width:25px;height:25px;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.btn-star.on{border-color:var(--acc5);color:var(--acc5);background:rgba(255,215,0,.08)}
+.btn-x{background:none;border:1px solid var(--brd);color:var(--mut);width:25px;height:25px;border-radius:3px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.btn-x:hover{border-color:var(--txt);color:var(--txt)}
+.pb{padding:14px;flex:1}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px;margin-bottom:12px}
+.mc{background:var(--surf);border:1px solid var(--brd);border-radius:5px;padding:8px 9px}
+.mc-lbl{font-family:var(--mono);font-size:8px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.mc-val{font-family:var(--mono);font-size:12px;font-weight:700}
+/* WU/CD section */
+.wucd-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.wucd-card{background:var(--surf);border:1px solid var(--brd);border-radius:6px;padding:9px}
+.wucd-title{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+.wucd-field{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.wucd-label{font-family:var(--mono);font-size:9px;color:var(--mut);width:46px;flex-shrink:0}
+.wucd-input{background:var(--card);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:4px 7px;border-radius:3px;outline:none;flex:1;transition:border-color .15s}
+.wucd-input:focus{border-color:var(--acc)}
+/* set tabs */
+.set-tabs{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.set-tab{background:var(--surf);border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;padding:4px 9px;cursor:pointer;border-radius:3px;transition:all .15s}
+.set-tab.active{background:rgba(0,255,136,.12);border-color:var(--acc);color:var(--acc)}
+.sec-lbl{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
+.spl-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:7px}
+.spl-tbl th{font-family:var(--mono);font-size:8px;color:var(--mut);letter-spacing:.8px;text-transform:uppercase;padding:4px 3px;text-align:center;background:var(--surf);border-bottom:1px solid var(--brd)}
+.spl-tbl td{padding:2px 2px;border-bottom:1px solid rgba(33,38,45,.4);vertical-align:middle}
+.spl-tbl tr:last-child td{border-bottom:none}
+.spl-tbl td:first-child{font-family:var(--mono);font-size:9px;color:var(--mut);padding-left:5px;width:22px}
+.spl-inp{background:var(--surf);border:1px solid transparent;color:var(--txt);font-family:var(--mono);font-size:10px;padding:3px 4px;border-radius:3px;outline:none;width:100%;text-align:center;transition:border-color .15s}
+.spl-inp:focus{border-color:var(--acc);background:var(--bg)}
+.spl-inp.bio{color:var(--acc3)}
+.spl-tr-alt{background:rgba(0,255,136,.025)}
+.btn-del-spl{background:none;border:none;color:var(--mut);cursor:pointer;font-size:10px;padding:0 2px;transition:color .15s}
+.btn-del-spl:hover{color:var(--acc2)}
+.notes-ta{width:100%;background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--sans);font-size:12px;padding:7px 9px;border-radius:5px;outline:none;resize:vertical;min-height:44px;margin-bottom:10px;transition:border-color .15s}
+.notes-ta:focus{border-color:var(--acc)}
+.rpe-row{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:3px}
+.rpe-b{background:var(--surf);border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;width:23px;height:23px;border-radius:3px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.rpe-b.on{background:rgba(0,255,136,.18);border-color:var(--acc);color:var(--acc);font-weight:700}
+.pf{padding:10px 14px;border-top:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;position:sticky;bottom:0;background:var(--card)}
+.btn-del{background:none;border:1px solid rgba(255,107,53,.3);color:var(--acc2);font-family:var(--mono);font-size:10px;padding:5px 10px;cursor:pointer;border-radius:3px;transition:all .15s}
+.btn-del:hover{background:rgba(255,107,53,.1)}
+.btn-save{background:var(--acc);border:none;color:#000;font-family:var(--mono);font-size:10px;font-weight:700;padding:6px 13px;cursor:pointer;border-radius:3px;transition:all .15s}
+.btn-save:hover{background:#00cc6a}
+.btn-cancel{background:none;border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:10px;padding:5px 10px;cursor:pointer;border-radius:3px;transition:all .15s}
+.btn-cancel:hover{border-color:var(--txt);color:var(--txt)}
+.btn-sm{background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.25);color:var(--acc);font-family:var(--mono);font-size:9px;padding:3px 8px;cursor:pointer;border-radius:3px;transition:all .15s}
+.btn-sm:hover{background:rgba(0,255,136,.16)}
+.btn-sm-blue{background:rgba(77,159,255,.1);border:1px solid rgba(77,159,255,.3);color:var(--acc3);font-family:var(--mono);font-size:9px;padding:3px 8px;cursor:pointer;border-radius:3px;transition:all .15s}
+.btn-sm-blue:hover{background:rgba(77,159,255,.2)}
+/* ADD MODAL */
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.fg label{font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase}
+.fg input,.fg select{background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:6px 8px;border-radius:3px;outline:none;width:100%;transition:border-color .15s}
+.fg input:focus,.fg select:focus{border-color:var(--acc)}
+.fg-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fg-full{grid-column:1/-1}
+.mspl-hdr{display:grid;grid-template-columns:20px repeat(5,1fr) 18px;gap:3px;margin:8px 0 3px}
+.mspl-hdr span{font-family:var(--mono);font-size:8px;color:var(--mut);letter-spacing:.8px;text-align:center;text-transform:uppercase}
+.mspl-row{display:grid;grid-template-columns:20px repeat(5,1fr) 18px;gap:3px;align-items:center;margin-bottom:3px}
+.mspl-row input{background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:4px 4px;border-radius:3px;outline:none;text-align:center;width:100%}
+.mspl-row input:focus{border-color:var(--acc)}
+.mspl-km{font-family:var(--mono);font-size:9px;color:var(--mut);text-align:center}
+.btn-del-ms{background:none;border:none;color:var(--mut);cursor:pointer;font-size:11px;transition:color .15s}
+.btn-del-ms:hover{color:var(--acc2)}
+/* FIT */
+.fit-zone{border:2px dashed rgba(77,159,255,.3);border-radius:7px;padding:14px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(77,159,255,.03);margin-bottom:10px}
+.fit-zone:hover,.fit-zone.drag{border-color:var(--acc3);background:rgba(77,159,255,.08)}
+.fit-zone-icon{font-size:24px;margin-bottom:4px;opacity:.6}
+.fit-zone-txt{font-family:var(--mono);font-size:10px;color:var(--mut)}
+.fit-zone-txt span{color:var(--acc3)}
+.fit-item{display:flex;align-items:center;gap:7px;padding:6px 9px;background:var(--surf);border:1px solid var(--brd);border-radius:5px;margin-bottom:4px;flex-wrap:wrap}
+.fit-item-name{font-family:var(--mono);font-size:10px;flex:1;min-width:80px;color:var(--txt)}
+.fit-item-status{font-family:var(--mono);font-size:9px;white-space:nowrap}
+.fit-item-status.ok{color:var(--acc)}
+.fit-item-status.dup{color:var(--acc5)}
+.fit-item-status.err{color:var(--acc2)}
+.fit-item input,.fit-item select{background:var(--card);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:3px 6px;border-radius:3px;outline:none}
+.fit-item input{width:130px}
+/* SHOE MGR */
+.model-card{background:var(--surf);border:1px solid var(--brd);border-radius:7px;padding:11px 13px;margin-bottom:8px;position:relative;overflow:hidden}
+.model-card-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.model-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.model-name{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--txt)}
+.model-km{font-family:var(--mono);font-size:10px;color:var(--acc)}
+.pair-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid rgba(33,38,45,.5)}
+.pair-nick{font-family:var(--mono);font-size:10px;color:var(--mut);flex:1}
+.pair-km{font-family:var(--mono);font-size:10px;color:var(--txt)}
+.pair-bar-wrap{flex:1;height:4px;background:var(--brd);border-radius:2px;max-width:80px}
+.pair-bar-fill{height:100%;border-radius:2px;background:var(--acc);transition:width .3s}
+.pair-warn{font-size:10px}
+.btn-edit-shoe{background:none;border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:3px;cursor:pointer;transition:all .15s}
+.btn-edit-shoe:hover{border-color:var(--acc5);color:var(--acc5)}
+.shoe-mgr-row{display:flex;align-items:center;gap:7px;padding:7px 0;border-bottom:1px solid rgba(33,38,45,.5)}
+.shoe-mgr-row:last-child{border-bottom:none}
+.shoe-color-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.shoe-mgr-name{flex:1;background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:5px 7px;border-radius:3px;outline:none}
+.shoe-mgr-name:focus{border-color:var(--acc)}
+.shoe-mgr-count{font-family:var(--mono);font-size:9px;color:var(--mut);white-space:nowrap}
+/* ZONE SETTINGS */
+.zone-mode-tabs{display:flex;gap:0;margin-bottom:12px}
+.zone-mode-tab{background:var(--surf);border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:10px;padding:6px 16px;cursor:pointer;transition:all .15s;flex:1;text-align:center}
+.zone-mode-tab:first-child{border-radius:4px 0 0 4px}
+.zone-mode-tab:last-child{border-radius:0 4px 4px 0}
+.zone-mode-tab+.zone-mode-tab{border-left:none}
+.zone-mode-tab.active{background:rgba(0,255,136,.12);border-color:var(--acc);color:var(--acc)}
+.zone-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(33,38,45,.5)}
+.zone-row:last-child{border-bottom:none}
+.zone-color{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.zone-name{font-family:var(--mono);font-size:11px;color:var(--txt);width:60px}
+.zone-range{font-family:var(--mono);font-size:10px;color:var(--mut);flex:1}
+.zone-inp{background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:5px 7px;border-radius:3px;outline:none;width:70px;text-align:center}
+.zone-inp:focus{border-color:var(--acc)}
+.zone-label-note{font-family:var(--mono);font-size:9px;color:var(--mut);margin-bottom:8px}
+.bio-badge{font-family:var(--mono);font-size:8px;color:var(--acc3);border:1px solid rgba(77,159,255,.3);padding:1px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="app">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-head">
+    <div class="sb-title">WORKOUT LOG</div>
+    <div class="sb-actions">
+      <button class="btn-new" onclick="openAdd()">+ NEW</button>
+      <button class="btn-fit" onclick="openFit()">⬆ FIT</button>
+      <button class="btn-shoes" onclick="openShoes()">👟</button>
+      <button class="btn-zones" onclick="openZones()">⚡ Zones</button>
+      <button class="btn-icon" onclick="flipSort()" title="Sort">⇅</button>
+    </div>
+  </div>
+  <div class="sb-search"><input type="text" placeholder="Search…" id="srch" oninput="renderSidebar()"></div>
+  <div class="grp-tabs">
+    <button class="grp-tab active" onclick="setGrp('month',this)">MON</button>
+    <button class="grp-tab" onclick="setGrp('year',this)">YEAR</button>
+    <button class="grp-tab" onclick="setGrp('type',this)">TYPE</button>
+    <button class="grp-tab" onclick="setGrp('shoe',this)">SHOE</button>
+  </div>
+  <div class="sb-list" id="sbList"></div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="m-head">
+    <div><div class="m-title">RUNNING ANALYTICS</div><div class="m-sub">pomparazzi · sub-3 · phuket 14 jun 2026</div></div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="badge">SUB-3 TARGET</span>
+      <button onclick="setupGitHub()" style="background:var(--card);border:1px solid var(--brd);color:var(--mut);font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:3px;cursor:pointer" id="ghBtn">⚙ GitHub</button>
+      <span style="font-family:var(--mono);font-size:9px;color:var(--acc)" id="ghStatus"></span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat" style="--ac:var(--acc)"><div class="stat-lbl">Sessions</div><div class="stat-val" id="stS">0</div><div class="stat-unit">logged</div></div>
+    <div class="stat" style="--ac:var(--acc3)"><div class="stat-lbl">Total KM</div><div class="stat-val" id="stKM">0</div><div class="stat-unit">km</div></div>
+    <div class="stat" style="--ac:var(--acc2)"><div class="stat-lbl">Best Pace</div><div class="stat-val" id="stP">—</div><div class="stat-unit">/km</div></div>
+    <div class="stat" style="--ac:var(--acc4)"><div class="stat-lbl">Avg Stride</div><div class="stat-val" id="stSt">—</div><div class="stat-unit">cm</div></div>
+    <div class="stat" style="--ac:var(--acc5)"><div class="stat-lbl">Avg Cadence</div><div class="stat-val" id="stC">—</div><div class="stat-unit">spm</div></div>
+    <div class="stat" style="--ac:var(--acc3)"><div class="stat-lbl">Avg V.Osc</div><div class="stat-val" id="stVO">—</div><div class="stat-unit">cm</div></div>
+  </div>
+
+  <!-- MILEAGE BY ZONE (6 zones) -->
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:10px">
+    <div class="mile-card" style="--zc:#4dd9ff">
+      <div class="mile-lbl" style="font-size:8px">Z1 RECOV</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ1">0</div>
+      <div class="mile-sub" id="kmZ1Pct">0%</div>
+    </div>
+    <div class="mile-card" style="--zc:#00ff88">
+      <div class="mile-lbl" style="font-size:8px">Z2 AE</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ2">0</div>
+      <div class="mile-sub" id="kmZ2Pct">0%</div>
+    </div>
+    <div class="mile-card" style="--zc:#ffd700">
+      <div class="mile-lbl" style="font-size:8px">Z3 AP</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ3">0</div>
+      <div class="mile-sub" id="kmZ3Pct">0%</div>
+    </div>
+    <div class="mile-card" style="--zc:#ff9500">
+      <div class="mile-lbl" style="font-size:8px">Z4 THRESH</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ4">0</div>
+      <div class="mile-sub" id="kmZ4Pct">0%</div>
+    </div>
+    <div class="mile-card" style="--zc:#ff6b35">
+      <div class="mile-lbl" style="font-size:8px">Z5 AN-END</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ5">0</div>
+      <div class="mile-sub" id="kmZ5Pct">0%</div>
+    </div>
+    <div class="mile-card" style="--zc:#ff2d55">
+      <div class="mile-lbl" style="font-size:8px">Z6 AN-PWR</div>
+      <div class="mile-val" style="font-size:14px" id="kmZ6">0</div>
+      <div class="mile-sub" id="kmZ6Pct">0%</div>
+    </div>
+  </div>
+
+  <!-- PIE CHARTS ROW -->
+  <div class="charts-row">
+    <div class="chart-box">
+      <div class="ch-head">
+        <div>
+          <div class="ch-title">KM BY PACE ZONE</div>
+          <div class="zone-legend" id="zoneLegend1" style="margin-top:4px"></div>
+        </div>
+        <div class="m-btns">
+          <button class="m-btn active" id="zBtn1" onclick="setZoneMode('pace',this)">Pace</button>
+          <button class="m-btn" id="zBtn2" onclick="setZoneMode('hr',this)">HR</button>
+        </div>
+      </div>
+      <div class="ch-wrap">
+        <canvas id="pieZone"></canvas>
+        <div class="no-data" id="noDataPie"><div class="no-data-icon">🥧</div><div>Add sessions</div></div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="ch-head">
+        <div>
+          <div class="ch-title">KM BY SESSION TYPE</div>
+          <div class="zone-legend" id="zoneLegend2" style="margin-top:4px"></div>
+        </div>
+      </div>
+      <div class="ch-wrap">
+        <canvas id="pieType"></canvas>
+        <div class="no-data" id="noDataType"><div class="no-data-icon">🥧</div><div>Add sessions</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS + LINE CHART -->
+  <div class="controls">
+    <div class="ctrl">
+      <span class="ctrl-lbl">Metric</span>
+      <div class="m-btns">
+        <button class="m-btn active" onclick="setMet('stride',this)">Stride</button>
+        <button class="m-btn" onclick="setMet('hr',this)">HR</button>
+        <button class="m-btn" onclick="setMet('pace',this)">Pace</button>
+        <button class="m-btn" onclick="setMet('cadence',this)">Cadence</button>
+        <button class="m-btn" onclick="setMet('power',this)">Power</button>
+        <button class="m-btn" onclick="setMet('vosc',this)">V.Osc</button>
+        <button class="m-btn" onclick="setMet('stance',this)">Stance</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <span class="ctrl-lbl">Filter</span>
+      <select id="typeF" onchange="renderLineChart()">
+        <option value="all">All Types</option>
+        <option value="3x5km">3×5km</option><option value="3x3km">3×3km</option>
+        <option value="5km">5km</option><option value="10km">10km</option>
+        <option value="long">Long Run</option><option value="race-5k">🏆 Race 5K</option>
+        <option value="race-10k">🏆 Race 10K</option>
+        <option value="race-half">🏆 Race Half</option>
+        <option value="race-full">🏆 Race Full</option>
+        <option value="race-other">🏆 Race Other</option>
+        <option value="easy">Easy</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <select id="setF" onchange="renderLineChart()">
+        <option value="all">All Sets</option>
+        <option value="1">Set 1</option><option value="2">Set 2</option><option value="3">Set 3</option>
+      </select>
+    </div>
+    <div class="ctrl">
+      <span class="ctrl-lbl">Shoes</span>
+      <div class="shoe-list" id="shoeFL"><div style="font-family:var(--mono);font-size:10px;color:var(--mut)">Add sessions first</div></div>
+    </div>
+    <div class="ctrl">
+      <span class="ctrl-lbl">View</span>
+      <div class="m-btns">
+        <button class="m-btn active" onclick="setVw('overtime',this)">Over Time</button>
+        <button class="m-btn" onclick="setVw('perkm',this)">Per KM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIME PERIOD FILTER -->
+  <div style="background:var(--card);border:1px solid var(--brd);border-radius:7px;padding:10px 12px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:2px;text-transform:uppercase;white-space:nowrap">PERIOD</span>
+    <div class="m-btns" id="periodBtns">
+      <button class="m-btn active" onclick="setPeriod('all',this)">All Time</button>
+      <button class="m-btn" onclick="setPeriod('3m',this)">Last 3M</button>
+      <button class="m-btn" onclick="setPeriod('1m',this)">Last 1M</button>
+      <button class="m-btn" onclick="setPeriod('custom',this)">Custom</button>
+    </div>
+    <div id="customRange" style="display:none;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+      <input type="month" id="periodFrom" onchange="applyCustomPeriod()" style="background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:4px 7px;border-radius:3px;outline:none">
+      <span style="font-family:var(--mono);font-size:10px;color:var(--mut)">→</span>
+      <input type="month" id="periodTo" onchange="applyCustomPeriod()" style="background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:4px 7px;border-radius:3px;outline:none">
+    </div>
+    <div style="margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--mut)" id="periodLabel"></div>
+  </div>
+
+  <div class="chart-box-full">
+    <div class="ch-head"><div class="ch-title" id="chTitle">STRIDE LENGTH — OVER TIME</div><span class="badge" id="chBadge">ALL SHOES</span></div>
+    <div class="ch-wrap-tall">
+      <canvas id="chCanvas"></canvas>
+      <div class="no-data" id="noData"><div class="no-data-icon">📊</div><div>Add sessions to see data</div></div>
+    </div>
+  </div>
+
+  <div id="shoeCompSec" style="display:none">
+    <div class="sec-lbl" style="margin-bottom:7px">SHOE COMPARISON</div>
+    <div class="shoe-compare" id="shoeCompGrid"></div>
+  </div>
+</main>
+</div>
+
+<!-- SESSION POPUP -->
+<div class="ov" id="popOv">
+  <div class="panel">
+    <div class="ph">
+      <div class="ph-dot" id="pDot"></div>
+      <div style="flex:1"><div class="ph-ttl" id="pTtl"></div><div class="ph-sub" id="pDt"></div></div>
+      <div class="ph-btns"><button class="btn-star" id="btnStar" onclick="toggleHL()">★</button><button class="btn-x" onclick="closePopup()">×</button></div>
+    </div>
+    <div class="pb">
+      <div class="meta-grid" id="pMeta"></div>
+
+      <!-- Editable session info -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px">
+        <div class="mc" style="grid-column:span 1">
+          <div class="mc-lbl" style="display:flex;justify-content:space-between;align-items:center">
+            <span>Shoe</span>
+            <button onclick="openShoeEdit(null)" style="background:none;border:none;color:var(--acc3);font-family:var(--mono);font-size:8px;cursor:pointer;padding:0">+ new</button>
+          </div>
+          <input id="pShoe" list="pShoeList" style="background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:2px 0;outline:none;width:100%" placeholder="Type or select…" onchange="updSessionField('shoe',this.value)">
+          <datalist id="pShoeList"></datalist>
+        </div>
+        <div class="mc">
+          <div class="mc-lbl">Surface</div>
+          <select id="pSurface" style="background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:2px 0;outline:none;width:100%" onchange="updSessionField('surface',this.value)">
+            <option value="Road">Road</option>
+            <option value="Track">Track</option>
+            <option value="Trail">Trail</option>
+            <option value="Treadmill">Treadmill</option>
+          </select>
+        </div>
+        <div class="mc">
+          <div class="mc-lbl">Temp °C</div>
+          <input id="pTemp" type="number" style="background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:2px 0;outline:none;width:100%" placeholder="—" onchange="updSessionField('temp',this.value)">
+        </div>
+      </div>
+
+      <!-- WU / CD -->
+      <div class="sec-lbl" style="margin-bottom:6px"><span>WARM-UP & COOL-DOWN</span></div>
+      <div class="wucd-grid">
+        <div class="wucd-card">
+          <div class="wucd-title">🔥 WARM-UP</div>
+          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="wuDist" placeholder="0.8 km"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="wuPace" placeholder="6:13"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="wuHR" placeholder="119"></div>
+        </div>
+        <div class="wucd-card">
+          <div class="wucd-title">❄️ COOL-DOWN</div>
+          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="cdDist" placeholder="0.9 km"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="cdPace" placeholder="6:30"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="cdHR" placeholder="115"></div>
+        </div>
+      </div>
+
+      <!-- Parse hint for FIT imports -->
+      <div id="fitParseHint" style="display:none;background:rgba(77,159,255,.08);border:1px solid rgba(77,159,255,.25);border-radius:6px;padding:10px 12px;margin-bottom:12px">
+        <div style="font-family:var(--mono);font-size:9px;color:var(--acc3);letter-spacing:1px;margin-bottom:5px">📁 FIT FILE IMPORTED — NO SPLITS YET</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--mut);line-height:1.6">
+          Send <span class="fit-fname" style="color:var(--txt)"></span> to Claude in chat<br>
+          → Claude will parse all splits + biomechanics automatically
+        </div>
+      </div>
+
+      <!-- Sets -->
+      <div class="sec-lbl"><span>SETS</span><button class="btn-sm-blue" onclick="addSet()">+ SET</button></div>
+      <div class="set-tabs" id="setTabs"></div>
+      <div class="sec-lbl"><span>KM SPLITS <span class="bio-badge">+ BIO</span></span><button class="btn-sm" onclick="addPopSpl()">+ KM</button></div>
+      <table class="spl-tbl">
+        <thead><tr><th>KM</th><th>PACE</th><th>HR</th><th>CAD</th><th>STRIDE</th><th>PWR</th><th style="color:var(--acc3)">STANCE</th><th style="color:var(--acc3)">V.OSC</th><th style="color:var(--acc3)">V.RAT</th><th></th></tr></thead>
+        <tbody id="pSplBody"></tbody>
+      </table>
+
+      <div class="sec-lbl" style="margin-bottom:5px">NOTES</div>
+      <textarea class="notes-ta" id="pNotes" placeholder="Feel, conditions, observations…"></textarea>
+      <div class="sec-lbl" style="margin-bottom:5px">RPE</div>
+      <div class="rpe-row" id="pRPE"></div>
+    </div>
+    <div class="pf">
+      <button class="btn-del" onclick="delCur()">Delete</button>
+      <div style="display:flex;gap:5px"><button class="btn-cancel" onclick="closePopup()">Cancel</button><button class="btn-save" onclick="savePop()">SAVE</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD MODAL -->
+<div class="ov" id="modOv">
+  <div class="panel panel-sm">
+    <div class="ph"><div class="ph-ttl" style="color:var(--acc)">NEW SESSION</div><button class="btn-x" onclick="closeAdd()">×</button></div>
+    <div class="pb">
+      <div class="fg-grid">
+        <div class="fg"><label>Date</label><input type="date" id="fD"></div>
+        <div class="fg"><label>Type</label><select id="fT"><option value="">— Unknown —</option><option value="race-5k">🏆 Race 5K</option>
+        <option value="race-10k">🏆 Race 10K</option>
+        <option value="race-half">🏆 Race Half</option>
+        <option value="race-full">🏆 Race Full</option>
+        <option value="race-other">🏆 Race Other</option><option value="3x5km">3×5km</option><option value="3x3km">3×3km</option><option value="5km">5km</option><option value="10km">10km</option><option value="long">Long Run</option><option value="easy">Easy</option></select></div>
+        <div class="fg"><label>Shoe</label><input type="text" id="fSh" placeholder="e.g. Alphafly 3" list="sdl"><datalist id="sdl"></datalist></div>
+        <div class="fg"><label>Surface</label><select id="fSu"><option>Track</option><option>Road</option><option>Trail</option><option>Treadmill</option></select></div>
+        <div class="fg"><label>Temp °C</label><input type="number" id="fTe" placeholder="31"></div>
+        <div class="fg"><label>Humidity %</label><input type="number" id="fHu" placeholder="70"></div>
+        <div class="fg fg-full"><label>Notes</label><input type="text" id="fNo" placeholder="Any observations…"></div>
+      </div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--mut);letter-spacing:2px;text-transform:uppercase;margin:9px 0 4px;display:flex;justify-content:space-between;align-items:center">
+        <span>SET 1 SPLITS</span><button class="btn-sm" onclick="addModSpl()">+ KM</button>
+      </div>
+      <div class="mspl-hdr"><span>KM</span><span>PACE</span><span>HR</span><span>CAD</span><span>STRIDE</span><span>PWR</span><span></span></div>
+      <div id="modSplC"></div>
+    </div>
+    <div class="pf" style="justify-content:flex-end"><button class="btn-cancel" onclick="closeAdd()">Cancel</button><button class="btn-save" onclick="saveNew()">SAVE SESSION</button></div>
+  </div>
+</div>
+
+<!-- FIT MODAL -->
+<div class="ov" id="fitOv">
+  <div class="panel panel-sm">
+    <div class="ph"><div class="ph-ttl" style="color:var(--acc3)">IMPORT FIT FILES</div><button class="btn-x" onclick="closeFit()">×</button></div>
+    <div class="pb">
+      <!-- TAB SWITCHER -->
+      <div style="display:flex;gap:0;margin-bottom:12px">
+        <button class="zone-mode-tab active" id="fitTab1" onclick="switchFitTab('drop',this)" style="flex:1">📁 Drop FIT Files</button>
+        <button class="zone-mode-tab" id="fitTab2" onclick="switchFitTab('js',this)" style="flex:1">📋 Paste JS (from Claude)</button>
+      </div>
+
+      <!-- TAB 1: Drop FIT -->
+      <div id="fitTabDrop">
+        <div style="background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);border-radius:6px;padding:9px 12px;margin-bottom:10px;font-family:var(--mono);font-size:9px;color:var(--acc5);line-height:1.7">
+          ⚠ FIT files dropped here create sessions WITHOUT splits.<br>
+          For full data: send .fit files to Claude in chat → Claude returns JS → use Paste JS tab.
+        </div>
+        <div class="fit-zone" id="fitZone" onclick="document.getElementById('fitFile').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="onFitDrop(event)">
+          <div class="fit-zone-icon">📁</div>
+          <div class="fit-zone-txt">Drop <span>multiple .fit files</span> — date only, no splits</div>
+        </div>
+        <input type="file" id="fitFile" accept=".fit" multiple style="display:none" onchange="onFitFiles(this.files)">
+        <div id="fitList"></div>
+      </div>
+
+      <!-- TAB 2: Paste JS -->
+      <div id="fitTabJs" style="display:none">
+        <div style="background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);border-radius:6px;padding:9px 12px;margin-bottom:10px;font-family:var(--mono);font-size:9px;color:var(--acc);line-height:1.7">
+          1. Send .fit files to Claude in chat<br>
+          2. Claude returns JS code with full splits + biomechanics<br>
+          3. Copy the JS → paste here → click IMPORT
+        </div>
+        <textarea id="jsInput" placeholder="Paste JavaScript from Claude here…" style="width:100%;height:140px;background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:10px;padding:9px;border-radius:5px;outline:none;resize:vertical"></textarea>
+      </div>
+    </div>
+    <div class="pf" style="justify-content:space-between">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--mut)" id="fitSummary"></div>
+      <div style="display:flex;gap:5px">
+        <button class="btn-del" onclick="clearAllSessions()" title="Delete all sessions">🗑 Clear All</button>
+        <button class="btn-cancel" onclick="closeFit()">Cancel</button>
+        <button class="btn-save" id="fitSaveBtn" style="display:none" onclick="saveFitAll()">IMPORT FIT</button>
+        <button class="btn-save" id="jsSaveBtn" style="display:none;background:var(--acc3)" onclick="importFromJS()">IMPORT JS</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOE MANAGER -->
+<div class="ov" id="shoeOv">
+  <div class="panel" style="max-width:620px">
+    <div class="ph">
+      <div class="ph-ttl" style="color:var(--acc5)">👟 SHOE MANAGER</div>
+      <button class="btn-x" onclick="closeShoes()">×</button>
+    </div>
+    <div class="pb">
+      <!-- Model groups -->
+      <div class="sec-lbl" style="margin-bottom:8px">
+        <span>BY MODEL</span>
+        <button class="btn-sm" onclick="addShoeProfile()">+ ADD SHOE</button>
+      </div>
+      <div id="shoeModelList" style="margin-bottom:16px"></div>
+
+      <!-- Rename sessions -->
+      <div class="sec-lbl" style="margin-bottom:8px"><span>RENAME IN SESSIONS</span></div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--mut);margin-bottom:8px">Edit nickname — all sessions using that name update automatically.</div>
+      <div id="shoeMgrList"></div>
+    </div>
+    <div class="pf" style="justify-content:flex-end">
+      <button class="btn-cancel" onclick="closeShoes()">Close</button>
+      <button class="btn-save" onclick="saveShoes()">SAVE RENAMES</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD/EDIT SHOE PROFILE -->
+<div class="ov" id="shoeEditOv">
+  <div class="panel panel-xs">
+    <div class="ph"><div class="ph-ttl" style="color:var(--acc5)" id="shoeEditTitle">ADD SHOE</div><button class="btn-x" onclick="closeShoeEdit()">×</button></div>
+    <div class="pb">
+      <div class="fg"><label>Model Name</label>
+        <div style="display:flex;gap:6px">
+          <select id="seModelPick" onchange="pickModel(this.value)" style="background:var(--surf);border:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:6px 8px;border-radius:3px;outline:none;flex:1">
+            <option value="">— Select existing or type new —</option>
+          </select>
+        </div>
+        <input type="text" id="seModel" placeholder="or type new model name…" style="margin-top:5px">
+      </div>
+      <div class="fg"><label>Nickname / Pair</label><input type="text" id="seNick" placeholder="e.g. AF3 Green, AF3 EK"></div>
+      <div class="fg-grid">
+        <div class="fg"><label>First Run Date</label><input type="date" id="sePurchase"></div>
+        <div class="fg"><label>Retire at (km)</label><input type="number" id="seRetire" placeholder="500"></div>
+      </div>
+      <div class="fg"><label>Usage</label>
+        <select id="seUsage">
+          <option value="race">Race only</option>
+          <option value="training">Training</option>
+          <option value="both" selected>Race + Training</option>
+          <option value="easy">Easy / Daily</option>
+        </select>
+      </div>
+      <div class="fg"><label>Notes</label><input type="text" id="seNotes" placeholder="e.g. Reserved for Phuket marathon"></div>
+    </div>
+    <div class="pf" style="justify-content:space-between">
+      <button class="btn-del" id="seDelBtn" style="display:none" onclick="deleteShoeProfile()">Delete</button>
+      <div style="display:flex;gap:6px">
+        <button class="btn-cancel" onclick="closeShoeEdit()">Cancel</button>
+        <button class="btn-save" onclick="saveShoeProfile()">SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE SETTINGS -->
+<div class="ov" id="zoneOv">
+  <div class="panel panel-xs">
+    <div class="ph"><div class="ph-ttl" style="color:var(--acc5)">⚡ ZONE SETTINGS</div><button class="btn-x" onclick="closeZones()">×</button></div>
+    <div class="pb">
+      <div class="zone-mode-tabs">
+        <button class="zone-mode-tab active" id="zmTab1" onclick="switchZoneMode('pace',this)">Pace Zones</button>
+        <button class="zone-mode-tab" id="zmTab2" onclick="switchZoneMode('hr',this)">HR Zones</button>
+      </div>
+      <div id="zoneSettingsBody"></div>
+    </div>
+    <div class="pf" style="justify-content:space-between">
+      <button class="btn-cancel" onclick="resetZones()">Reset Default</button>
+      <button class="btn-save" onclick="saveZones()">SAVE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let S=[];  // loaded from sessions.json
+let ZONES=JSON.parse(localStorage.getItem('rdzones')||'null')||defaultZones();
+let met='stride',vw='overtime',selShoes=new Set(),grp='month',sortAsc=false;
+let curId=null,curSet=0,collapsed=new Set();
+let lineChart=null,pieZoneChart=null,pieTypeChart=null;
+let fitPending=[],zoneEditMode='pace';
+// Shoe profiles: {id, model, nickname, purchaseDate, retireKm, status, notes}
+let SHOES=JSON.parse(localStorage.getItem('rdshoes')||'[]');
+let periodStart=null,periodEnd=null; // null = all time
+
+const COLORS=['#00ff88','#ff6b35','#4d9fff','#ff4dff','#ffd700','#ff4444','#00ccff','#ff99cc','#99ff44','#cc88ff'];
+const TYPE_COLORS={'race-5k':'#ff2d55','race-10k':'#ff375f','race-half':'#ff6584','race-full':'#ff8fa3','race-other':'#ffb3c1','3x5km':'#00ff88','3x3km':'#4d9fff','5km':'#ffd700','10km':'#ff6b35','long':'#ff4dff','easy':'#7d8590','unknown':'#444d56'};
+const ZONE_COLORS=['#4dd9ff','#00ff88','#ffd700','#ff9500','#ff6b35','#ff2d55'];
+const ZONE_LABELS=['Z1 Recovery','Z2 Aerobic End.','Z3 Aerobic Pwr','Z4 Threshold','Z5 Anaerobic End.','Z6 Anaerobic Pwr'];
+const MC={stride:{lbl:'Stride Length',unit:'cm',f:'stride',dec:1},hr:{lbl:'Heart Rate',unit:'bpm',f:'hr',dec:0},pace:{lbl:'Pace',unit:'/km',f:'pace',dec:0,ip:true},cadence:{lbl:'Cadence',unit:'spm',f:'cadence',dec:0},power:{lbl:'Power',unit:'W',f:'power',dec:0},vosc:{lbl:'Vert. Oscillation',unit:'cm',f:'vosc',dec:1},stance:{lbl:'Stance Time',unit:'ms',f:'stance',dec:0}};
+
+function defaultZones(){
+  return{
+    // Coros Pace Zones - Threshold Pace 4:01/km
+    pace:{
+      z1:336, // >5:36 Recovery
+      z2:281, // 4:41-5:36 Aerobic Endurance
+      z3:259, // 4:19-4:40 Aerobic Power
+      z4:236, // 3:56-4:18 Threshold
+      z5:217, // 3:37-3:55 Anaerobic Endurance
+      // z6 = <3:37 Anaerobic Power
+      thresholdPace:241, // 4:01/km
+    },
+    // Coros HR Zones - Lactate Threshold Zone, Threshold HR 163
+    hr:{
+      z1:130, // <130 Recovery
+      z2:147, // 130-147 Aerobic Endurance
+      z3:155, // 148-155 Aerobic Power
+      z4:166, // 156-166 Threshold
+      z5:173, // 167-173 Anaerobic Endurance
+      // z6 = >173 Anaerobic Power
+      thresholdHR:163,
+    }
+  };
+}
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+function allShoes(){return[...new Set(S.map(s=>s.shoe).filter(sh=>sh&&sh.trim()!==''))];}
+function sc(shoe){const shoes=allShoes();return COLORS[shoes.indexOf(shoe)%COLORS.length]||'#7d8590';}
+function p2s(str){if(!str)return null;str=str.trim().replace(/['"]/g,'');const p=str.split(':');if(p.length===2)return parseInt(p[0])*60+parseFloat(p[1]);return parseFloat(str)*60;}
+function s2p(sec){if(!sec||isNaN(sec))return'—';const m=Math.floor(sec/60),s=Math.round(sec%60).toString().padStart(2,'0');return`${m}:${s}`;}
+function avgF(splits,field){if(!splits||!splits.length)return null;const v=splits.map(sp=>field==='pace'?p2s(sp.pace):parseFloat(sp[field])).filter(x=>x!=null&&!isNaN(x)&&x>0);if(!v.length)return null;return v.reduce((a,b)=>a+b,0)/v.length;}
+function allSplits(s){return(s.sets||[]).flatMap(st=>st.splits||[]);}
+function save(){
+  // Save to sessions.json via GitHub API
+  // For local edits (shoe, notes, rpe), also cache in localStorage
+  localStorage.setItem('rds6_cache', JSON.stringify(S));
+  // Push to GitHub if token available
+  pushToGitHub();
+}
+async function pushToGitHub(){
+  const token = localStorage.getItem('gh_token');
+  if(!token) return;
+  try{
+    // Get current file SHA
+    const infoRes = await fetch('https://api.github.com/repos/Chillingrich/Running/contents/data/sessions.json',
+      {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
+    const info = await infoRes.json();
+    const sha = info.sha;
+    // Update file
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(S, null, 2))));
+    await fetch('https://api.github.com/repos/Chillingrich/Running/contents/data/sessions.json',{
+      method:'PUT',
+      headers:{'Authorization':'token '+token,'Content-Type':'application/json'},
+      body:JSON.stringify({message:'Update sessions from dashboard',content,sha})
+    });
+    console.log('Saved to GitHub');
+  }catch(e){console.log('GitHub save failed:',e);}
+}
+function saveShoeProfiles(){localStorage.setItem('rdshoes',JSON.stringify(SHOES));}
+function getShoeModel(shoeStr){
+  // Match nickname to model, or return as-is
+  if(!shoeStr)return'';
+  const prof=SHOES.find(p=>p.nickname===shoeStr||p.model===shoeStr);
+  return prof?prof.model:shoeStr;
+}
+function getShoeKm(nickname){
+  // Total km logged for a specific nickname/pair
+  return S.reduce((acc,s)=>{
+    if(s.shoe!==nickname)return acc;
+    return acc+totalKmForSession(s);
+  },0);
+}
+function getModelKm(model){
+  // Total km for all pairs of a model
+  const nicknames=SHOES.filter(p=>p.model===model).map(p=>p.nickname);
+  nicknames.push(model); // also match sessions using model name directly
+  return S.reduce((acc,s)=>{
+    if(!nicknames.includes(s.shoe))return acc;
+    return acc+totalKmForSession(s);
+  },0);
+}
+function saveZonesCfg(){localStorage.setItem('rdzones',JSON.stringify(ZONES));}
+function fmt(v,dec=0){return v!=null&&!isNaN(v)?parseFloat(v).toFixed(dec):'—';}
+function updateShoeDatalist(){
+  // Combine: session shoes + shoe profile nicknames (no duplicates)
+  const fromSessions=allShoes();
+  const fromProfiles=SHOES.map(p=>p.nickname||p.model).filter(n=>n&&!fromSessions.includes(n));
+  const allOpts=[...fromSessions,...fromProfiles];
+  const opts=allOpts.map(sh=>`<option value="${sh}">`).join('');
+  ['sdl','sdl2','pShoeList'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=opts;});
+}
+
+// ─── MILEAGE ZONE CALC ────────────────────────────────────────────────────────
+let zonePieMode='pace'; // 'pace' or 'hr'
+
+function classifySplit(sp){
+  // Returns 0-5 = Z1-Z6
+  if(zonePieMode==='hr'){
+    const hr=parseFloat(sp.hr);
+    if(!hr||isNaN(hr))return -1;
+    if(hr<ZONES.hr.z1)return 0;
+    if(hr<=ZONES.hr.z2)return 1;
+    if(hr<=ZONES.hr.z3)return 2;
+    if(hr<=ZONES.hr.z4)return 3;
+    if(hr<=ZONES.hr.z5)return 4;
+    return 5;
+  } else {
+    const sec=p2s(sp.pace);
+    if(!sec)return -1;
+    if(sec>ZONES.pace.z1)return 0;
+    if(sec>ZONES.pace.z2)return 1;
+    if(sec>ZONES.pace.z3)return 2;
+    if(sec>ZONES.pace.z4)return 3;
+    if(sec>ZONES.pace.z5)return 4;
+    return 5;
+  }
+}
+
+function totalKmForSession(s){
+  const mainKm=(s.sets||[]).reduce((acc,st)=>(st.splits||[]).length?acc+(st.splits.length):acc,0);
+  const wuKm=parseFloat(s.wu&&s.wu.dist)||0;
+  const cdKm=parseFloat(s.cd&&s.cd.dist)||0;
+  return mainKm+wuKm+cdKm;
+}
+
+function calcZoneMileage(){
+  const zones=[0,0,0,0,0,0]; // Z1-Z6
+  filteredByPeriod(S).forEach(s=>{
+    const wuDist=parseFloat(s.wu&&s.wu.dist)||0;
+    if(wuDist>0)zones[0]+=wuDist; // WU = Z1 Recovery
+    const cdDist=parseFloat(s.cd&&s.cd.dist)||0;
+    if(cdDist>0)zones[0]+=cdDist; // CD = Z1 Recovery
+    allSplits(s).forEach(sp=>{
+      const z=classifySplit(sp);
+      if(z>=0)zones[z]+=1;
+    });
+  });
+  return zones;
+}
+
+function setZoneMode(mode,btn){
+  zonePieMode=mode;
+  document.querySelectorAll('#zBtn1,#zBtn2').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPieCharts();
+  renderMileageCards();
+}
+
+// ─── SIDEBAR ──────────────────────────────────────────────────────────────────
+function setGrp(g,btn){grp=g;document.querySelectorAll('.grp-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSidebar();}
+function flipSort(){sortAsc=!sortAsc;renderSidebar();}
+function gKey(s){const d=new Date(s.date+'T00:00:00');if(grp==='month')return`${d.getFullYear()} / ${d.toLocaleString('en',{month:'long'})}`;if(grp==='year')return`${d.getFullYear()}`;if(grp==='type')return s.type||'Unknown';return s.shoe||'Unknown';}
+function renderSidebar(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  let list=[...S];
+  if(q)list=list.filter(s=>(s.shoe||'').toLowerCase().includes(q)||(s.type||'').toLowerCase().includes(q)||(s.date||'').includes(q)||(s.notes||'').toLowerCase().includes(q));
+  list.sort((a,b)=>sortAsc?a.date.localeCompare(b.date):b.date.localeCompare(a.date));
+  const groups={};list.forEach(s=>{const k=gKey(s);if(!groups[k])groups[k]=[];groups[k].push(s);});
+  const c=document.getElementById('sbList');
+  if(!list.length){c.innerHTML='<div class="sb-empty">No sessions yet.<br>Click + NEW or ⬆ FIT<br>to start.</div>';return;}
+  let h='';
+  Object.entries(groups).forEach(([k,items])=>{
+    const col=collapsed.has(k);
+    h+=`<div class="grp-hdr" onclick="togGrp('${k.replace(/'/g,"\\'")}')"><span class="grp-lbl">${k}</span><div style="display:flex;gap:4px;align-items:center"><span class="grp-cnt">${items.length}</span><span class="grp-arr ${col?'col':''}">▾</span></div></div>`;
+    h+=`<div class="grp-body" style="max-height:${col?'0':'2000px'}">`;
+    items.forEach(s=>{
+      const color=sc(s.shoe),ap=avgF(allSplits(s),'pace'),ps=ap?s2p(ap):'—';
+      const totalKm=totalKmForSession(s);
+      h+=`<div class="s-item ${s.id===curId?'active':''} ${s.highlighted?'hl':''}" onclick="openPopup(${s.id})">
+        <div class="s-dot" style="background:${color}"></div>
+        <div class="s-info">
+          <div class="s-name">${s.type&&s.type!=='unknown'?s.type:'?'} · ${s.shoe||'—'}</div>
+          <div class="s-meta">${s.date}${s.surface?' · '+s.surface:''}${s.temp?' · '+s.temp+'°C':''}</div>
+        </div>
+        <div class="s-right"><div class="s-pace">${ps}</div><div class="s-dist">${totalKm>0?totalKm.toFixed(1)+'km':''}</div>${s.highlighted?'<div class="s-star">★</div>':''}</div>
+      </div>`;
+    });
+    h+='</div>';
+  });
+  c.innerHTML=h;
+}
+function togGrp(k){if(collapsed.has(k))collapsed.delete(k);else collapsed.add(k);renderSidebar();}
+
+// ─── POPUP ────────────────────────────────────────────────────────────────────
+function openPopup(id){
+  const s=S.find(x=>x.id===id);if(!s)return;
+  curId=id;curSet=0;
+  const color=sc(s.shoe);
+  document.getElementById('pDot').style.background=color;
+  const typeLabel=s.type&&s.type!=='unknown'?s.type:'—';
+  const shoeLabel=s.shoe||'—';
+  const titleStr=`${typeLabel} · ${shoeLabel}`;
+  document.getElementById('pTtl').textContent=titleStr;
+  document.getElementById('pDt').textContent=`${s.date}${s.surface?' · '+s.surface:''}${s.temp?' · '+s.temp+'°C'+(s.humidity?' · '+s.humidity+'%':''):''}`;
+  document.getElementById('btnStar').classList.toggle('on',!!s.highlighted);
+  // Populate editable fields
+  updateShoeDatalist();
+  const pShoe=document.getElementById('pShoe');if(pShoe)pShoe.value=s.shoe||'';
+  const pSurf=document.getElementById('pSurface');if(pSurf)pSurf.value=s.surface||'Road';
+  const pTemp=document.getElementById('pTemp');if(pTemp)pTemp.value=s.temp||'';
+  const sp=allSplits(s);
+  const totalKm=totalKmForSession(s);
+  const meta=[
+    {l:'Total KM',v:()=>totalKm>0?totalKm.toFixed(1)+' km':'—'},
+    {l:'Main KM',v:()=>sp.length+' km'},
+    {l:'WU',v:()=>s.wu&&s.wu.dist?s.wu.dist+' km':'—'},
+    {l:'CD',v:()=>s.cd&&s.cd.dist?s.cd.dist+' km':'—'},
+    {l:'Avg Pace',v:()=>{const x=avgF(sp,'pace');return x?s2p(x)+'/km':'—';}},
+    {l:'Avg HR',v:()=>{const x=avgF(sp,'hr');return x?fmt(x)+' bpm':'—';}},
+    {l:'Avg Stride',v:()=>{const x=avgF(sp,'stride');return x?fmt(x,1)+' cm':'—';}},
+    {l:'Avg V.Osc',v:()=>{const x=avgF(sp,'vosc');return x?fmt(x,1)+' cm':'—';}},
+  ];
+  document.getElementById('pMeta').innerHTML=meta.map(m=>`<div class="mc"><div class="mc-lbl">${m.l}</div><div class="mc-val">${m.v()}</div></div>`).join('');
+  // WU / CD
+  document.getElementById('wuDist').value=(s.wu&&s.wu.dist)||'';
+  document.getElementById('wuPace').value=(s.wu&&s.wu.pace)||'';
+  document.getElementById('wuHR').value=(s.wu&&s.wu.hr)||'';
+  document.getElementById('cdDist').value=(s.cd&&s.cd.dist)||'';
+  document.getElementById('cdPace').value=(s.cd&&s.cd.pace)||'';
+  document.getElementById('cdHR').value=(s.cd&&s.cd.hr)||'';
+  renderSetTabs(s);renderPopSplits(s,0);
+  // Show parse hint if imported from FIT but no splits yet
+  const hasNoSplits=!allSplits(s).length;
+  const isFitImport=!!s.fitFp;
+  const hintEl=document.getElementById('fitParseHint');
+  if(hintEl){
+    if(hasNoSplits&&isFitImport){
+      hintEl.style.display='block';
+      hintEl.querySelector('.fit-fname').textContent=s.fitFile||s.fitFp||'this session';
+    } else {
+      hintEl.style.display='none';
+    }
+  }
+  document.getElementById('pNotes').value=s.notes||'';
+  const rpe=parseInt(s.rpe)||0;
+  document.getElementById('pRPE').innerHTML=Array.from({length:10},(_,i)=>`<button class="rpe-b ${i<rpe?'on':''}" onclick="setRPE(${i+1})">${i+1}</button>`).join('');
+  document.getElementById('popOv').classList.add('open');
+  renderSidebar();
+}
+function renderSetTabs(s){
+  const sets=s.sets||[];
+  const canDel=sets.length>1;
+  document.getElementById('setTabs').innerHTML=sets.map((st,i)=>{
+    const ap=avgF(st.splits,'pace');
+    return`<div style="display:inline-flex;align-items:center;gap:2px;margin-right:4px">
+      <button class="set-tab ${i===curSet?'active':''}" onclick="switchSet(${i})">S${i+1}${ap?' '+s2p(ap):''}${st.splits&&st.splits.length?' ·'+st.splits.length+'k':''}</button>
+      ${canDel?`<button onclick="deleteSet(${i})" style="background:none;border:1px solid rgba(255,107,53,.3);color:var(--acc2);font-family:var(--mono);font-size:9px;width:18px;height:18px;border-radius:3px;cursor:pointer" title="Remove set">×</button>`:''}
+    </div>`;
+  }).join('');
+}
+function switchSet(i){const s=S.find(x=>x.id===curId);if(!s)return;curSet=i;renderSetTabs(s);renderPopSplits(s,i);}
+function addSet(){const s=S.find(x=>x.id===curId);if(!s)return;if(!s.sets)s.sets=[];s.sets.push({set:s.sets.length+1,splits:[]});curSet=s.sets.length-1;renderSetTabs(s);renderPopSplits(s,curSet);}
+function deleteSet(i){
+  const s=S.find(x=>x.id===curId);if(!s||!s.sets||s.sets.length<=1)return;
+  if(!confirm(`Delete Set ${i+1}?`))return;
+  s.sets.splice(i,1);
+  curSet=Math.min(curSet,s.sets.length-1);
+  renderSetTabs(s);renderPopSplits(s,curSet);
+}
+function renderPopSplits(s,si){
+  const splits=(s.sets&&s.sets[si]&&s.sets[si].splits)||[];
+  document.getElementById('pSplBody').innerHTML=splits.map((sp,i)=>`
+    <tr class="${i%2===0?'spl-tr-alt':''}">
+      <td>${i+1}</td>
+      <td><input class="spl-inp" value="${sp.pace||''}" placeholder="4:16" onchange="updSpl(${si},${i},'pace',this.value)"></td>
+      <td><input class="spl-inp" type="number" value="${sp.hr||''}" placeholder="165" onchange="updSpl(${si},${i},'hr',this.value)"></td>
+      <td><input class="spl-inp" type="number" value="${sp.cadence||''}" placeholder="190" onchange="updSpl(${si},${i},'cadence',this.value)"></td>
+      <td><input class="spl-inp" type="number" step="0.1" value="${sp.stride||''}" placeholder="125" onchange="updSpl(${si},${i},'stride',this.value)"></td>
+      <td><input class="spl-inp" type="number" value="${sp.power||''}" placeholder="228" onchange="updSpl(${si},${i},'power',this.value)"></td>
+      <td><input class="spl-inp bio" type="number" value="${sp.stance||''}" placeholder="—" onchange="updSpl(${si},${i},'stance',this.value)"></td>
+      <td><input class="spl-inp bio" type="number" step="0.1" value="${sp.vosc||''}" placeholder="—" onchange="updSpl(${si},${i},'vosc',this.value)"></td>
+      <td><input class="spl-inp bio" type="number" step="0.1" value="${sp.vratio||''}" placeholder="—" onchange="updSpl(${si},${i},'vratio',this.value)"></td>
+      <td><button class="btn-del-spl" onclick="delPopSpl(${si},${i})">×</button></td>
+    </tr>`).join('');
+}
+function updSpl(si,i,f,v){const s=S.find(x=>x.id===curId);if(!s||!s.sets[si]||!s.sets[si].splits[i])return;s.sets[si].splits[i][f]=v;}
+function updSessionField(field,val){
+  const s=S.find(x=>x.id===curId);if(!s)return;
+  s[field]=val;
+  // Update sidebar dot color if shoe changed
+  if(field==='shoe'){
+    const dot=document.getElementById('pDot');
+    if(dot)dot.style.background=sc(val);
+  }
+}
+function delPopSpl(si,i){const s=S.find(x=>x.id===curId);if(!s)return;s.sets[si].splits.splice(i,1);renderPopSplits(s,si);}
+function addPopSpl(){const s=S.find(x=>x.id===curId);if(!s||!s.sets||!s.sets[curSet])return;s.sets[curSet].splits.push({pace:'',hr:'',cadence:'',stride:'',power:'',stance:'',vosc:'',vratio:''});renderPopSplits(s,curSet);}
+function setRPE(v){document.querySelectorAll('.rpe-b').forEach((b,i)=>b.classList.toggle('on',i<v));const s=S.find(x=>x.id===curId);if(s)s.rpe=v;}
+function toggleHL(){const s=S.find(x=>x.id===curId);if(!s)return;s.highlighted=!s.highlighted;document.getElementById('btnStar').classList.toggle('on',s.highlighted);}
+function savePop(){
+  const s=S.find(x=>x.id===curId);if(!s)return;
+  s.notes=document.getElementById('pNotes').value;
+  s.wu={dist:document.getElementById('wuDist').value,pace:document.getElementById('wuPace').value,hr:document.getElementById('wuHR').value};
+  s.cd={dist:document.getElementById('cdDist').value,pace:document.getElementById('cdPace').value,hr:document.getElementById('cdHR').value};
+  save();closePopup();render();
+}
+function closePopup(){document.getElementById('popOv').classList.remove('open');curId=null;renderSidebar();}
+function delCur(){if(!confirm('Delete this session?'))return;S=S.filter(s=>s.id!==curId);save();closePopup();render();}
+
+// ─── ADD MODAL ────────────────────────────────────────────────────────────────
+function openAdd(){document.getElementById('modOv').classList.add('open');document.getElementById('fD').value=new Date().toISOString().split('T')[0];document.getElementById('modSplC').innerHTML='';updateShoeDatalist();for(let i=0;i<5;i++)addModSpl();}
+function closeAdd(){document.getElementById('modOv').classList.remove('open');}
+function addModSpl(){const km=document.querySelectorAll('#modSplC .mspl-row').length+1;const d=document.createElement('div');d.className='mspl-row';d.innerHTML=`<span class="mspl-km">${km}</span><input type="text" placeholder="4:16" class="p"><input type="number" placeholder="165" class="h"><input type="number" placeholder="190" class="ca"><input type="number" placeholder="125" class="st"><input type="number" placeholder="228" class="pw"><button class="btn-del-ms" onclick="this.parentElement.remove();renum()">×</button>`;document.getElementById('modSplC').appendChild(d);}
+function renum(){document.querySelectorAll('#modSplC .mspl-row').forEach((r,i)=>r.querySelector('.mspl-km').textContent=i+1);}
+function saveNew(){
+  const date=document.getElementById('fD').value,shoe=document.getElementById('fSh').value.trim();
+  if(!date){alert('Date required');return;}
+  const splits=[];document.querySelectorAll('#modSplC .mspl-row').forEach((r,i)=>splits.push({km:i+1,pace:r.querySelector('.p').value,hr:r.querySelector('.h').value,cadence:r.querySelector('.ca').value,stride:r.querySelector('.st').value,power:r.querySelector('.pw').value,stance:'',vosc:'',vratio:''}));
+  S.push({id:Date.now(),date,type:document.getElementById('fT').value,shoe,surface:document.getElementById('fSu').value,temp:document.getElementById('fTe').value,humidity:document.getElementById('fHu').value,notes:document.getElementById('fNo').value,rpe:0,highlighted:false,wu:{},cd:{},sets:[{set:1,splits}]});
+  S.sort((a,b)=>a.date.localeCompare(b.date));save();closeAdd();render();
+}
+
+// ─── FIT IMPORT ───────────────────────────────────────────────────────────────
+function openFit(){
+  document.getElementById('fitOv').classList.add('open');
+  document.getElementById('fitList').innerHTML='';
+  document.getElementById('fitSaveBtn').style.display='none';
+  document.getElementById('jsSaveBtn').style.display='none';
+  document.getElementById('fitSummary').textContent='';
+  fitPending=[];
+  switchFitTab('drop',document.getElementById('fitTab1'));
+}
+function switchFitTab(tab,btn){
+  document.querySelectorAll('#fitTab1,#fitTab2').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('fitTabDrop').style.display=tab==='drop'?'block':'none';
+  document.getElementById('fitTabJs').style.display=tab==='js'?'block':'none';
+  document.getElementById('fitSaveBtn').style.display='none';
+  document.getElementById('jsSaveBtn').style.display=tab==='js'?'block':'none';
+  if(tab==='js'){document.getElementById('jsInput').value='';document.getElementById('fitSummary').textContent='';}
+}
+function importFromJS(){
+  const code=document.getElementById('jsInput').value.trim();
+  if(!code){alert('Paste JS code from Claude first');return;}
+  try{
+    // Extract the parsed array from the JS code
+    const match=code.match(/const parsed = (\[[\s\S]*?\]);/);
+    if(!match){alert('Invalid format. Copy the full JS from Claude.');return;}
+    const parsed=JSON.parse(match[1]);
+    let added=0,skipped=0;
+    parsed.forEach(sess=>{
+      const dup=S.some(s=>s.fitFp&&s.fitFp===sess.fitFp);
+      if(dup){skipped++;return;}
+      S.push(sess);added++;
+    });
+    S.sort((a,b)=>a.date.localeCompare(b.date));
+    save();closeFit();render();
+    alert(`✓ Added: ${added} sessions\nSkipped (duplicates): ${skipped}`);
+  }catch(e){alert('Error parsing JS: '+e.message);}
+}
+function closeFit(){document.getElementById('fitOv').classList.remove('open');}
+function onFitDrop(e){e.preventDefault();document.getElementById('fitZone').classList.remove('drag');const files=Array.from(e.dataTransfer.files).filter(f=>f.name.endsWith('.fit'));if(files.length)onFitFiles(files);}
+function onFitFiles(files){
+  const arr=Array.from(files);fitPending=[];
+  document.getElementById('fitList').innerHTML=arr.map((f,i)=>`
+    <div class="fit-item" id="fi${i}">
+      <div class="fit-item-name">📄 ${f.name}</div>
+      <input type="text" placeholder="Shoe (optional)" list="sdl2" id="fs${i}" value="${guessShoe(f.name)}"><datalist id="sdl2">${allShoes().map(s=>`<option value="${s}">`).join('')}</datalist>
+      <select id="fsu${i}"><option value="Road">Road</option><option value="Track">Track</option><option value="Trail">Trail</option><option value="Treadmill">Treadmill</option></select>
+      <select id="ft${i}"><option value="">— Type (optional) —</option><option value="race-5k">🏆 Race 5K</option>
+        <option value="race-10k">🏆 Race 10K</option>
+        <option value="race-half">🏆 Race Half</option>
+        <option value="race-full">🏆 Race Full</option>
+        <option value="race-other">🏆 Race Other</option><option value="3x5km">3×5km</option><option value="3x3km">3×3km</option><option value="5km">5km</option><option value="10km">10km</option><option value="long">Long Run</option><option value="easy">Easy</option></select>
+      <div class="fit-item-status" id="fst${i}">⏳</div>
+    </div>`).join('');
+  arr.forEach((f,i)=>{const r=new FileReader();r.onload=e=>processFit(new Uint8Array(e.target.result),f.name,i);r.readAsArrayBuffer(f);});
+}
+function guessShoe(name){const shoes=allShoes();for(const s of shoes){if(name.toLowerCase().includes(s.toLowerCase().split(' ')[0].toLowerCase()))return s;}return'';}
+function ffp(bytes){let s=bytes.length;for(let i=0;i<Math.min(40,bytes.length);i++)s+=bytes[i]*i;return s.toString(36);}
+function extractDate(name){const m=name.match(/(\d{10,13})/);if(m){const ts=parseInt(m[1]),ms=ts>9999999999?ts:ts*1000,d=new Date(ms);if(d.getFullYear()>2020&&d.getFullYear()<2030)return d.toISOString().split('T')[0];}const m2=name.match(/(\d{4}-\d{2}-\d{2})/);return m2?m2[1]:null;}
+function processFit(bytes,name,idx){
+  const valid=bytes[8]===0x2E&&bytes[9]===0x46&&bytes[10]===0x49&&bytes[11]===0x54;
+  const fp=ffp(bytes);
+  const dup=S.some(s=>s.fitFp&&s.fitFp===fp);
+  // Extract date from FIT binary using most-common timestamp strategy
+  // FIT timestamps = seconds since 1989-12-31 (FIT_EPOCH)
+  // Valid 2020-2030 FIT range: 946771200 to 1262390400
+  const FIT_EPOCH=631065600;
+  let date=extractDate(name); // fallback: try filename
+  try{
+    const view=new DataView(bytes.buffer instanceof ArrayBuffer?bytes.buffer:bytes.buffer||new Uint8Array(bytes).buffer);
+    const dateCounts={};
+    const limit=Math.min(bytes.length-4,400);
+    for(let i=0;i<limit;i++){
+      const ts=view.getUint32(i,true); // little-endian
+      if(ts>=946771200&&ts<=1262390400){
+        const unix=(ts+FIT_EPOCH)*1000;
+        const d=new Date(unix+7*3600*1000); // Bangkok UTC+7
+        const yr=d.getUTCFullYear();
+        if(yr>=2020&&yr<=2030){
+          const ds=d.toISOString().split('T')[0];
+          dateCounts[ds]=(dateCounts[ds]||0)+1;
+        }
+      }
+    }
+    // Pick most common date = most likely the actual workout date
+    const sorted=Object.entries(dateCounts).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length>0) date=sorted[0][0];
+  }catch(e){console.log('FIT date parse error:',e);}
+  fitPending[idx]={bytes,name,date,fp,status:!valid?'error':dup?'dup':'ready'};
+  const el=document.getElementById(`fst${idx}`);
+  if(!valid){el.className='fit-item-status err';el.textContent='✗ invalid';}
+  else if(dup){el.className='fit-item-status dup';el.textContent='⚠ already imported';}
+  else{el.className='fit-item-status ok';el.textContent='✓ '+(date||'unknown date');}
+  updateFitSummary();
+}
+function updateFitSummary(){
+  const r=fitPending.filter(p=>p&&p.status==='ready').length;
+  const d=fitPending.filter(p=>p&&p.status==='dup').length;
+  document.getElementById('fitSummary').textContent=`${r} ready · ${d} duplicate`;
+  document.getElementById('fitSaveBtn').style.display=r>0?'block':'none';
+}
+function setupGitHub(){
+  const current = localStorage.getItem('gh_token')||'';
+  const token = prompt('GitHub Personal Access Token (repo scope):\nhttps://github.com/settings/tokens/new\n\nLeave blank to clear:', current);
+  if(token === null) return;
+  if(token.trim()){
+    localStorage.setItem('gh_token', token.trim());
+    document.getElementById('ghStatus').textContent='✓ connected';
+    document.getElementById('ghBtn').style.borderColor='var(--acc)';
+  } else {
+    localStorage.removeItem('gh_token');
+    document.getElementById('ghStatus').textContent='';
+  }
+}
+function clearAllSessions(){
+  if(!confirm('Delete ALL sessions? This cannot be undone.'))return;
+  S=[];save();closeFit();render();
+}
+function saveFitAll(){
+  const addedFps=new Set();
+  let imported=0;
+  fitPending.forEach((fp,i)=>{
+    if(!fp||fp.status!=='ready')return;
+    // Skip exact same file imported twice in one batch
+    if(addedFps.has(fp.fp))return;
+    addedFps.add(fp.fp);
+    const shoe=(document.getElementById(`fs${i}`)&&document.getElementById(`fs${i}`).value.trim())||'';
+    const type=document.getElementById(`ft${i}`).value||'unknown';
+    const surf=(document.getElementById(`fsu${i}`)&&document.getElementById(`fsu${i}`).value)||'Road';
+    // Generate session name from filename timestamp
+    const sessionDate=fp.date||new Date().toISOString().split('T')[0];
+    S.push({id:Date.now()+i,
+      date:sessionDate,
+      type,shoe,
+      surface:surf,temp:'',humidity:'',
+      notes:`Send .fit file to Claude in chat to auto-parse splits and biomechanics data.`,
+      rpe:0,highlighted:false,fitFp:fp.fp,
+      fitFile:fp.name,
+      wu:{},cd:{},sets:[{set:1,splits:[]}]});
+    imported++;
+  });
+  S.sort((a,b)=>a.date.localeCompare(b.date));
+  save();closeFit();render();
+  if(imported>0)alert(`${imported} session${imported>1?'s':''} imported. Open each to add shoe name and splits.`);
+}
+
+// ─── SHOE MANAGER ────────────────────────────────────────────────────────────
+let editingShoeId=null;
+
+function openShoes(){document.getElementById('shoeOv').classList.add('open');renderShoeMgr();}
+function closeShoes(){document.getElementById('shoeOv').classList.remove('open');}
+function openShoeEdit(id=null){
+  editingShoeId=id;
+  const p=id!==null?SHOES.find(s=>s.id===id):null;
+  document.getElementById('shoeEditTitle').textContent=p?'EDIT SHOE':'ADD SHOE';
+  document.getElementById('seModel').value=p?p.model:'';
+  document.getElementById('seNick').value=p?p.nickname:'';
+  document.getElementById('sePurchase').value=p?p.purchaseDate:'';
+  document.getElementById('seRetire').value=p?p.retireKm:'500';
+  document.getElementById('seUsage').value=p?p.usage:'both';
+  document.getElementById('seNotes').value=p?p.notes:'';
+  document.getElementById('seDelBtn').style.display=p?'block':'none';
+  // Populate model dropdown with existing models
+  const models=[...new Set(SHOES.map(s=>s.model).filter(Boolean))];
+  const pick=document.getElementById('seModelPick');
+  if(pick){
+    pick.innerHTML='<option value="">— Select existing or type new —</option>'+
+      models.map(m=>`<option value="${m}" ${p&&p.model===m?'selected':''}>${m}</option>`).join('')+
+      '<option value="__new__">+ Type new model…</option>';
+    // If editing, show current model selected
+    if(p) pick.value=models.includes(p.model)?p.model:'';
+  }
+  document.getElementById('shoeEditOv').classList.add('open');
+}
+function pickModel(val){
+  const inp=document.getElementById('seModel');
+  if(val===''||val==='__new__'){inp.value='';inp.focus();}
+  else{inp.value=val;}
+}
+function closeShoeEdit(){document.getElementById('shoeEditOv').classList.remove('open');}
+function addShoeProfile(){openShoeEdit(null);}
+function saveShoeProfile(){
+  const model=document.getElementById('seModel').value.trim();
+  if(!model){alert('Model name required');return;}
+  const nick=document.getElementById('seNick').value.trim()||model;
+  const prof={id:editingShoeId!==null?editingShoeId:Date.now(),model,nickname:nick,
+    purchaseDate:document.getElementById('sePurchase').value,
+    retireKm:parseInt(document.getElementById('seRetire').value)||500,
+    usage:document.getElementById('seUsage').value,
+    notes:document.getElementById('seNotes').value};
+  if(editingShoeId!==null){const idx=SHOES.findIndex(s=>s.id===editingShoeId);if(idx>=0)SHOES[idx]=prof;}
+  else SHOES.push(prof);
+  saveShoeProfiles();closeShoeEdit();renderShoeMgr();render();
+}
+function deleteShoeProfile(){
+  if(!confirm('Delete this shoe profile?'))return;
+  SHOES=SHOES.filter(s=>s.id!==editingShoeId);
+  saveShoeProfiles();closeShoeEdit();renderShoeMgr();render();
+}
+
+function renderShoeMgr(){
+  // Group pairs by model
+  const modelMap={};
+  // From SHOES profiles
+  SHOES.forEach(p=>{
+    if(!modelMap[p.model])modelMap[p.model]={pairs:[],color:sc(p.nickname||p.model)};
+    modelMap[p.model].pairs.push(p);
+  });
+  // Also add any session shoes not in profiles
+  allShoes().forEach(shoe=>{
+    const inProfiles=SHOES.some(p=>p.nickname===shoe||p.model===shoe);
+    if(!inProfiles){
+      if(!modelMap[shoe])modelMap[shoe]={pairs:[],color:sc(shoe)};
+    }
+  });
+
+  // Model list
+  const modelHtml=Object.entries(modelMap).map(([model,info])=>{
+    const modelKm=getModelKm(model);
+    const pairsHtml=info.pairs.map(p=>{
+      const km=getShoeKm(p.nickname||p.model);
+      const pct=Math.min(100,(km/(p.retireKm||500))*100);
+      const warn=pct>=90?'🔴':pct>=70?'🟡':'';
+      return`<div class="pair-row">
+        <span class="pair-nick">${p.nickname||p.model}${p.usage?` · <span style="color:var(--mut);font-size:9px">${p.usage}</span>`:''}</span>
+        <span class="pair-km">${km.toFixed(0)}km</span>
+        <div class="pair-bar-wrap"><div class="pair-bar-fill" style="width:${pct}%"></div></div>
+        <span class="pair-warn">${warn}</span>
+        <button class="btn-edit-shoe" onclick="openShoeEdit(${p.id})">edit</button>
+      </div>`;
+    }).join('');
+    return`<div class="model-card">
+      <div class="model-card-bar" style="background:${info.color}"></div>
+      <div class="model-card-head">
+        <span class="model-name">${model}</span>
+        <span class="model-km">${modelKm.toFixed(1)} km total</span>
+      </div>
+      ${pairsHtml}
+    </div>`;
+  }).join('');
+  document.getElementById('shoeModelList').innerHTML=modelHtml||'<div style="font-family:var(--mono);font-size:11px;color:var(--mut)">No shoe profiles yet. Click + ADD SHOE.</div>';
+
+  // Rename list (session shoes)
+  const shoes=allShoes();
+  document.getElementById('shoeMgrList').innerHTML=shoes.length?shoes.map((shoe,i)=>{
+    const color=sc(shoe),count=S.filter(s=>s.shoe===shoe).length;
+    const prof=SHOES.find(p=>p.nickname===shoe);
+    const modelTag=prof?`<span style="font-family:var(--mono);font-size:9px;color:var(--mut);margin-left:5px">${prof.model}</span>`:'';
+    return`<div class="shoe-mgr-row"><div class="shoe-color-dot" style="background:${color}"></div><input class="shoe-mgr-name" id="sn${i}" value="${shoe}" data-orig="${shoe}">${modelTag}<span class="shoe-mgr-count">${count}s</span></div>`;
+  }).join(''):'<div style="font-family:var(--mono);font-size:11px;color:var(--mut);padding:8px 0">No sessions with shoes yet.</div>';
+}
+
+function saveShoes(){
+  let changed=0;
+  document.querySelectorAll('.shoe-mgr-name').forEach(inp=>{
+    const orig=inp.getAttribute('data-orig'),newName=inp.value.trim();
+    if(newName&&newName!==orig){
+      S.forEach(s=>{if(s.shoe===orig)s.shoe=newName;});
+      SHOES.forEach(p=>{if(p.nickname===orig)p.nickname=newName;});
+      changed++;
+    }
+  });
+  if(changed>0){save();saveShoeProfiles();}
+  closeShoes();render();
+}
+
+// ─── ZONE SETTINGS ───────────────────────────────────────────────────────────
+function openZones(){document.getElementById('zoneOv').classList.add('open');zoneEditMode='pace';renderZoneSettings();}
+function closeZones(){document.getElementById('zoneOv').classList.remove('open');}
+function switchZoneMode(m,btn){zoneEditMode=m;document.querySelectorAll('.zone-mode-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderZoneSettings();}
+function renderZoneSettings(){
+  const z=ZONES[zoneEditMode];
+  const isPace=zoneEditMode==='pace';
+  const zColors=['#4dd9ff','#00ff88','#ffd700','#ff9500','#ff6b35','#ff2d55'];
+  const zNames=isPace?['Z1 Recovery','Z2 Aerobic End.','Z3 Aerobic Pwr','Z4 Threshold','Z5 Anaerobic End.','Z6 Anaerobic Pwr']:['Z1 Recovery','Z2 Aerobic End.','Z3 Aerobic Pwr','Z4 Threshold','Z5 Anaerobic End.','Z6 Anaerobic Pwr'];
+  const zKeys=isPace?['z1','z2','z3','z4','z5']:['z1','z2','z3','z4','z5'];
+  const zNote=isPace?'Upper boundary of each zone (pace). Z6 = faster than Z5.':'Upper boundary of each zone (bpm). Z6 = above Z5.';
+  document.getElementById('zoneSettingsBody').innerHTML=`
+    <div class="zone-label-note">${zNote}</div>
+    <div style="font-family:var(--mono);font-size:9px;color:var(--mut);margin-bottom:8px">Coros ${isPace?'Pace':'LT HR'} zones — Threshold ${isPace?'4:01/km':'163 bpm'}</div>
+    ${zKeys.map((k,i)=>`
+    <div class="zone-row">
+      <div class="zone-color" style="background:${zColors[i]}"></div>
+      <div class="zone-name" style="font-size:10px">${zNames[i]}</div>
+      <input class="zone-inp" id="z_${k}" value="${isPace?s2p(z[k]):z[k]}" placeholder="${isPace?'5:36':'130'}">
+    </div>`).join('')}
+    <div class="zone-row">
+      <div class="zone-color" style="background:#ff2d55"></div>
+      <div class="zone-name" style="font-size:10px">Z6 AN-Power</div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--mut)">auto (above Z5)</span>
+    </div>
+  `;
+}
+function saveZones(){
+  const isPace=zoneEditMode==='pace';
+  const keys=['z1','z2','z3','z4','z5'];
+  keys.forEach(k=>{
+    const el=document.getElementById(`z_${k}`);
+    if(!el)return;
+    if(isPace)ZONES.pace[k]=p2s(el.value)||ZONES.pace[k];
+    else ZONES.hr[k]=parseFloat(el.value)||ZONES.hr[k];
+  });
+  saveZonesCfg();closeZones();renderPieCharts();renderMileageCards();
+}
+function resetZones(){ZONES=defaultZones();saveZonesCfg();closeZones();renderPieCharts();renderMileageCards();}
+
+// ─── PIE CHARTS ───────────────────────────────────────────────────────────────
+function renderMileageCards(){
+  const zones=calcZoneMileage();
+  const total=zones.reduce((a,b)=>a+b,0)||1;
+  zones.forEach((km,i)=>{
+    const z=i+1;
+    const pct=((km/total)*100).toFixed(0);
+    setEl(`kmZ${z}`,km.toFixed(1));
+    setEl(`kmZ${z}Pct`,`${pct}%`);
+  });
+  setEl('stKM',total.toFixed(1));
+}
+
+function renderPieCharts(){
+  // PIE 1: zone breakdown
+  const zones=calcZoneMileage();
+  const total1=zones.reduce((a,b)=>a+b,0);
+  const nd1=document.getElementById('noDataPie'),cv1=document.getElementById('pieZone');
+  if(pieZoneChart){pieZoneChart.destroy();pieZoneChart=null;}
+  if(!total1){nd1.style.display='flex';cv1.style.display='none';}
+  else{
+    nd1.style.display='none';cv1.style.display='block';
+    const labels=['Easy','Medium','Fast'];
+    const zoneLabels=ZONE_LABELS;
+    pieZoneChart=new Chart(cv1.getContext('2d'),{type:'doughnut',data:{labels:zoneLabels,datasets:[{data:zones,backgroundColor:ZONE_COLORS,borderColor:ZONE_COLORS.map(c=>c+'44'),borderWidth:2,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#7d8590',font:{family:'Space Mono',size:9},boxWidth:8,padding:5}},tooltip:{backgroundColor:'#161b22',borderColor:'#21262d',borderWidth:1,bodyColor:'#e6edf3',bodyFont:{family:'Space Mono',size:10},callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed.toFixed(1)} km (${((ctx.parsed/total1)*100).toFixed(0)}%)`}}},cutout:'60%'}});
+    document.getElementById('zoneLegend1').innerHTML=zoneLabels.map((l,i)=>`<div class="z-chip"><div class="z-dot" style="background:${ZONE_COLORS[i]}"></div>${l.split(' ')[0]}: ${zones[i].toFixed(1)}km</div>`).join('');
+  }
+
+  // PIE 2: session type
+  const typeMap={};
+  filteredByPeriod(S).forEach(s=>{
+    const km=totalKmForSession(s);
+    typeMap[s.type]=(typeMap[s.type]||0)+km;
+  });
+  const typeLabels=Object.keys(typeMap),typeVals=typeLabels.map(t=>typeMap[t]),typeColors=typeLabels.map(t=>TYPE_COLORS[t]||'#7d8590');
+  const total2=typeVals.reduce((a,b)=>a+b,0);
+  const nd2=document.getElementById('noDataType'),cv2=document.getElementById('pieType');
+  if(pieTypeChart){pieTypeChart.destroy();pieTypeChart=null;}
+  if(!total2){nd2.style.display='flex';cv2.style.display='none';}
+  else{
+    nd2.style.display='none';cv2.style.display='block';
+    pieTypeChart=new Chart(cv2.getContext('2d'),{type:'doughnut',data:{labels:typeLabels,datasets:[{data:typeVals,backgroundColor:typeColors,borderColor:typeColors.map(c=>c+'44'),borderWidth:2,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#7d8590',font:{family:'Space Mono',size:9},boxWidth:10,padding:8}},tooltip:{backgroundColor:'#161b22',borderColor:'#21262d',borderWidth:1,bodyColor:'#e6edf3',bodyFont:{family:'Space Mono',size:10},callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed.toFixed(1)} km (${((ctx.parsed/total2)*100).toFixed(0)}%)`}}},cutout:'60%'}});
+    document.getElementById('zoneLegend2').innerHTML=typeLabels.map((l,i)=>`<div class="z-chip"><div class="z-dot" style="background:${typeColors[i]}"></div>${l}: ${typeVals[i].toFixed(1)}km</div>`).join('');
+  }
+}
+
+// ─── LINE CHART ───────────────────────────────────────────────────────────────
+function setMet(m,btn){met=m;document.querySelectorAll('[onclick^="setMet"]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderLineChart();}
+function setVw(v,btn){vw=v;document.querySelectorAll('[onclick^="setVw"]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderLineChart();}
+function buildShoeFilter(){
+  const shoes=allShoes();
+  if(!selShoes.size||[...selShoes].some(sh=>!shoes.includes(sh)))selShoes=new Set(shoes);
+  const c=document.getElementById('shoeFL');
+  if(!shoes.length){c.innerHTML='<div style="font-family:var(--mono);font-size:10px;color:var(--mut)">Add sessions first</div>';return;}
+  c.innerHTML=shoes.map(shoe=>{const color=sc(shoe);return`<label class="shoe-item" style="color:${color}"><input type="checkbox" ${selShoes.has(shoe)?'checked':''} onchange="togShoe('${shoe}',this.checked)"><div class="shoe-chk"></div><div class="shoe-dot-sm" style="background:${color}"></div><span style="color:var(--txt)">${shoe}</span></label>`;}).join('');
+}
+function togShoe(shoe,ch){if(ch)selShoes.add(shoe);else selShoes.delete(shoe);renderLineChart();renderShoeComp();}
+function getSetSplits(session){const sf=document.getElementById('setF').value;if(!session.sets)return[];if(sf==='all')return session.sets.flatMap(st=>st.splits||[]);const idx=parseInt(sf)-1;return(session.sets[idx]&&session.sets[idx].splits)||[];}
+function copts(cfg){
+  return{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{labels:{color:'#7d8590',font:{family:'Space Mono',size:9},boxWidth:8}},
+      tooltip:{backgroundColor:'#161b22',borderColor:'#21262d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#7d8590',titleFont:{family:'Space Mono',size:10},bodyFont:{family:'Space Mono',size:9},
+        callbacks:{label:ctx=>{const v=ctx.parsed.y;if(v==null)return'';return cfg.ip?` ${ctx.dataset.label}: ${s2p(v)}/km`:` ${ctx.dataset.label}: ${v.toFixed(cfg.dec)} ${cfg.unit}`;
+      }}}},
+    scales:{x:{ticks:{color:'#7d8590',font:{family:'Space Mono',size:9}},grid:{color:'rgba(33,38,45,.8)'}},
+      y:{reverse:cfg.ip,ticks:{color:'#7d8590',font:{family:'Space Mono',size:9},callback:v=>cfg.ip?s2p(v):`${v}${cfg.unit}`},grid:{color:'rgba(33,38,45,.8)'}}}};
+}
+function renderLineChart(){
+  const cfg=MC[met],tf=document.getElementById('typeF').value,sf=document.getElementById('setF').value;
+  let fl=filteredByPeriod(S).filter(s=>(tf==='all'||s.type===tf)&&(s.shoe?selShoes.has(s.shoe):true));
+  document.getElementById('chTitle').textContent=`${cfg.lbl.toUpperCase()} — ${vw==='overtime'?'OVER TIME':'PER KM'}${sf!=='all'?' (SET '+sf+')':''}`;
+  const sl=[...selShoes];document.getElementById('chBadge').textContent=sl.length===1?sl[0].toUpperCase():`${sl.length} SHOES`;
+  if(lineChart){lineChart.destroy();lineChart=null;}
+  const nd=document.getElementById('noData'),cv=document.getElementById('chCanvas');
+  if(!fl.length){nd.style.display='flex';cv.style.display='none';return;}
+  nd.style.display='none';cv.style.display='block';
+  const ctx=cv.getContext('2d');
+  if(vw==='overtime'){
+    const shoes=[...new Set(fl.map(s=>s.shoe))];
+    const datasets=shoes.map(shoe=>{
+      const data=fl.filter(s=>s.shoe===shoe).map(s=>{const v=avgF(getSetSplits(s),cfg.f);return{x:s.date,y:v};}).filter(d=>d.y!=null);
+      const color=sc(shoe);return{label:shoe,data,borderColor:color,backgroundColor:color+'22',pointBackgroundColor:color,pointRadius:5,pointHoverRadius:7,borderWidth:2,tension:.3,fill:false};
+    });
+    lineChart=new Chart(ctx,{type:'line',data:{datasets},options:copts(cfg)});
+  } else {
+    const datasets=fl.slice(-6).map(s=>{
+      const splits=getSetSplits(s);if(!splits.length)return null;
+      const data=splits.map(sp=>cfg.ip?p2s(sp.pace):parseFloat(sp[cfg.f]));
+      const color=sc(s.shoe);return{label:`${s.date} · ${s.shoe}`,data,borderColor:color,backgroundColor:color+'22',pointBackgroundColor:color,pointRadius:4,borderWidth:2,tension:.2,fill:false};
+    }).filter(Boolean);
+    const maxKm=Math.max(...fl.map(s=>getSetSplits(s).length),0);
+    lineChart=new Chart(ctx,{type:'line',data:{labels:Array.from({length:maxKm},(_,i)=>`km ${i+1}`),datasets},options:copts(cfg)});
+  }
+}
+function renderShoeComp(){
+  const FSC=filteredByPeriod(S);
+  // Group by MODEL (using shoe profiles if available, else by shoe name directly)
+  const modelMap={};
+  FSC.filter(s=>s.shoe&&s.shoe.trim()!=='').forEach(s=>{
+    const prof=SHOES.find(p=>p.nickname===s.shoe||p.model===s.shoe);
+    const model=prof?prof.model:s.shoe;
+    if(!modelMap[model])modelMap[model]={sessions:[],color:sc(s.shoe)};
+    modelMap[model].sessions.push(s);
+  });
+  const models=Object.keys(modelMap).filter(m=>selShoes.has(m)||
+    (modelMap[m].sessions.some(s=>selShoes.has(s.shoe))));
+  const sec=document.getElementById('shoeCompSec');
+  if(models.length<2){sec.style.display='none';return;}
+  sec.style.display='block';
+  document.getElementById('shoeCompGrid').innerHTML=models.map(model=>{
+    const info=modelMap[model];
+    const allSp=info.sessions.flatMap(s=>allSplits(s));
+    const color=info.color;
+    const a=f=>{const v=allSp.map(sp=>f==='pace'?p2s(sp.pace):parseFloat(sp[f])).filter(v=>v&&!isNaN(v));return v.length?v.reduce((a,b)=>a+b,0)/v.length:null;};
+    const totKm=getModelKm(model);
+    // Pairs breakdown
+    const pairs=SHOES.filter(p=>p.model===model);
+    const pairsHtml=pairs.length>1?pairs.map(p=>`<div class="shoe-row"><span class="shoe-row-lbl" style="color:var(--mut)">↳ ${p.nickname}</span><span class="shoe-row-val" style="font-size:9px">${getShoeKm(p.nickname).toFixed(0)}km</span></div>`).join(''):'';
+    return`<div class="shoe-card"><div class="shoe-card-bar" style="background:${color}"></div>
+      <div class="shoe-card-name" style="color:${color}">${model}</div>
+      <div class="shoe-row"><span class="shoe-row-lbl">SESSIONS</span><span class="shoe-row-val">${info.sessions.length}</span></div>
+      <div class="shoe-row"><span class="shoe-row-lbl">TOTAL KM</span><span class="shoe-row-val">${totKm.toFixed(1)} km</span></div>
+      ${pairsHtml}
+      <div class="shoe-row"><span class="shoe-row-lbl">AVG STRIDE</span><span class="shoe-row-val">${a('stride')?a('stride').toFixed(1)+' cm':'—'}</span></div>
+      <div class="shoe-row"><span class="shoe-row-lbl">AVG HR</span><span class="shoe-row-val">${a('hr')?a('hr').toFixed(0)+' bpm':'—'}</span></div>
+      <div class="shoe-row"><span class="shoe-row-lbl">AVG PACE</span><span class="shoe-row-val">${a('pace')?s2p(a('pace'))+'/km':'—'}</span></div>
+      <div class="shoe-row"><span class="shoe-row-lbl">AVG V.OSC</span><span class="shoe-row-val">${a('vosc')?a('vosc').toFixed(1)+' cm':'—'}</span></div>
+    </div>`;
+  }).join('');
+}
+// ─── TIME PERIOD ─────────────────────────────────────────────────────────────
+function setPeriod(mode,btn){
+  document.querySelectorAll('#periodBtns .m-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const now=new Date();
+  const customRange=document.getElementById('customRange');
+  if(mode==='all'){periodStart=null;periodEnd=null;customRange.style.display='none';}
+  else if(mode==='1m'){
+    periodEnd=new Date(now);
+    periodStart=new Date(now);periodStart.setMonth(periodStart.getMonth()-1);
+    customRange.style.display='none';
+  } else if(mode==='3m'){
+    periodEnd=new Date(now);
+    periodStart=new Date(now);periodStart.setMonth(periodStart.getMonth()-3);
+    customRange.style.display='none';
+  } else if(mode==='custom'){
+    customRange.style.display='flex';
+    // default: current month
+    const ym=now.toISOString().slice(0,7);
+    document.getElementById('periodFrom').value=ym;
+    document.getElementById('periodTo').value=ym;
+    applyCustomPeriod();
+    return;
+  }
+  updatePeriodLabel();
+  render();
+}
+
+function applyCustomPeriod(){
+  const from=document.getElementById('periodFrom').value;
+  const to=document.getElementById('periodTo').value;
+  if(!from||!to)return;
+  periodStart=new Date(from+'-01');
+  const toDate=new Date(to+'-01');
+  toDate.setMonth(toDate.getMonth()+1);toDate.setDate(0); // last day of to-month
+  periodEnd=toDate;
+  updatePeriodLabel();
+  render();
+}
+
+function updatePeriodLabel(){
+  const el=document.getElementById('periodLabel');
+  if(!el)return;
+  if(!periodStart){el.textContent=`${S.length} sessions total`;return;}
+  const filtered=filteredByPeriod(S);
+  el.textContent=`${filtered.length} sessions · ${periodStart.toLocaleString('en',{month:'short',year:'numeric'})} – ${periodEnd.toLocaleString('en',{month:'short',year:'numeric'})}`;
+}
+
+function filteredByPeriod(sessions){
+  if(!periodStart)return sessions;
+  return sessions.filter(s=>{
+    const d=new Date(s.date+'T00:00:00');
+    return d>=periodStart&&d<=periodEnd;
+  });
+}
+
+function setEl(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+function renderStats(){
+  const FS=filteredByPeriod(S);
+  const allSp=FS.flatMap(s=>allSplits(s));
+  setEl('stS',FS.length);
+  const strides=allSp.map(s=>parseFloat(s.stride)).filter(v=>!isNaN(v)&&v>0);
+  const paces=allSp.map(s=>p2s(s.pace)).filter(v=>v&&v>0);
+  const cads=allSp.map(s=>parseFloat(s.cadence)).filter(v=>!isNaN(v)&&v>0);
+  const vosc=allSp.map(s=>parseFloat(s.vosc)).filter(v=>!isNaN(v)&&v>0);
+  if(strides.length)setEl('stSt',(strides.reduce((a,b)=>a+b,0)/strides.length).toFixed(1));
+  if(paces.length)setEl('stP',s2p(Math.min(...paces)));
+  if(cads.length)setEl('stC',Math.round(cads.reduce((a,b)=>a+b,0)/cads.length));
+  if(vosc.length)setEl('stVO',(vosc.reduce((a,b)=>a+b,0)/vosc.length).toFixed(1));
+}
+function render(){
+  // Update GitHub status indicator
+  const token=localStorage.getItem('gh_token');
+  const ghSt=document.getElementById('ghStatus');
+  const ghBtn=document.getElementById('ghBtn');
+  if(ghSt&&token){ghSt.textContent='✓ synced';if(ghBtn)ghBtn.style.borderColor='var(--acc)';}
+  updatePeriodLabel();renderStats();renderMileageCards();buildShoeFilter();renderLineChart();renderPieCharts();renderSidebar();renderShoeComp();updateShoeDatalist();}
+
+// ─── PRELOAD ──────────────────────────────────────────────────────────────────
+function preloadDemo(){
+  if(S.length)return;
+  S=[{"id":1748037610000,"date":"2026-05-23","type":"race-10k","shoe":"","surface":"Road","temp":"31","humidity":"","rpe":8,"highlighted":true,"fitFp":"race23may","notes":"10km race. Auto-lap 1km. Cadence drift 192→182. V.Osc drift 75.5→83.2cm. km8 stride dropped to 122.8cm.","wu":{},"cd":{},"sets":[{"set":1,"splits":[{"km":1,"pace":"3:58","hr":"155","cadence":"192","stride":"131.1","power":"246","stance":"169","vosc":"75.5","vratio":"5.7"},{"km":2,"pace":"3:58","hr":"168","cadence":"192","stride":"130.0","power":"244","stance":"166","vosc":"77.2","vratio":"5.9"},{"km":3,"pace":"4:03","hr":"172","cadence":"191","stride":"128.8","power":"241","stance":"169","vosc":"76.7","vratio":"5.9"},{"km":4,"pace":"4:10","hr":"173","cadence":"189","stride":"127.4","power":"235","stance":"177","vosc":"79.1","vratio":"6.2"},{"km":5,"pace":"4:10","hr":"173","cadence":"187","stride":"127.5","power":"233","stance":"179","vosc":"81.5","vratio":"6.4"},{"km":6,"pace":"4:10","hr":"174","cadence":"185","stride":"127.8","power":"232","stance":"184","vosc":"82.8","vratio":"6.5"},{"km":7,"pace":"4:16","hr":"174","cadence":"183","stride":"128.2","power":"230","stance":"185","vosc":"82.8","vratio":"6.4"},{"km":8,"pace":"4:23","hr":"172","cadence":"183","stride":"122.8","power":"228","stance":"186","vosc":"83.2","vratio":"6.8"},{"km":9,"pace":"4:16","hr":"174","cadence":"183","stride":"127.0","power":"222","stance":"179","vosc":"81.8","vratio":"6.4"},{"km":10,"pace":"4:23","hr":"170","cadence":"182","stride":"126.2","power":"229","stance":"187","vosc":"81.0","vratio":"6.4"}]}]},
+{"id":1748340873000,"date":"2026-05-27","type":"3x5km","shoe":"Adidas Adios Pro 4","surface":"Track","temp":"32","humidity":"","rpe":8,"highlighted":false,"fitFp":"adios27","notes":"Threshold. Set 3 cadence to 181, pace 4:23. Recovery 2min.","wu":{"dist":"0.86","pace":"5:48","hr":"141"},"cd":{"dist":"0.87","pace":"17:47","hr":"115"},"sets":[{"set":1,"splits":[{"km":1,"pace":"4:10","hr":"157","cadence":"187","stride":"129.0","power":"235","stance":"","vosc":"","vratio":""},{"km":2,"pace":"4:03","hr":"166","cadence":"190","stride":"127.6","power":"237","stance":"","vosc":"","vratio":""},{"km":3,"pace":"4:10","hr":"168","cadence":"190","stride":"126.8","power":"236","stance":"","vosc":"","vratio":""},{"km":4,"pace":"4:10","hr":"170","cadence":"191","stride":"126.1","power":"236","stance":"","vosc":"","vratio":""},{"km":5,"pace":"4:10","hr":"172","cadence":"192","stride":"125.9","power":"236","stance":"","vosc":"","vratio":""}]},{"set":2,"splits":[{"km":1,"pace":"4:16","hr":"161","cadence":"186","stride":"123.9","power":"225","stance":"","vosc":"","vratio":""},{"km":2,"pace":"4:16","hr":"169","cadence":"190","stride":"122.7","power":"228","stance":"","vosc":"","vratio":""},{"km":3,"pace":"4:10","hr":"171","cadence":"192","stride":"123.4","power":"231","stance":"","vosc":"","vratio":""},{"km":4,"pace":"4:10","hr":"174","cadence":"192","stride":"124.9","power":"235","stance":"","vosc":"","vratio":""},{"km":5,"pace":"4:10","hr":"175","cadence":"192","stride":"124.1","power":"232","stance":"","vosc":"","vratio":""}]},{"set":3,"splits":[{"km":1,"pace":"4:30","hr":"163","cadence":"181","stride":"122.0","power":"216","stance":"","vosc":"","vratio":""},{"km":2,"pace":"4:30","hr":"168","cadence":"181","stride":"123.0","power":"217","stance":"","vosc":"","vratio":""},{"km":3,"pace":"4:23","hr":"171","cadence":"180","stride":"125.2","power":"221","stance":"","vosc":"","vratio":""},{"km":4,"pace":"4:23","hr":"170","cadence":"180","stride":"125.0","power":"220","stance":"","vosc":"","vratio":""},{"km":5,"pace":"4:16","hr":"173","cadence":"181","stride":"127.7","power":"226","stance":"","vosc":"","vratio":""}]}]},{"id":1748429400000,"date":"2026-05-28","type":"5km","shoe":"Altra FWD Ekiden","surface":"Track","temp":"31","humidity":"70","rpe":6,"highlighted":false,"fitFp":"altra28","notes":"Set 1 only — no socks, blister.","wu":{"dist":"0.80","pace":"6:13","hr":"119"},"cd":{"dist":"0.13","pace":"5:21","hr":"138"},"sets":[{"set":1,"splits":[{"km":1,"pace":"4:20","hr":"149","cadence":"182","stride":"126","power":"220","stance":"","vosc":"","vratio":""},{"km":2,"pace":"4:16","hr":"165","cadence":"187","stride":"125","power":"229","stance":"","vosc":"","vratio":""},{"km":3,"pace":"4:19","hr":"169","cadence":"187","stride":"124","power":"227","stance":"","vosc":"","vratio":""},{"km":4,"pace":"4:19","hr":"172","cadence":"187","stride":"124","power":"227","stance":"","vosc":"","vratio":""},{"km":5,"pace":"4:15","hr":"173","cadence":"189","stride":"124","power":"228","stance":"","vosc":"","vratio":""}]}]},{"id":1748520988000,"date":"2026-05-29","type":"3x5km","shoe":"Altra FWD Ekiden","surface":"Track","temp":"31","humidity":"","rpe":6,"highlighted":false,"fitFp":"altra29","notes":"Controlled. Push-off focus. V.Osc improved.","wu":{"dist":"0.77","pace":"6:30","hr":"137"},"cd":{"dist":"0.89","pace":"17:47","hr":"115"},"sets":[{"set":1,"splits":[{"km":1,"pace":"4:23","hr":"144","cadence":"185","stride":"123.4","power":"223","stance":"180","vosc":"80.5","vratio":"6.5"},{"km":2,"pace":"4:16","hr":"159","cadence":"189","stride":"123.5","power":"229","stance":"178","vosc":"78.4","vratio":"6.3"},{"km":3,"pace":"4:16","hr":"162","cadence":"190","stride":"122.8","power":"229","stance":"172","vosc":"77.2","vratio":"6.3"},{"km":4,"pace":"4:16","hr":"165","cadence":"191","stride":"123.1","power":"230","stance":"174","vosc":"76.6","vratio":"6.2"},{"km":5,"pace":"4:16","hr":"167","cadence":"191","stride":"123.0","power":"230","stance":"175","vosc":"75.9","vratio":"6.1"}]},{"set":2,"splits":[{"km":1,"pace":"4:16","hr":"157","cadence":"183","stride":"126.4","power":"225","stance":"196","vosc":"83.3","vratio":"6.6"},{"km":2,"pace":"4:16","hr":"167","cadence":"184","stride":"128.1","power":"230","stance":"186","vosc":"83.4","vratio":"6.5"},{"km":3,"pace":"4:16","hr":"169","cadence":"184","stride":"126.6","power":"228","stance":"183","vosc":"83.3","vratio":"6.6"},{"km":4,"pace":"4:16","hr":"170","cadence":"186","stride":"126.2","power":"230","stance":"180","vosc":"80.1","vratio":"6.3"},{"km":5,"pace":"4:16","hr":"172","cadence":"186","stride":"126.0","power":"229","stance":"179","vosc":"80.1","vratio":"6.3"}]},{"set":3,"splits":[{"km":1,"pace":"4:23","hr":"158","cadence":"184","stride":"123.0","power":"221","stance":"188","vosc":"81.5","vratio":"6.6"},{"km":2,"pace":"4:16","hr":"168","cadence":"187","stride":"125.0","power":"229","stance":"176","vosc":"77.1","vratio":"6.2"},{"km":3,"pace":"4:23","hr":"168","cadence":"187","stride":"122.2","power":"223","stance":"178","vosc":"76.9","vratio":"6.3"},{"km":4,"pace":"4:16","hr":"172","cadence":"188","stride":"122.8","power":"226","stance":"180","vosc":"74.8","vratio":"6.1"},{"km":5,"pace":"4:10","hr":"171","cadence":"190","stride":"124.3","power":"231","stance":"174","vosc":"72.0","vratio":"5.8"}]}]}];
+  save();
+}
+
+// Remove duplicate sessions by fitFp fingerprint only (same file imported twice)
+function dedupSessions(){
+  const seenFp=new Set();
+  const before=S.length;
+  S=S.filter(s=>{
+    if(!s.fitFp||s.fitFp==='')return true; // manual sessions always keep
+    if(seenFp.has(s.fitFp))return false;
+    seenFp.add(s.fitFp);return true;
+  });
+  if(S.length<before){save();console.log(`Removed ${before-S.length} duplicate(s)`);}
+}
+
+async function loadSessions(){
+  // 1. Try GitHub sessions.json (source of truth)
+  try{
+    const res = await fetch('https://raw.githubusercontent.com/Chillingrich/Running/main/data/sessions.json?t='+Date.now());
+    if(res.ok){
+      const remote = await res.json();
+      // Merge with local cache (local edits like shoe/notes override remote)
+      const cache = JSON.parse(localStorage.getItem('rds6_cache')||'[]');
+      const cacheFps = new Map(cache.map(s=>[s.fitFp||s.id, s]));
+      S = remote.map(sess=>{
+        const cached = cacheFps.get(sess.fitFp||sess.id);
+        if(cached){
+          // Keep remote splits/wu/cd, but use local shoe/notes/rpe/highlighted
+          return {...sess, shoe:cached.shoe||sess.shoe, notes:cached.notes||sess.notes,
+            rpe:cached.rpe||sess.rpe, highlighted:cached.highlighted||sess.highlighted,
+            surface:cached.surface||sess.surface, temp:cached.temp||sess.temp};
+        }
+        return sess;
+      });
+      // Add any local-only sessions not in remote
+      cache.forEach(cs=>{
+        if(!S.some(s=>s.fitFp===cs.fitFp&&cs.fitFp)){
+          if(!cs.fitFp) S.push(cs); // manual sessions
+        }
+      });
+      S.sort((a,b)=>a.date.localeCompare(b.date));
+      localStorage.setItem('rds6_cache', JSON.stringify(S));
+      console.log(`Loaded ${S.length} sessions from GitHub`);
+    }
+  }catch(e){
+    console.log('GitHub load failed, using cache:', e);
+    S = JSON.parse(localStorage.getItem('rds6_cache')||'[]');
+  }
+  // 2. Fallback to preloaded demo data if empty
+  if(!S.length) preloadDemo();
+  dedupSessions();
+  render();
+}
+
+function preloadDemo(){
+</script>
+</body>
+</html>
