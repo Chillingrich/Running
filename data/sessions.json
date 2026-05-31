@@ -1,0 +1,2345 @@
+[
+  {
+    "id": 1779196346000,
+    "date": "2026-05-19",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "30",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "74c1",
+    "fitFile": "477600950184345902.fit",
+    "notes": "",
+    "wu": {},
+    "cd": {
+      "dist": 3.0,
+      "pace": "6:39",
+      "hr": "135"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "143",
+            "cadence": "184",
+            "stride": "98.7",
+            "power": "177",
+            "stance": "212",
+            "vosc": "74.3",
+            "vratio": "7.5"
+          },
+          {
+            "km": 2,
+            "pace": "5:03",
+            "hr": "162",
+            "cadence": "184",
+            "stride": "106.0",
+            "power": "190",
+            "stance": "219",
+            "vosc": "75.1",
+            "vratio": "7.1"
+          },
+          {
+            "km": 3,
+            "pace": "5:03",
+            "hr": "168",
+            "cadence": "183",
+            "stride": "107.4",
+            "power": "193",
+            "stance": "210",
+            "vosc": "77.4",
+            "vratio": "7.2"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "8:46",
+            "hr": "124",
+            "cadence": "143",
+            "stride": "68.6",
+            "power": "115",
+            "stance": "255",
+            "vosc": "73.8",
+            "vratio": "8.2"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "135",
+            "cadence": "178",
+            "stride": "95.4",
+            "power": "171",
+            "stance": "240",
+            "vosc": "77.9",
+            "vratio": "8.3"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "136",
+            "cadence": "183",
+            "stride": "95.7",
+            "power": "175",
+            "stance": "220",
+            "vosc": "76.0",
+            "vratio": "8.0"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:56",
+            "hr": "134",
+            "cadence": "161",
+            "stride": "83.6",
+            "power": "141",
+            "stance": "232",
+            "vosc": "77.8",
+            "vratio": "8.8"
+          }
+        ]
+      },
+      {
+        "set": 6,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:24",
+            "hr": "138",
+            "cadence": "166",
+            "stride": "91.9",
+            "power": "159",
+            "stance": "236",
+            "vosc": "76.2",
+            "vratio": "8.0"
+          }
+        ]
+      },
+      {
+        "set": 7,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "144",
+            "cadence": "187",
+            "stride": "123.9",
+            "power": "226",
+            "stance": "193",
+            "vosc": "76.0",
+            "vratio": "6.1"
+          },
+          {
+            "km": 2,
+            "pace": "4:10",
+            "hr": "156",
+            "cadence": "192",
+            "stride": "125.4",
+            "power": "235",
+            "stance": "189",
+            "vosc": "75.3",
+            "vratio": "6.0"
+          },
+          {
+            "km": 3,
+            "pace": "4:10",
+            "hr": "159",
+            "cadence": "192",
+            "stride": "125.0",
+            "power": "235",
+            "stance": "185",
+            "vosc": "74.4",
+            "vratio": "5.9"
+          }
+        ]
+      },
+      {
+        "set": 8,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:56",
+            "hr": "144",
+            "cadence": "172",
+            "stride": "80.3",
+            "power": "142",
+            "stance": "259",
+            "vosc": "72.4",
+            "vratio": "8.9"
+          }
+        ]
+      },
+      {
+        "set": 9,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "151",
+            "cadence": "183",
+            "stride": "127.0",
+            "power": "228",
+            "stance": "194",
+            "vosc": "80.5",
+            "vratio": "6.4"
+          },
+          {
+            "km": 2,
+            "pace": "4:10",
+            "hr": "158",
+            "cadence": "189",
+            "stride": "127.3",
+            "power": "235",
+            "stance": "180",
+            "vosc": "78.5",
+            "vratio": "6.1"
+          },
+          {
+            "km": 3,
+            "pace": "4:03",
+            "hr": "162",
+            "cadence": "191",
+            "stride": "128.0",
+            "power": "239",
+            "stance": "181",
+            "vosc": "74.8",
+            "vratio": "5.8"
+          }
+        ]
+      },
+      {
+        "set": 10,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:24",
+            "hr": "149",
+            "cadence": "172",
+            "stride": "87.0",
+            "power": "151",
+            "stance": "248",
+            "vosc": "73.0",
+            "vratio": "8.3"
+          }
+        ]
+      },
+      {
+        "set": 11,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "156",
+            "cadence": "188",
+            "stride": "128.0",
+            "power": "234",
+            "stance": "192",
+            "vosc": "76.9",
+            "vratio": "6.0"
+          },
+          {
+            "km": 2,
+            "pace": "4:03",
+            "hr": "163",
+            "cadence": "192",
+            "stride": "128.2",
+            "power": "240",
+            "stance": "177",
+            "vosc": "73.4",
+            "vratio": "5.7"
+          },
+          {
+            "km": 3,
+            "pace": "3:58",
+            "hr": "168",
+            "cadence": "194",
+            "stride": "129.3",
+            "power": "246",
+            "stance": "170",
+            "vosc": "68.9",
+            "vratio": "5.3"
+          }
+        ]
+      },
+      {
+        "set": 12,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:56",
+            "hr": "155",
+            "cadence": "172",
+            "stride": "82.5",
+            "power": "141",
+            "stance": "248",
+            "vosc": "70.4",
+            "vratio": "8.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779296328000,
+    "date": "2026-05-20",
+    "type": "10km",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "29",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "72f8",
+    "fitFile": "477627289071288324.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.72,
+      "pace": "6:57",
+      "hr": "98"
+    },
+    "cd": {
+      "dist": 0.36,
+      "pace": "13:42",
+      "hr": "104"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "120",
+            "cadence": "180",
+            "stride": "99.9",
+            "power": "176",
+            "stance": "240",
+            "vosc": "80.7",
+            "vratio": "8.2"
+          },
+          {
+            "km": 2,
+            "pace": "5:03",
+            "hr": "131",
+            "cadence": "181",
+            "stride": "110.3",
+            "power": "196",
+            "stance": "216",
+            "vosc": "81.2",
+            "vratio": "7.4"
+          },
+          {
+            "km": 3,
+            "pace": "5:12",
+            "hr": "130",
+            "cadence": "180",
+            "stride": "107.2",
+            "power": "189",
+            "stance": "215",
+            "vosc": "80.5",
+            "vratio": "7.5"
+          },
+          {
+            "km": 4,
+            "pace": "5:03",
+            "hr": "132",
+            "cadence": "177",
+            "stride": "111.0",
+            "power": "193",
+            "stance": "222",
+            "vosc": "82.9",
+            "vratio": "7.5"
+          },
+          {
+            "km": 5,
+            "pace": "5:22",
+            "hr": "132",
+            "cadence": "174",
+            "stride": "106.9",
+            "power": "183",
+            "stance": "235",
+            "vosc": "85.4",
+            "vratio": "8.0"
+          },
+          {
+            "km": 6,
+            "pace": "5:22",
+            "hr": "131",
+            "cadence": "172",
+            "stride": "107.8",
+            "power": "183",
+            "stance": "237",
+            "vosc": "83.9",
+            "vratio": "7.7"
+          },
+          {
+            "km": 7,
+            "pace": "5:22",
+            "hr": "130",
+            "cadence": "175",
+            "stride": "105.8",
+            "power": "180",
+            "stance": "238",
+            "vosc": "84.2",
+            "vratio": "8.0"
+          },
+          {
+            "km": 8,
+            "pace": "5:33",
+            "hr": "130",
+            "cadence": "173",
+            "stride": "105.0",
+            "power": "178",
+            "stance": "243",
+            "vosc": "84.1",
+            "vratio": "8.0"
+          },
+          {
+            "km": 9,
+            "pace": "5:33",
+            "hr": "131",
+            "cadence": "175",
+            "stride": "102.4",
+            "power": "176",
+            "stance": "235",
+            "vosc": "81.0",
+            "vratio": "7.9"
+          },
+          {
+            "km": 10,
+            "pace": "5:22",
+            "hr": "129",
+            "cadence": "175",
+            "stride": "104.5",
+            "power": "179",
+            "stance": "241",
+            "vosc": "82.5",
+            "vratio": "7.9"
+          },
+          {
+            "km": 11,
+            "pace": "5:33",
+            "hr": "130",
+            "cadence": "173",
+            "stride": "103.0",
+            "power": "173",
+            "stance": "258",
+            "vosc": "86.4",
+            "vratio": "8.4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779367901000,
+    "date": "2026-05-21",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "6b80",
+    "fitFile": "477646558978932841.fit",
+    "notes": "",
+    "wu": {},
+    "cd": {
+      "dist": 0.82,
+      "pace": "12:09",
+      "hr": "116"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "121",
+            "cadence": "180",
+            "stride": "99.9",
+            "power": "176",
+            "stance": "238",
+            "vosc": "81.1",
+            "vratio": "8.1"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "145",
+            "cadence": "183",
+            "stride": "124.7",
+            "power": "223",
+            "stance": "200",
+            "vosc": "84.2",
+            "vratio": "6.8"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "156",
+            "cadence": "182",
+            "stride": "127.9",
+            "power": "227",
+            "stance": "188",
+            "vosc": "85.6",
+            "vratio": "6.7"
+          },
+          {
+            "km": 3,
+            "pace": "4:16",
+            "hr": "160",
+            "cadence": "181",
+            "stride": "129.6",
+            "power": "230",
+            "stance": "185",
+            "vosc": "85.9",
+            "vratio": "6.6"
+          },
+          {
+            "km": 4,
+            "pace": "4:10",
+            "hr": "162",
+            "cadence": "182",
+            "stride": "129.8",
+            "power": "232",
+            "stance": "184",
+            "vosc": "84.9",
+            "vratio": "6.5"
+          },
+          {
+            "km": 5,
+            "pace": "4:16",
+            "hr": "165",
+            "cadence": "183",
+            "stride": "127.9",
+            "power": "230",
+            "stance": "184",
+            "vosc": "82.2",
+            "vratio": "6.4"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "7:56",
+            "hr": "142",
+            "cadence": "129",
+            "stride": "77.5",
+            "power": "102",
+            "stance": "404",
+            "vosc": "55.2",
+            "vratio": "7.0"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "152",
+            "cadence": "180",
+            "stride": "125.4",
+            "power": "220",
+            "stance": "195",
+            "vosc": "85.3",
+            "vratio": "6.8"
+          },
+          {
+            "km": 2,
+            "pace": "4:23",
+            "hr": "161",
+            "cadence": "180",
+            "stride": "126.3",
+            "power": "222",
+            "stance": "186",
+            "vosc": "88.2",
+            "vratio": "7.0"
+          },
+          {
+            "km": 3,
+            "pace": "4:23",
+            "hr": "164",
+            "cadence": "181",
+            "stride": "125.8",
+            "power": "223",
+            "stance": "184",
+            "vosc": "83.1",
+            "vratio": "6.6"
+          },
+          {
+            "km": 4,
+            "pace": "4:23",
+            "hr": "166",
+            "cadence": "176",
+            "stride": "130.0",
+            "power": "225",
+            "stance": "194",
+            "vosc": "85.4",
+            "vratio": "6.6"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "7:14",
+            "hr": "141",
+            "cadence": "120",
+            "stride": "68.8",
+            "power": "84",
+            "stance": "388",
+            "vosc": "55.5",
+            "vratio": "6.8"
+          }
+        ]
+      },
+      {
+        "set": 6,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:30",
+            "hr": "152",
+            "cadence": "179",
+            "stride": "122.1",
+            "power": "214",
+            "stance": "202",
+            "vosc": "84.3",
+            "vratio": "6.9"
+          },
+          {
+            "km": 2,
+            "pace": "4:30",
+            "hr": "162",
+            "cadence": "181",
+            "stride": "123.3",
+            "power": "219",
+            "stance": "192",
+            "vosc": "82.2",
+            "vratio": "6.7"
+          },
+          {
+            "km": 3,
+            "pace": "4:23",
+            "hr": "164",
+            "cadence": "182",
+            "stride": "126.4",
+            "power": "224",
+            "stance": "194",
+            "vosc": "78.8",
+            "vratio": "6.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779467505000,
+    "date": "2026-05-22",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "31",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "76fd",
+    "fitFile": "477673188034117832.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.71,
+      "pace": "6:59",
+      "hr": "109"
+    },
+    "cd": {
+      "dist": 10.18,
+      "pace": "5:37",
+      "hr": "134"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  },
+  {
+    "id": 1779541563000,
+    "date": "2026-05-23",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "6b4d",
+    "fitFile": "477693021117251784.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.81,
+      "pace": "6:09",
+      "hr": "117"
+    },
+    "cd": {
+      "dist": 0.73,
+      "pace": "6:53",
+      "hr": "130"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:22",
+            "hr": "129",
+            "cadence": "184",
+            "stride": "99.2",
+            "power": "178",
+            "stance": "218",
+            "vosc": "74.3",
+            "vratio": "7.5"
+          },
+          {
+            "km": 2,
+            "pace": "5:22",
+            "hr": "133",
+            "cadence": "186",
+            "stride": "101.0",
+            "power": "183",
+            "stance": "216",
+            "vosc": "72.3",
+            "vratio": "7.2"
+          },
+          {
+            "km": 3,
+            "pace": "4:54",
+            "hr": "140",
+            "cadence": "186",
+            "stride": "108.2",
+            "power": "197",
+            "stance": "200",
+            "vosc": "73.1",
+            "vratio": "6.8"
+          },
+          {
+            "km": 4,
+            "pace": "5:03",
+            "hr": "144",
+            "cadence": "187",
+            "stride": "105.2",
+            "power": "193",
+            "stance": "201",
+            "vosc": "70.8",
+            "vratio": "6.7"
+          },
+          {
+            "km": 5,
+            "pace": "5:22",
+            "hr": "139",
+            "cadence": "186",
+            "stride": "99.5",
+            "power": "181",
+            "stance": "228",
+            "vosc": "68.2",
+            "vratio": "6.8"
+          },
+          {
+            "km": 6,
+            "pace": "5:12",
+            "hr": "146",
+            "cadence": "184",
+            "stride": "103.1",
+            "power": "186",
+            "stance": "230",
+            "vosc": "71.3",
+            "vratio": "6.9"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "147",
+            "cadence": "189",
+            "stride": "126.1",
+            "power": "231",
+            "stance": "188",
+            "vosc": "66.8",
+            "vratio": "5.4"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:24",
+            "hr": "149",
+            "cadence": "186",
+            "stride": "84.3",
+            "power": "155",
+            "stance": "255",
+            "vosc": "66.7",
+            "vratio": "7.9"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "152",
+            "cadence": "190",
+            "stride": "119.4",
+            "power": "220",
+            "stance": "210",
+            "vosc": "68.8",
+            "vratio": "5.9"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "9:48",
+            "hr": "145",
+            "cadence": "133",
+            "stride": "75.9",
+            "power": "104",
+            "stance": "401",
+            "vosc": "64.9",
+            "vratio": "8.5"
+          }
+        ]
+      },
+      {
+        "set": 6,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "146",
+            "cadence": "186",
+            "stride": "120.3",
+            "power": "218",
+            "stance": "235",
+            "vosc": "68.1",
+            "vratio": "5.8"
+          }
+        ]
+      },
+      {
+        "set": 7,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "9:48",
+            "hr": "143",
+            "cadence": "130",
+            "stride": "74.3",
+            "power": "100",
+            "stance": "360",
+            "vosc": "56.2",
+            "vratio": "7.5"
+          }
+        ]
+      },
+      {
+        "set": 8,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:03",
+            "hr": "151",
+            "cadence": "189",
+            "stride": "129.5",
+            "power": "237",
+            "stance": "204",
+            "vosc": "70.0",
+            "vratio": "5.6"
+          }
+        ]
+      },
+      {
+        "set": 9,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "10:25",
+            "hr": "145",
+            "cadence": "128",
+            "stride": "73.6",
+            "power": "98",
+            "stance": "370",
+            "vosc": "51.6",
+            "vratio": "6.8"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779573610000,
+    "date": "2026-05-24",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "31",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "62e0",
+    "fitFile": "477702845330653489.fit",
+    "notes": "",
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "3:58",
+            "hr": "155",
+            "cadence": "192",
+            "stride": "131.1",
+            "power": "246",
+            "stance": "169",
+            "vosc": "75.5",
+            "vratio": "5.7"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "3:58",
+            "hr": "168",
+            "cadence": "192",
+            "stride": "130.0",
+            "power": "244",
+            "stance": "166",
+            "vosc": "77.2",
+            "vratio": "5.9"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:03",
+            "hr": "172",
+            "cadence": "191",
+            "stride": "128.8",
+            "power": "241",
+            "stance": "169",
+            "vosc": "76.7",
+            "vratio": "5.9"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "173",
+            "cadence": "189",
+            "stride": "127.4",
+            "power": "235",
+            "stance": "177",
+            "vosc": "79.1",
+            "vratio": "6.2"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "173",
+            "cadence": "187",
+            "stride": "127.5",
+            "power": "233",
+            "stance": "179",
+            "vosc": "81.5",
+            "vratio": "6.4"
+          }
+        ]
+      },
+      {
+        "set": 6,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "174",
+            "cadence": "185",
+            "stride": "127.8",
+            "power": "232",
+            "stance": "184",
+            "vosc": "82.8",
+            "vratio": "6.5"
+          }
+        ]
+      },
+      {
+        "set": 7,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "174",
+            "cadence": "183",
+            "stride": "128.2",
+            "power": "230",
+            "stance": "185",
+            "vosc": "82.8",
+            "vratio": "6.4"
+          }
+        ]
+      },
+      {
+        "set": 8,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "172",
+            "cadence": "183",
+            "stride": "122.8",
+            "power": "228",
+            "stance": "186",
+            "vosc": "83.2",
+            "vratio": "6.8"
+          }
+        ]
+      },
+      {
+        "set": 9,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "174",
+            "cadence": "183",
+            "stride": "127.0",
+            "power": "222",
+            "stance": "179",
+            "vosc": "81.8",
+            "vratio": "6.4"
+          }
+        ]
+      },
+      {
+        "set": 10,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "170",
+            "cadence": "182",
+            "stride": "126.2",
+            "power": "229",
+            "stance": "187",
+            "vosc": "81.0",
+            "vratio": "6.4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779631931000,
+    "date": "2026-05-24",
+    "type": "10km",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "82a4",
+    "fitFile": "477717172794195968.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.75,
+      "pace": "6:38",
+      "hr": "107"
+    },
+    "cd": {
+      "dist": 0.18,
+      "pace": "15:30",
+      "hr": "120"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "120",
+            "cadence": "182",
+            "stride": "94.6",
+            "power": "169",
+            "stance": "228",
+            "vosc": "75.8",
+            "vratio": "8.0"
+          },
+          {
+            "km": 2,
+            "pace": "5:33",
+            "hr": "126",
+            "cadence": "183",
+            "stride": "98.9",
+            "power": "177",
+            "stance": "224",
+            "vosc": "73.5",
+            "vratio": "7.4"
+          },
+          {
+            "km": 3,
+            "pace": "5:22",
+            "hr": "129",
+            "cadence": "183",
+            "stride": "100.3",
+            "power": "180",
+            "stance": "231",
+            "vosc": "74.0",
+            "vratio": "7.4"
+          },
+          {
+            "km": 4,
+            "pace": "5:22",
+            "hr": "133",
+            "cadence": "184",
+            "stride": "99.5",
+            "power": "179",
+            "stance": "232",
+            "vosc": "72.5",
+            "vratio": "7.3"
+          },
+          {
+            "km": 5,
+            "pace": "5:44",
+            "hr": "136",
+            "cadence": "178",
+            "stride": "95.2",
+            "power": "168",
+            "stance": "241",
+            "vosc": "71.4",
+            "vratio": "7.5"
+          },
+          {
+            "km": 6,
+            "pace": "5:33",
+            "hr": "137",
+            "cadence": "183",
+            "stride": "97.0",
+            "power": "174",
+            "stance": "245",
+            "vosc": "71.9",
+            "vratio": "7.4"
+          },
+          {
+            "km": 7,
+            "pace": "5:44",
+            "hr": "136",
+            "cadence": "180",
+            "stride": "96.0",
+            "power": "169",
+            "stance": "250",
+            "vosc": "74.0",
+            "vratio": "7.7"
+          },
+          {
+            "km": 8,
+            "pace": "5:44",
+            "hr": "139",
+            "cadence": "178",
+            "stride": "98.4",
+            "power": "171",
+            "stance": "244",
+            "vosc": "77.9",
+            "vratio": "7.9"
+          },
+          {
+            "km": 9,
+            "pace": "5:57",
+            "hr": "138",
+            "cadence": "169",
+            "stride": "99.5",
+            "power": "165",
+            "stance": "248",
+            "vosc": "84.6",
+            "vratio": "8.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779725036000,
+    "date": "2026-05-25",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "7b70",
+    "fitFile": "477742725968462127.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.74,
+      "pace": "6:45",
+      "hr": "111"
+    },
+    "cd": {
+      "dist": 0.23,
+      "pace": "21:37",
+      "hr": "108"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "128",
+            "cadence": "177",
+            "stride": "101.4",
+            "power": "176",
+            "stance": "240",
+            "vosc": "77.6",
+            "vratio": "7.7"
+          },
+          {
+            "km": 2,
+            "pace": "5:22",
+            "hr": "133",
+            "cadence": "177",
+            "stride": "104.3",
+            "power": "180",
+            "stance": "229",
+            "vosc": "81.2",
+            "vratio": "7.8"
+          },
+          {
+            "km": 3,
+            "pace": "5:22",
+            "hr": "136",
+            "cadence": "177",
+            "stride": "105.0",
+            "power": "181",
+            "stance": "238",
+            "vosc": "79.7",
+            "vratio": "7.6"
+          },
+          {
+            "km": 4,
+            "pace": "5:33",
+            "hr": "137",
+            "cadence": "177",
+            "stride": "101.8",
+            "power": "176",
+            "stance": "237",
+            "vosc": "79.3",
+            "vratio": "7.8"
+          },
+          {
+            "km": 5,
+            "pace": "5:22",
+            "hr": "142",
+            "cadence": "176",
+            "stride": "105.3",
+            "power": "182",
+            "stance": "238",
+            "vosc": "81.2",
+            "vratio": "7.7"
+          },
+          {
+            "km": 6,
+            "pace": "5:22",
+            "hr": "143",
+            "cadence": "178",
+            "stride": "103.3",
+            "power": "180",
+            "stance": "240",
+            "vosc": "76.3",
+            "vratio": "7.4"
+          },
+          {
+            "km": 7,
+            "pace": "5:12",
+            "hr": "146",
+            "cadence": "178",
+            "stride": "107.2",
+            "power": "187",
+            "stance": "228",
+            "vosc": "79.3",
+            "vratio": "7.4"
+          },
+          {
+            "km": 8,
+            "pace": "5:22",
+            "hr": "147",
+            "cadence": "174",
+            "stride": "104.7",
+            "power": "180",
+            "stance": "232",
+            "vosc": "83.6",
+            "vratio": "7.9"
+          },
+          {
+            "km": 9,
+            "pace": "5:33",
+            "hr": "144",
+            "cadence": "173",
+            "stride": "102.9",
+            "power": "174",
+            "stance": "244",
+            "vosc": "81.7",
+            "vratio": "8.0"
+          },
+          {
+            "km": 10,
+            "pace": "5:12",
+            "hr": "148",
+            "cadence": "178",
+            "stride": "107.2",
+            "power": "187",
+            "stance": "222",
+            "vosc": "80.8",
+            "vratio": "7.5"
+          },
+          {
+            "km": 11,
+            "pace": "6:10",
+            "hr": "141",
+            "cadence": "169",
+            "stride": "94.5",
+            "power": "158",
+            "stance": "256",
+            "vosc": "76.6",
+            "vratio": "8.1"
+          },
+          {
+            "km": 12,
+            "pace": "10:25",
+            "hr": "127",
+            "cadence": "126",
+            "stride": "71.9",
+            "power": "94",
+            "stance": "258",
+            "vosc": "74.8",
+            "vratio": "8.6"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "7:34",
+            "hr": "122",
+            "cadence": "168",
+            "stride": "78.9",
+            "power": "130",
+            "stance": "277",
+            "vosc": "72.8",
+            "vratio": "9.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779802464000,
+    "date": "2026-05-26",
+    "type": "3x5km",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "29",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "630b",
+    "fitFile": "477763665813078319.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.86,
+      "pace": "5:48",
+      "hr": "141"
+    },
+    "cd": {
+      "dist": 0.87,
+      "pace": "23:08",
+      "hr": "121"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:10",
+            "hr": "157",
+            "cadence": "187",
+            "stride": "129.0",
+            "power": "235",
+            "stance": "205",
+            "vosc": "78.3",
+            "vratio": "6.1"
+          },
+          {
+            "km": 2,
+            "pace": "4:03",
+            "hr": "166",
+            "cadence": "190",
+            "stride": "127.6",
+            "power": "237",
+            "stance": "180",
+            "vosc": "77.3",
+            "vratio": "6.0"
+          },
+          {
+            "km": 3,
+            "pace": "4:10",
+            "hr": "168",
+            "cadence": "190",
+            "stride": "126.8",
+            "power": "236",
+            "stance": "180",
+            "vosc": "76.9",
+            "vratio": "6.1"
+          },
+          {
+            "km": 4,
+            "pace": "4:10",
+            "hr": "170",
+            "cadence": "191",
+            "stride": "126.1",
+            "power": "236",
+            "stance": "180",
+            "vosc": "74.4",
+            "vratio": "5.9"
+          },
+          {
+            "km": 5,
+            "pace": "4:10",
+            "hr": "172",
+            "cadence": "192",
+            "stride": "125.9",
+            "power": "236",
+            "stance": "184",
+            "vosc": "73.2",
+            "vratio": "5.8"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "161",
+            "cadence": "186",
+            "stride": "123.9",
+            "power": "225",
+            "stance": "186",
+            "vosc": "79.8",
+            "vratio": "6.4"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "169",
+            "cadence": "190",
+            "stride": "122.7",
+            "power": "228",
+            "stance": "178",
+            "vosc": "78.2",
+            "vratio": "6.4"
+          },
+          {
+            "km": 3,
+            "pace": "4:10",
+            "hr": "171",
+            "cadence": "192",
+            "stride": "123.4",
+            "power": "231",
+            "stance": "180",
+            "vosc": "72.5",
+            "vratio": "5.9"
+          },
+          {
+            "km": 4,
+            "pace": "4:10",
+            "hr": "174",
+            "cadence": "192",
+            "stride": "124.9",
+            "power": "235",
+            "stance": "182",
+            "vosc": "72.3",
+            "vratio": "5.8"
+          },
+          {
+            "km": 5,
+            "pace": "4:10",
+            "hr": "175",
+            "cadence": "192",
+            "stride": "124.1",
+            "power": "232",
+            "stance": "181",
+            "vosc": "72.8",
+            "vratio": "5.9"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:30",
+            "hr": "163",
+            "cadence": "181",
+            "stride": "122.0",
+            "power": "216",
+            "stance": "201",
+            "vosc": "83.1",
+            "vratio": "6.8"
+          },
+          {
+            "km": 2,
+            "pace": "4:30",
+            "hr": "168",
+            "cadence": "181",
+            "stride": "123.0",
+            "power": "217",
+            "stance": "209",
+            "vosc": "85.5",
+            "vratio": "6.9"
+          },
+          {
+            "km": 3,
+            "pace": "4:23",
+            "hr": "171",
+            "cadence": "180",
+            "stride": "125.2",
+            "power": "221",
+            "stance": "196",
+            "vosc": "86.8",
+            "vratio": "6.9"
+          },
+          {
+            "km": 4,
+            "pace": "4:23",
+            "hr": "170",
+            "cadence": "180",
+            "stride": "125.0",
+            "power": "220",
+            "stance": "190",
+            "vosc": "87.7",
+            "vratio": "7.0"
+          },
+          {
+            "km": 5,
+            "pace": "4:16",
+            "hr": "173",
+            "cadence": "181",
+            "stride": "127.7",
+            "power": "226",
+            "stance": "188",
+            "vosc": "84.5",
+            "vratio": "6.6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779884073000,
+    "date": "2026-05-27",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "65f0",
+    "fitFile": "477785854151000064.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.83,
+      "pace": "5:59",
+      "hr": "120"
+    },
+    "cd": {
+      "dist": 0.6,
+      "pace": "18:17",
+      "hr": "114"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "128",
+            "cadence": "176",
+            "stride": "96.7",
+            "power": "169",
+            "stance": "230",
+            "vosc": "78.3",
+            "vratio": "8.1"
+          },
+          {
+            "km": 2,
+            "pace": "5:12",
+            "hr": "136",
+            "cadence": "182",
+            "stride": "105.9",
+            "power": "189",
+            "stance": "221",
+            "vosc": "78.2",
+            "vratio": "7.4"
+          },
+          {
+            "km": 3,
+            "pace": "5:12",
+            "hr": "142",
+            "cadence": "184",
+            "stride": "103.7",
+            "power": "187",
+            "stance": "226",
+            "vosc": "74.5",
+            "vratio": "7.2"
+          },
+          {
+            "km": 4,
+            "pace": "5:12",
+            "hr": "145",
+            "cadence": "184",
+            "stride": "104.5",
+            "power": "189",
+            "stance": "222",
+            "vosc": "71.4",
+            "vratio": "6.8"
+          },
+          {
+            "km": 5,
+            "pace": "5:12",
+            "hr": "135",
+            "cadence": "177",
+            "stride": "101.6",
+            "power": "178",
+            "stance": "226",
+            "vosc": "73.6",
+            "vratio": "7.2"
+          },
+          {
+            "km": 6,
+            "pace": "5:22",
+            "hr": "139",
+            "cadence": "183",
+            "stride": "102.6",
+            "power": "184",
+            "stance": "223",
+            "vosc": "73.1",
+            "vratio": "7.1"
+          },
+          {
+            "km": 7,
+            "pace": "5:22",
+            "hr": "138",
+            "cadence": "184",
+            "stride": "100.7",
+            "power": "181",
+            "stance": "228",
+            "vosc": "71.4",
+            "vratio": "7.1"
+          },
+          {
+            "km": 8,
+            "pace": "5:22",
+            "hr": "142",
+            "cadence": "184",
+            "stride": "102.0",
+            "power": "183",
+            "stance": "228",
+            "vosc": "74.6",
+            "vratio": "7.3"
+          },
+          {
+            "km": 9,
+            "pace": "5:22",
+            "hr": "141",
+            "cadence": "183",
+            "stride": "102.5",
+            "power": "184",
+            "stance": "227",
+            "vosc": "73.7",
+            "vratio": "7.2"
+          },
+          {
+            "km": 10,
+            "pace": "5:22",
+            "hr": "142",
+            "cadence": "183",
+            "stride": "102.7",
+            "power": "183",
+            "stance": "227",
+            "vosc": "74.5",
+            "vratio": "7.3"
+          },
+          {
+            "km": 11,
+            "pace": "5:22",
+            "hr": "146",
+            "cadence": "183",
+            "stride": "102.8",
+            "power": "185",
+            "stance": "228",
+            "vosc": "74.2",
+            "vratio": "7.2"
+          },
+          {
+            "km": 12,
+            "pace": "5:33",
+            "hr": "147",
+            "cadence": "175",
+            "stride": "101.5",
+            "power": "177",
+            "stance": "229",
+            "vosc": "72.1",
+            "vratio": "7.2"
+          },
+          {
+            "km": 13,
+            "pace": "5:03",
+            "hr": "153",
+            "cadence": "183",
+            "stride": "107.1",
+            "power": "192",
+            "stance": "223",
+            "vosc": "75.3",
+            "vratio": "7.0"
+          },
+          {
+            "km": 14,
+            "pace": "5:22",
+            "hr": "151",
+            "cadence": "182",
+            "stride": "103.3",
+            "power": "184",
+            "stance": "230",
+            "vosc": "74.2",
+            "vratio": "7.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1779970374000,
+    "date": "2026-05-28",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "6717",
+    "fitFile": "477809150322049125.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.8,
+      "pace": "6:12",
+      "hr": "119"
+    },
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "150",
+            "cadence": "184",
+            "stride": "124.2",
+            "power": "223",
+            "stance": "190",
+            "vosc": "82.5",
+            "vratio": "6.6"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "165",
+            "cadence": "186",
+            "stride": "125.4",
+            "power": "229",
+            "stance": "180",
+            "vosc": "80.3",
+            "vratio": "6.4"
+          },
+          {
+            "km": 3,
+            "pace": "4:16",
+            "hr": "169",
+            "cadence": "186",
+            "stride": "124.1",
+            "power": "227",
+            "stance": "182",
+            "vosc": "78.7",
+            "vratio": "6.3"
+          },
+          {
+            "km": 4,
+            "pace": "4:16",
+            "hr": "172",
+            "cadence": "186",
+            "stride": "124.5",
+            "power": "227",
+            "stance": "187",
+            "vosc": "78.4",
+            "vratio": "6.3"
+          },
+          {
+            "km": 5,
+            "pace": "4:16",
+            "hr": "173",
+            "cadence": "188",
+            "stride": "124.0",
+            "power": "228",
+            "stance": "182",
+            "vosc": "76.1",
+            "vratio": "6.1"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "11:06",
+            "hr": "149",
+            "cadence": "119",
+            "stride": "71.4",
+            "power": "88",
+            "stance": "206",
+            "vosc": "47.0",
+            "vratio": "5.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1780050519000,
+    "date": "2026-05-29",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "35",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "6a3c",
+    "fitFile": "477828964629381323.fit",
+    "notes": "",
+    "wu": {
+      "dist": 1.0,
+      "pace": "6:27",
+      "hr": "134"
+    },
+    "cd": {
+      "dist": 1.0,
+      "pace": "5:39",
+      "hr": "154"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "155",
+            "cadence": "180",
+            "stride": "100.3",
+            "power": "177",
+            "stance": "232",
+            "vosc": "76.9",
+            "vratio": "7.7"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1780060588000,
+    "date": "2026-05-29",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "31",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "72b3",
+    "fitFile": "477833091811934213.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.77,
+      "pace": "6:30",
+      "hr": "137"
+    },
+    "cd": {
+      "dist": 0.89,
+      "pace": "17:47",
+      "hr": "115"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "11:06",
+            "hr": "127",
+            "cadence": "138",
+            "stride": "65.5",
+            "power": "90",
+            "stance": "294",
+            "vosc": "61.7",
+            "vratio": "9.2"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "144",
+            "cadence": "185",
+            "stride": "123.4",
+            "power": "223",
+            "stance": "180",
+            "vosc": "80.5",
+            "vratio": "6.5"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "159",
+            "cadence": "189",
+            "stride": "123.5",
+            "power": "229",
+            "stance": "178",
+            "vosc": "78.4",
+            "vratio": "6.3"
+          },
+          {
+            "km": 3,
+            "pace": "4:16",
+            "hr": "162",
+            "cadence": "190",
+            "stride": "122.8",
+            "power": "229",
+            "stance": "172",
+            "vosc": "77.2",
+            "vratio": "6.3"
+          },
+          {
+            "km": 4,
+            "pace": "4:16",
+            "hr": "165",
+            "cadence": "191",
+            "stride": "123.1",
+            "power": "230",
+            "stance": "174",
+            "vosc": "76.6",
+            "vratio": "6.2"
+          },
+          {
+            "km": 5,
+            "pace": "4:16",
+            "hr": "167",
+            "cadence": "191",
+            "stride": "123.0",
+            "power": "230",
+            "stance": "175",
+            "vosc": "75.9",
+            "vratio": "6.1"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "9:48",
+            "hr": "140",
+            "cadence": "134",
+            "stride": "74.2",
+            "power": "101",
+            "stance": "376",
+            "vosc": "54.6",
+            "vratio": "6.8"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:16",
+            "hr": "157",
+            "cadence": "183",
+            "stride": "126.4",
+            "power": "225",
+            "stance": "196",
+            "vosc": "83.3",
+            "vratio": "6.6"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "167",
+            "cadence": "184",
+            "stride": "128.1",
+            "power": "230",
+            "stance": "186",
+            "vosc": "83.4",
+            "vratio": "6.5"
+          },
+          {
+            "km": 3,
+            "pace": "4:16",
+            "hr": "169",
+            "cadence": "184",
+            "stride": "126.6",
+            "power": "228",
+            "stance": "183",
+            "vosc": "83.3",
+            "vratio": "6.6"
+          },
+          {
+            "km": 4,
+            "pace": "4:16",
+            "hr": "170",
+            "cadence": "186",
+            "stride": "126.2",
+            "power": "230",
+            "stance": "180",
+            "vosc": "80.1",
+            "vratio": "6.3"
+          },
+          {
+            "km": 5,
+            "pace": "4:16",
+            "hr": "172",
+            "cadence": "186",
+            "stride": "126.0",
+            "power": "229",
+            "stance": "179",
+            "vosc": "80.1",
+            "vratio": "6.3"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "11:54",
+            "hr": "147",
+            "cadence": "121",
+            "stride": "68.8",
+            "power": "85",
+            "stance": "309",
+            "vosc": "54.9",
+            "vratio": "7.5"
+          }
+        ]
+      },
+      {
+        "set": 6,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:23",
+            "hr": "158",
+            "cadence": "184",
+            "stride": "123.0",
+            "power": "221",
+            "stance": "188",
+            "vosc": "81.5",
+            "vratio": "6.6"
+          },
+          {
+            "km": 2,
+            "pace": "4:16",
+            "hr": "168",
+            "cadence": "187",
+            "stride": "125.0",
+            "power": "229",
+            "stance": "176",
+            "vosc": "77.1",
+            "vratio": "6.2"
+          },
+          {
+            "km": 3,
+            "pace": "4:23",
+            "hr": "168",
+            "cadence": "187",
+            "stride": "122.2",
+            "power": "223",
+            "stance": "178",
+            "vosc": "76.9",
+            "vratio": "6.3"
+          },
+          {
+            "km": 4,
+            "pace": "4:16",
+            "hr": "172",
+            "cadence": "188",
+            "stride": "122.8",
+            "power": "226",
+            "stance": "180",
+            "vosc": "74.8",
+            "vratio": "6.1"
+          },
+          {
+            "km": 5,
+            "pace": "4:10",
+            "hr": "171",
+            "cadence": "190",
+            "stride": "124.3",
+            "power": "231",
+            "stance": "174",
+            "vosc": "72.0",
+            "vratio": "5.8"
+          }
+        ]
+      },
+      {
+        "set": 7,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "11:54",
+            "hr": "144",
+            "cadence": "119",
+            "stride": "67.7",
+            "power": "83",
+            "stance": "346",
+            "vosc": "51.5",
+            "vratio": "5.2"
+          }
+        ]
+      },
+      {
+        "set": 8,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "15:09",
+            "hr": "122",
+            "cadence": "106",
+            "stride": "61.0",
+            "power": "60",
+            "stance": "",
+            "vosc": "61.9",
+            "vratio": "12.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1780152037000,
+    "date": "2026-05-30",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "32",
+    "humidity": "",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "65dc",
+    "fitFile": "477856830901485670.fit",
+    "notes": "",
+    "wu": {
+      "dist": 0.63,
+      "pace": "7:56",
+      "hr": "104"
+    },
+    "cd": {
+      "dist": 0.4,
+      "pace": "12:31",
+      "hr": "113"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "118",
+            "cadence": "178",
+            "stride": "97.6",
+            "power": "170",
+            "stance": "244",
+            "vosc": "81.6",
+            "vratio": "8.4"
+          },
+          {
+            "km": 2,
+            "pace": "5:22",
+            "hr": "130",
+            "cadence": "181",
+            "stride": "103.4",
+            "power": "184",
+            "stance": "227",
+            "vosc": "77.9",
+            "vratio": "7.5"
+          },
+          {
+            "km": 3,
+            "pace": "5:12",
+            "hr": "133",
+            "cadence": "183",
+            "stride": "104.5",
+            "power": "187",
+            "stance": "226",
+            "vosc": "78.1",
+            "vratio": "7.5"
+          },
+          {
+            "km": 4,
+            "pace": "5:03",
+            "hr": "137",
+            "cadence": "181",
+            "stride": "107.2",
+            "power": "190",
+            "stance": "224",
+            "vosc": "81.3",
+            "vratio": "7.6"
+          },
+          {
+            "km": 5,
+            "pace": "5:03",
+            "hr": "143",
+            "cadence": "179",
+            "stride": "111.0",
+            "power": "195",
+            "stance": "232",
+            "vosc": "82.9",
+            "vratio": "7.5"
+          },
+          {
+            "km": 6,
+            "pace": "5:03",
+            "hr": "144",
+            "cadence": "180",
+            "stride": "109.3",
+            "power": "193",
+            "stance": "231",
+            "vosc": "81.7",
+            "vratio": "7.5"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:33",
+            "hr": "140",
+            "cadence": "174",
+            "stride": "103.7",
+            "power": "176",
+            "stance": "244",
+            "vosc": "83.5",
+            "vratio": "8.0"
+          }
+        ]
+      }
+    ]
+  }
+]
