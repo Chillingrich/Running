@@ -1118,17 +1118,47 @@ function updateFitSummary(){
   document.getElementById('fitSaveBtn').style.display=r>0?'block':'none';
 }
 function setupGitHub(){
-  const current = localStorage.getItem('gh_token')||'';
-  const token = prompt('GitHub Personal Access Token (repo scope):\nhttps://github.com/settings/tokens/new\n\nLeave blank to clear:', current);
-  if(token === null) return;
-  if(token.trim()){
-    localStorage.setItem('gh_token', token.trim());
-    document.getElementById('ghStatus').textContent='✓ connected';
-    document.getElementById('ghBtn').style.borderColor='var(--acc)';
+  // Remove old modal if exists
+  const old=document.getElementById('ghModal');
+  if(old)old.remove();
+  const current=localStorage.getItem('gh_token')||'';
+  const modal=document.createElement('div');
+  modal.id='ghModal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px';
+  modal.innerHTML=`
+    <div style="background:#161b22;border:1px solid #21262d;border-radius:11px;padding:24px;width:100%;max-width:440px">
+      <div style="font-family:var(--mono);font-size:13px;color:#00ff88;font-weight:700;margin-bottom:16px">⚙ GITHUB TOKEN</div>
+      <div style="font-family:var(--mono);font-size:10px;color:#7d8590;margin-bottom:12px;line-height:1.7">
+        Paste your Personal Access Token<br>
+        Scopes needed: <span style="color:#e6edf3">public_repo + workflow</span>
+      </div>
+      <input id="ghTokenInput" type="password" value="${current}"
+        placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+        style="width:100%;background:#111418;border:1px solid #21262d;color:#e6edf3;font-family:monospace;font-size:12px;padding:10px;border-radius:5px;outline:none;margin-bottom:12px">
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button onclick="document.getElementById('ghModal').remove()"
+          style="background:none;border:1px solid #21262d;color:#7d8590;font-family:var(--mono);font-size:10px;padding:7px 14px;border-radius:4px;cursor:pointer">Cancel</button>
+        <button onclick="saveGhToken()"
+          style="background:#00ff88;border:none;color:#000;font-family:var(--mono);font-size:10px;font-weight:700;padding:7px 16px;border-radius:4px;cursor:pointer">SAVE</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+  setTimeout(()=>document.getElementById('ghTokenInput').focus(),100);
+}
+function saveGhToken(){
+  const token=(document.getElementById('ghTokenInput').value||'').trim();
+  if(token){
+    localStorage.setItem('gh_token',token);
+    const st=document.getElementById('ghStatus');
+    const btn=document.getElementById('ghBtn');
+    if(st)st.textContent='✓ connected';
+    if(btn)btn.style.borderColor='var(--acc)';
   } else {
     localStorage.removeItem('gh_token');
-    document.getElementById('ghStatus').textContent='';
+    const st=document.getElementById('ghStatus');
+    if(st)st.textContent='';
   }
+  document.getElementById('ghModal').remove();
 }
 function clearAllSessions(){
   if(!confirm('Delete ALL sessions? This cannot be undone.'))return;
