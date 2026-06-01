@@ -20,27 +20,5 @@
         "splits": []
       }
     ]
-  },
-  {
-    "id": 1780334634484,
-    "date": "2026-05-20",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "humidity": "",
-    "notes": "Send .fit file to Claude in chat to auto-parse splits and biomechanics data.",
-    "rpe": 0,
-    "highlighted": false,
-    "fitFp": "46vm",
-    "fitFile": "477627289071288324.fit",
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
   }
 ]
