@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": 1780334896556,
+    "date": "2026-05-19",
+    "type": "race-10k",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "humidity": "",
+    "notes": "Send .fit file to Claude in chat to auto-parse splits and biomechanics data.",
+    "rpe": 0,
+    "highlighted": false,
+    "fitFp": "5l6q",
+    "fitFile": "477600950184345902.fit",
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  }
+]
