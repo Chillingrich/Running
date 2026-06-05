@@ -1577,7 +1577,7 @@ function preloadDemo(){
 }
 
 // Remove duplicate sessions by fitFp fingerprint only (same file imported twice)
-function dedupSessions(){
+function dedupSessions_OLD(){
   const seenFp=new Set();
   const before=S.length;
   S=S.filter(s=>{
@@ -1588,6 +1588,17 @@ function dedupSessions(){
   if(S.length<before){save();console.log(`Removed ${before-S.length} duplicate(s)`);}
 }
 
+function dedupSessions(){
+  const seen=new Set();
+  const before=S.length;
+  S=S.filter(s=>{
+    const key=s.corosLabelId||s.fitFp||String(s.id);
+    if(!key)return true;
+    if(seen.has(key))return false;
+    seen.add(key);return true;
+  });
+  if(S.length<before){save();console.log(`Removed ${before-S.length} duplicate(s)`);}
+}
 async function loadSessions(){
   // 1. Try GitHub sessions.json (source of truth)
   try{
@@ -1607,11 +1618,10 @@ async function loadSessions(){
         }
         return sess;
       });
-      // Add any local-only sessions not in remote
+      // Add local-only manual sessions (no corosLabelId, no fitFp = truly manual)
       cache.forEach(cs=>{
-        if(!S.some(s=>s.fitFp===cs.fitFp&&cs.fitFp)){
-          if(!cs.fitFp) S.push(cs); // manual sessions
-        }
+        const key=cs.corosLabelId||cs.fitFp;
+        if(!key&&!S.some(s=>s.id===cs.id)) S.push(cs);
       });
       S.sort((a,b)=>a.date.localeCompare(b.date));
       localStorage.setItem('rds6_cache', JSON.stringify(S));
