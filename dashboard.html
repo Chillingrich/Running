@@ -486,15 +486,15 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       <div class="wucd-grid">
         <div class="wucd-card">
           <div class="wucd-title">🔥 WARM-UP</div>
-          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="wuDist" placeholder="0.8 km"></div>
-          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="wuPace" placeholder="6:13"></div>
-          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="wuHR" placeholder="119"></div>
+          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="wuDist" placeholder="km"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="wuPace" placeholder="m:ss"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="wuHR" placeholder="bpm"></div>
         </div>
         <div class="wucd-card">
           <div class="wucd-title">❄️ COOL-DOWN</div>
-          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="cdDist" placeholder="0.9 km"></div>
-          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="cdPace" placeholder="6:30"></div>
-          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="cdHR" placeholder="115"></div>
+          <div class="wucd-field"><span class="wucd-label">Distance</span><input class="wucd-input" type="number" step="0.1" id="cdDist" placeholder="km"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg Pace</span><input class="wucd-input" type="text" id="cdPace" placeholder="m:ss"></div>
+          <div class="wucd-field"><span class="wucd-label">Avg HR</span><input class="wucd-input" type="number" id="cdHR" placeholder="bpm"></div>
         </div>
       </div>
 
@@ -826,7 +826,10 @@ function totalKmForSession(s){
   const mainKm=(s.sets||[]).reduce((acc,st)=>(st.splits||[]).length?acc+(st.splits.length):acc,0);
   const wuKm=parseFloat(s.wu&&s.wu.dist)||0;
   const cdKm=parseFloat(s.cd&&s.cd.dist)||0;
-  return mainKm+wuKm+cdKm;
+  const fromSplits=mainKm+wuKm+cdKm;
+  // fallback to Coros-synced header value when no splits recorded
+  if(fromSplits===0&&s.totalKm)return parseFloat(s.totalKm)||0;
+  return fromSplits;
 }
 
 function calcZoneMileage(){
@@ -911,8 +914,8 @@ function openPopup(id){
     {l:'Main KM',v:()=>sp.length+' km'},
     {l:'WU',v:()=>s.wu&&s.wu.dist?s.wu.dist+' km':'—'},
     {l:'CD',v:()=>s.cd&&s.cd.dist?s.cd.dist+' km':'—'},
-    {l:'Avg Pace',v:()=>{const x=avgF(sp,'pace');return x?s2p(x)+'/km':'—';}},
-    {l:'Avg HR',v:()=>{const x=avgF(sp,'hr');return x?fmt(x)+' bpm':'—';}},
+    {l:'Avg Pace',v:()=>{const x=avgF(sp,'pace');return x?s2p(x)+'/km':(s.avgPace?s.avgPace+'/km':'—');}},
+    {l:'Avg HR',v:()=>{const x=avgF(sp,'hr');return x?fmt(x)+' bpm':(s.avgHR?s.avgHR+' bpm':'—');}},
     {l:'Avg Stride',v:()=>{const x=avgF(sp,'stride');return x?fmt(x,1)+' cm':'—';}},
     {l:'Avg V.Osc',v:()=>{const x=avgF(sp,'vosc');return x?fmt(x,1)+' cm':'—';}},
   ];
@@ -1544,11 +1547,14 @@ function renderStats(){
   const allSp=FS.flatMap(s=>allSplits(s));
   setEl('stS',FS.length);
   const strides=allSp.map(s=>parseFloat(s.stride)).filter(v=>!isNaN(v)&&v>0);
-  const paces=allSp.map(s=>p2s(s.pace)).filter(v=>v&&v>0);
-  const cads=allSp.map(s=>parseFloat(s.cadence)).filter(v=>!isNaN(v)&&v>0);
   const vosc=allSp.map(s=>parseFloat(s.vosc)).filter(v=>!isNaN(v)&&v>0);
+  const cads=allSp.map(s=>parseFloat(s.cadence)).filter(v=>!isNaN(v)&&v>0);
+  // Best pace: from splits if available, else from session header avgPace
+  const splitPaces=allSp.map(s=>p2s(s.pace)).filter(v=>v&&v>0);
+  const headerPaces=FS.map(s=>s.avgPace?p2s(s.avgPace):0).filter(v=>v>0);
+  const allPaces=[...splitPaces,...headerPaces];
   if(strides.length)setEl('stSt',(strides.reduce((a,b)=>a+b,0)/strides.length).toFixed(1));
-  if(paces.length)setEl('stP',s2p(Math.min(...paces)));
+  if(allPaces.length)setEl('stP',s2p(Math.min(...allPaces)));
   if(cads.length)setEl('stC',Math.round(cads.reduce((a,b)=>a+b,0)/cads.length));
   if(vosc.length)setEl('stVO',(vosc.reduce((a,b)=>a+b,0)/vosc.length).toFixed(1));
 }
