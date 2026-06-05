@@ -1358,14 +1358,16 @@ function resetZones(){ZONES=defaultZones();saveZonesCfg();closeZones();renderPie
 // ─── PIE CHARTS ───────────────────────────────────────────────────────────────
 function renderMileageCards(){
   const zones=calcZoneMileage();
-  const total=zones.reduce((a,b)=>a+b,0)||1;
+  const zoneTotal=zones.reduce((a,b)=>a+b,0)||1;
   zones.forEach((km,i)=>{
     const z=i+1;
-    const pct=((km/total)*100).toFixed(0);
+    const pct=((km/zoneTotal)*100).toFixed(0);
     setEl(`kmZ${z}`,km.toFixed(1));
     setEl(`kmZ${z}Pct`,`${pct}%`);
   });
-  setEl('stKM',total.toFixed(1));
+  // Use totalKmForSession so Coros-synced sessions (no splits) are counted
+  const trueTotal=filteredByPeriod(S).reduce((acc,s)=>acc+totalKmForSession(s),0);
+  setEl('stKM',trueTotal.toFixed(1));
 }
 
 function renderPieCharts(){
@@ -1624,6 +1626,9 @@ async function loadSessions(){
   dedupSessions();
   render();
 }
+
+// Auto-load on page start
+loadSessions();
 
 </script>
 </body>
