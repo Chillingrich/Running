@@ -1,21 +1,51 @@
 [
   {
-    "id": 5336361607176,
-    "corosLabelId": "477995336361607176",
-    "date": "2026-06-05",
+    "id": 950184345902,
+    "corosLabelId": "477600950184345902",
+    "date": "2026-05-19",
+    "type": "race-10k",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "humidity": "",
+    "notes": "Send .fit file to Claude in chat to auto-parse splits and biomechanics data.",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 9.82,
+    "mainKm": 9.82,
+    "avgPace": "4:12",
+    "avgHR": 171,
+    "calories": 543,
+    "durationSec": 2476,
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ],
+    "fitFile": "477600950184345902.fit",
+    "fitFp": "5l6q"
+  },
+  {
+    "id": 7289071288324,
+    "corosLabelId": "477627289071288324",
+    "date": "2026-05-20",
     "type": "easy",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "15 Easy",
+    "humidity": "",
+    "notes": "22k Easy",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 16.25,
-    "mainKm": 16.25,
-    "avgPace": "5:11",
-    "avgHR": 140,
-    "calories": 847,
-    "durationSec": 5061,
+    "totalKm": 11.33,
+    "mainKm": 11.33,
+    "avgPace": "5:47",
+    "avgHR": 125,
+    "calories": 537,
+    "durationSec": 3928,
     "wu": {},
     "cd": {},
     "sets": [
@@ -26,126 +56,23 @@
     ]
   },
   {
-    "id": 5552001417419,
-    "corosLabelId": "477925552001417419",
-    "date": "2026-06-02",
+    "id": 6558978932841,
+    "corosLabelId": "477646558978932841",
+    "date": "2026-05-21",
     "type": "threshold",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "Threshold Workout",
+    "humidity": "",
+    "notes": "Send .fit file to Claude in chat to auto-parse splits and biomechanics data.",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 10.02,
-    "mainKm": 10.02,
-    "avgPace": "5:29",
-    "avgHR": 149,
-    "calories": 607,
-    "durationSec": 3300,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 52191625516,
-    "corosLabelId": "477880052191625516",
-    "date": "2026-05-31",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "30k Marathon Pace Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 27.29,
-    "mainKm": 27.29,
-    "avgPace": "5:14",
-    "avgHR": 142,
-    "calories": 1446,
-    "durationSec": 8570,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6830901485670,
-    "corosLabelId": "477856830901485670",
-    "date": "2026-05-30",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "7k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 9.16,
-    "mainKm": 9.16,
-    "avgPace": "6:04",
-    "avgHR": 130,
-    "calories": 481,
-    "durationSec": 3334,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3091811934213,
-    "corosLabelId": "477833091811934213",
-    "date": "2026-05-29",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x5km Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 18.15,
-    "mainKm": 18.15,
-    "avgPace": "5:49",
-    "avgHR": 150,
-    "calories": 1062,
-    "durationSec": 6343,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8964629381323,
-    "corosLabelId": "477828964629381323",
-    "date": "2026-05-29",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Bangkok Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 3.0,
-    "mainKm": 3.0,
-    "avgPace": "5:54",
+    "totalKm": 12.31,
+    "mainKm": 12.31,
+    "avgPace": "5:24",
     "avgHR": 147,
-    "calories": 156,
-    "durationSec": 1062,
+    "calories": 719,
+    "durationSec": 3986,
     "wu": {},
     "cd": {},
     "sets": [
@@ -153,51 +80,28 @@
         "set": 1,
         "splits": []
       }
-    ]
+    ],
+    "fitFile": "477646558978932841.fit",
+    "fitFp": "47cv"
   },
   {
-    "id": 9150322049125,
-    "corosLabelId": "477809150322049125",
-    "date": "2026-05-28",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x5km Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 6.22,
-    "mainKm": 6.22,
-    "avgPace": "5:01",
-    "avgHR": 155,
-    "calories": 361,
-    "durationSec": 1873,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5854151000064,
-    "corosLabelId": "477785854151000064",
-    "date": "2026-05-27",
+    "id": 3188034117832,
+    "corosLabelId": "477673188034117832",
+    "date": "2026-05-22",
     "type": "easy",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "15k Easy + 6 Strides",
+    "humidity": "",
+    "notes": "14k Easy",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 16.76,
-    "mainKm": 16.76,
-    "avgPace": "6:10",
-    "avgHR": 139,
-    "calories": 956,
-    "durationSec": 6198,
+    "totalKm": 10.9,
+    "mainKm": 10.9,
+    "avgPace": "5:43",
+    "avgHR": 132,
+    "calories": 563,
+    "durationSec": 3740,
     "wu": {},
     "cd": {},
     "sets": [
@@ -208,48 +112,23 @@
     ]
   },
   {
-    "id": 3665813078319,
-    "corosLabelId": "477763665813078319",
-    "date": "2026-05-26",
+    "id": 3021117251784,
+    "corosLabelId": "477693021117251784",
+    "date": "2026-05-23",
     "type": "threshold",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "3x5km Run",
+    "humidity": "",
+    "notes": "Easy6k_4x2min",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 17.25,
-    "mainKm": 17.25,
-    "avgPace": "5:34",
-    "avgHR": 156,
-    "calories": 1079,
-    "durationSec": 5762,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2725968462127,
-    "corosLabelId": "477742725968462127",
-    "date": "2026-05-25",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "15k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.16,
-    "mainKm": 14.16,
-    "avgPace": "6:11",
-    "avgHR": 135,
-    "calories": 803,
-    "durationSec": 5255,
+    "totalKm": 10.52,
+    "mainKm": 10.52,
+    "avgPace": "5:40",
+    "avgHR": 138,
+    "calories": 581,
+    "durationSec": 3573,
     "wu": {},
     "cd": {},
     "sets": [
@@ -267,6 +146,7 @@
     "shoe": "",
     "surface": "Road",
     "temp": "",
+    "humidity": "",
     "notes": "12k Easy",
     "rpe": 0,
     "highlighted": false,
@@ -293,6 +173,7 @@
     "shoe": "",
     "surface": "Road",
     "temp": "",
+    "humidity": "",
     "notes": "Pink Blue Run",
     "rpe": 0,
     "highlighted": false,
@@ -312,48 +193,23 @@
     ]
   },
   {
-    "id": 3021117251784,
-    "corosLabelId": "477693021117251784",
-    "date": "2026-05-23",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Easy6k_4x2min",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.52,
-    "mainKm": 10.52,
-    "avgPace": "5:40",
-    "avgHR": 138,
-    "calories": 581,
-    "durationSec": 3573,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3188034117832,
-    "corosLabelId": "477673188034117832",
-    "date": "2026-05-22",
+    "id": 2725968462127,
+    "corosLabelId": "477742725968462127",
+    "date": "2026-05-25",
     "type": "easy",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "14k Easy",
+    "humidity": "",
+    "notes": "15k Easy + 6 Strides",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 10.9,
-    "mainKm": 10.9,
-    "avgPace": "5:43",
-    "avgHR": 132,
-    "calories": 563,
-    "durationSec": 3740,
+    "totalKm": 14.16,
+    "mainKm": 14.16,
+    "avgPace": "6:11",
+    "avgHR": 135,
+    "calories": 803,
+    "durationSec": 5255,
     "wu": {},
     "cd": {},
     "sets": [
@@ -364,1430 +220,23 @@
     ]
   },
   {
-    "id": 6558978932841,
-    "corosLabelId": "477646558978932841",
-    "date": "2026-05-21",
+    "id": 3665813078319,
+    "corosLabelId": "477763665813078319",
+    "date": "2026-05-26",
     "type": "threshold",
     "shoe": "",
     "surface": "Road",
     "temp": "",
+    "humidity": "",
     "notes": "3x5km Run",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 12.31,
-    "mainKm": 12.31,
-    "avgPace": "5:24",
-    "avgHR": 147,
-    "calories": 719,
-    "durationSec": 3986,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ],
-    "fitFile": "477646558978932841.fit",
-    "fitFp": "47cv"
-  },
-  {
-    "id": 7289071288324,
-    "corosLabelId": "477627289071288324",
-    "date": "2026-05-20",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "22k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.33,
-    "mainKm": 11.33,
-    "avgPace": "5:47",
-    "avgHR": 125,
-    "calories": 537,
-    "durationSec": 3928,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 950184345902,
-    "corosLabelId": "477600950184345902",
-    "date": "2026-05-19",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x3km Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.51,
-    "mainKm": 17.51,
-    "avgPace": "5:11",
-    "avgHR": 149,
-    "calories": 961,
-    "durationSec": 5449,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ],
-    "fitFile": "477600950184345902.fit",
-    "fitFp": "5l6q"
-  },
-  {
-    "id": 8215836123136,
-    "corosLabelId": "477578215836123136",
-    "date": "2026-05-18",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.57,
-    "mainKm": 11.57,
-    "avgPace": "5:28",
-    "avgHR": 146,
-    "calories": 521,
-    "durationSec": 3793,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5440431956074,
-    "corosLabelId": "477555440431956074",
-    "date": "2026-05-17",
-    "type": "race-half",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Rama 8 Run 2026",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 21.34,
-    "mainKm": 21.34,
-    "avgPace": "4:15",
-    "avgHR": null,
-    "calories": 0,
-    "durationSec": 5437,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9797277630564,
-    "corosLabelId": "477509797277630564",
-    "date": "2026-05-15",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.42,
-    "mainKm": 12.42,
-    "avgPace": "6:13",
-    "avgHR": 131,
-    "calories": 663,
-    "durationSec": 4634,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5337170444290,
-    "corosLabelId": "477485337170444290",
-    "date": "2026-05-14",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.89,
-    "mainKm": 10.89,
-    "avgPace": "5:31",
-    "avgHR": 140,
-    "calories": 594,
-    "durationSec": 3608,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2508892881296,
-    "corosLabelId": "477462508892881296",
-    "date": "2026-05-13",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3k+10k 3k",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 16.21,
-    "mainKm": 16.21,
-    "avgPace": "5:05",
-    "avgHR": 143,
-    "calories": 848,
-    "durationSec": 4944,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8506726096997,
-    "corosLabelId": "477438506726096997",
-    "date": "2026-05-12",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8x1km Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.36,
-    "mainKm": 17.36,
-    "avgPace": "5:16",
-    "avgHR": 143,
-    "calories": 939,
-    "durationSec": 5494,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5888086138883,
-    "corosLabelId": "477415888086138883",
-    "date": "2026-05-11",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 9.08,
-    "mainKm": 9.08,
-    "avgPace": "6:18",
-    "avgHR": 122,
-    "calories": 451,
-    "durationSec": 3431,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2248315609292,
-    "corosLabelId": "477392248315609292",
-    "date": "2026-05-10",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "28k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.7,
-    "mainKm": 20.7,
-    "avgPace": "5:25",
-    "avgHR": 143,
-    "calories": 1153,
-    "durationSec": 6737,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2832787833034,
-    "corosLabelId": "477322832787833034",
-    "date": "2026-05-07",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8x1k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.78,
-    "mainKm": 14.78,
-    "avgPace": "4:54",
-    "avgHR": 145,
-    "calories": 765,
-    "durationSec": 4353,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4676885233666,
-    "corosLabelId": "477304676885233666",
-    "date": "2026-05-06",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "15k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 16.06,
-    "mainKm": 16.06,
-    "avgPace": "5:43",
-    "avgHR": 132,
-    "calories": 821,
-    "durationSec": 5505,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6863494914250,
-    "corosLabelId": "477276863494914250",
-    "date": "2026-05-05",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4x800m Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.66,
-    "mainKm": 12.66,
-    "avgPace": "5:25",
-    "avgHR": 141,
-    "calories": 688,
-    "durationSec": 4111,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6863494914248,
-    "corosLabelId": "477276863494914248",
-    "date": "2026-05-05",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "12k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 0.95,
-    "mainKm": 0.95,
-    "avgPace": "5:44",
-    "avgHR": 122,
-    "calories": 43,
-    "durationSec": 328,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3634690678991,
-    "corosLabelId": "477253634690678991",
-    "date": "2026-05-04",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.42,
-    "mainKm": 12.42,
-    "avgPace": "5:38",
-    "avgHR": 133,
-    "calories": 608,
-    "durationSec": 4194,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9899896094821,
-    "corosLabelId": "477229899896094821",
-    "date": "2026-05-03",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "26k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 26.09,
-    "mainKm": 26.09,
-    "avgPace": "5:05",
-    "avgHR": 145,
-    "calories": 1386,
-    "durationSec": 7956,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6834311102464,
-    "corosLabelId": "477206834311102464",
-    "date": "2026-05-02",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.35,
-    "mainKm": 10.35,
-    "avgPace": "5:39",
-    "avgHR": 134,
-    "calories": 532,
-    "durationSec": 3509,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4248955043842,
-    "corosLabelId": "477184248955043842",
-    "date": "2026-05-01",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x2k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.26,
-    "mainKm": 11.26,
-    "avgPace": "5:18",
-    "avgHR": 152,
-    "calories": 679,
-    "durationSec": 3579,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3257356566632,
-    "corosLabelId": "477183257356566632",
-    "date": "2026-05-01",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 0.46,
-    "mainKm": 0.46,
-    "avgPace": "5:57",
-    "avgHR": 121,
-    "calories": 22,
-    "durationSec": 166,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8909992271872,
-    "corosLabelId": "477158909992271872",
-    "date": "2026-04-30",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4x2k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.65,
-    "mainKm": 12.65,
-    "avgPace": "5:20",
-    "avgHR": 153,
-    "calories": 766,
-    "durationSec": 4052,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7377721090050,
-    "corosLabelId": "477137377721090050",
-    "date": "2026-04-29",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "20k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 18.19,
-    "mainKm": 18.19,
-    "avgPace": "5:55",
-    "avgHR": 146,
-    "calories": 1082,
-    "durationSec": 6451,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3864602108106,
-    "corosLabelId": "477093864602108106",
-    "date": "2026-04-27",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x4k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.7,
-    "mainKm": 13.7,
-    "avgPace": "5:04",
-    "avgHR": 147,
-    "calories": 753,
-    "durationSec": 4172,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3015478190084,
-    "corosLabelId": "477073015478190084",
-    "date": "2026-04-26",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "24k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.16,
-    "mainKm": 17.16,
-    "avgPace": "5:36",
-    "avgHR": 136,
-    "calories": 907,
-    "durationSec": 5770,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7736103895041,
-    "corosLabelId": "477047736103895041",
-    "date": "2026-04-25",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.26,
-    "mainKm": 14.26,
-    "avgPace": "5:26",
-    "avgHR": 135,
-    "calories": 711,
-    "durationSec": 4644,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1930061332580,
-    "corosLabelId": "477021930061332580",
-    "date": "2026-04-24",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.5,
-    "mainKm": 11.5,
-    "avgPace": "5:54",
-    "avgHR": 131,
-    "calories": 597,
-    "durationSec": 4068,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8710943842403,
-    "corosLabelId": "476998710943842403",
-    "date": "2026-04-23",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "20k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 21.2,
-    "mainKm": 21.2,
-    "avgPace": "5:10",
-    "avgHR": 144,
-    "calories": 1120,
-    "durationSec": 6574,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4441629597999,
-    "corosLabelId": "476954441629597999",
-    "date": "2026-04-21",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "3x3k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.23,
-    "mainKm": 13.23,
-    "avgPace": "4:57",
-    "avgHR": 147,
-    "calories": 681,
-    "durationSec": 3929,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3333530132483,
-    "corosLabelId": "476953333530132483",
-    "date": "2026-04-21",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 0.92,
-    "mainKm": 0.92,
-    "avgPace": "5:35",
-    "avgHR": 117,
-    "calories": 36,
-    "durationSec": 309,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 928306847748,
-    "corosLabelId": "476930928306847748",
-    "date": "2026-04-20",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.34,
-    "mainKm": 11.34,
-    "avgPace": "4:46",
-    "avgHR": 147,
-    "calories": 566,
-    "durationSec": 3239,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3915136081921,
-    "corosLabelId": "476913915136081921",
-    "date": "2026-04-20",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Nai Mueang Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 7.55,
-    "mainKm": 7.55,
-    "avgPace": "8:30",
-    "avgHR": 110,
-    "calories": 350,
-    "durationSec": 3846,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2331851677698,
-    "corosLabelId": "476892331851677698",
-    "date": "2026-04-19",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "25k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 22.05,
-    "mainKm": 22.05,
-    "avgPace": "5:17",
-    "avgHR": 140,
-    "calories": 1108,
-    "durationSec": 6995,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7738587922439,
-    "corosLabelId": "476867738587922439",
-    "date": "2026-04-18",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "15k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.46,
-    "mainKm": 11.46,
-    "avgPace": "5:14",
-    "avgHR": 151,
-    "calories": 649,
-    "durationSec": 3603,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2497804886016,
-    "corosLabelId": "476812497804886016",
-    "date": "2026-04-15",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4x2k Threshold Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.58,
-    "mainKm": 15.58,
-    "avgPace": "5:41",
-    "avgHR": 148,
-    "calories": 866,
-    "durationSec": 5318,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2259650552209,
-    "corosLabelId": "476792259650552209",
-    "date": "2026-04-14",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.69,
-    "mainKm": 10.69,
-    "avgPace": "5:33",
-    "avgHR": 152,
-    "calories": 649,
-    "durationSec": 3560,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2867245629540,
-    "corosLabelId": "476742867245629540",
-    "date": "2026-04-12",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "14k Sunday Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.31,
-    "mainKm": 14.31,
-    "avgPace": "4:56",
-    "avgHR": 152,
-    "calories": 753,
-    "durationSec": 4234,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9628263915819,
-    "corosLabelId": "476719628263915819",
-    "date": "2026-04-11",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 9.23,
-    "mainKm": 9.23,
-    "avgPace": "5:10",
-    "avgHR": 150,
-    "calories": 513,
-    "durationSec": 2859,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7593687425031,
-    "corosLabelId": "476677593687425031",
-    "date": "2026-04-09",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "51K BD Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 51.08,
-    "mainKm": 51.08,
-    "avgPace": "7:05",
-    "avgHR": 134,
-    "calories": 3125,
-    "durationSec": 21695,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3758623621523,
-    "corosLabelId": "476603758623621523",
-    "date": "2026-04-06",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 7.97,
-    "mainKm": 7.97,
-    "avgPace": "4:48",
-    "avgHR": 148,
-    "calories": 404,
-    "durationSec": 2296,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5372676030663,
-    "corosLabelId": "476585372676030663",
-    "date": "2026-04-06",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Long Run 27k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.17,
-    "mainKm": 20.17,
-    "avgPace": "5:13",
-    "avgHR": 145,
-    "calories": 1063,
-    "durationSec": 6315,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4459633360897,
-    "corosLabelId": "476544459633360897",
-    "date": "2026-04-04",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "22k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.02,
-    "mainKm": 15.02,
-    "avgPace": "5:30",
-    "avgHR": 146,
-    "calories": 839,
-    "durationSec": 4949,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1349462040677,
-    "corosLabelId": "476511349462040677",
-    "date": "2026-04-02",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Tempo 14k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.05,
-    "mainKm": 14.05,
-    "avgPace": "4:42",
-    "avgHR": 156,
-    "calories": 754,
-    "durationSec": 3956,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5188764155913,
-    "corosLabelId": "476465188764155913",
-    "date": "2026-03-31",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "12k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.14,
-    "mainKm": 13.14,
-    "avgPace": "5:04",
-    "avgHR": 145,
-    "calories": 672,
-    "durationSec": 3993,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 97502642281,
-    "corosLabelId": "476420097502642281",
-    "date": "2026-03-29",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "27km Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 23.19,
-    "mainKm": 23.19,
-    "avgPace": "5:21",
-    "avgHR": 150,
-    "calories": 1318,
-    "durationSec": 7455,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4271069470821,
-    "corosLabelId": "476394271069470821",
-    "date": "2026-03-28",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.28,
-    "mainKm": 10.28,
-    "avgPace": "5:22",
-    "avgHR": 144,
-    "calories": 538,
-    "durationSec": 3313,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1436620865738,
-    "corosLabelId": "476381436620865738",
-    "date": "2026-03-28",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "12k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.03,
-    "mainKm": 13.03,
-    "avgPace": "6:19",
-    "avgHR": 143,
-    "calories": 778,
-    "durationSec": 4943,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8141497516235,
-    "corosLabelId": "476348141497516235",
-    "date": "2026-03-26",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Tempo 14k Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 11.4,
-    "mainKm": 11.4,
-    "avgPace": "5:03",
-    "avgHR": 152,
-    "calories": 628,
-    "durationSec": 3448,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2296760746086,
-    "corosLabelId": "476302296760746086",
-    "date": "2026-03-24",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "VO2max 10x800 Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 19.37,
-    "mainKm": 19.37,
-    "avgPace": "5:16",
-    "avgHR": 150,
-    "calories": 1070,
-    "durationSec": 6123,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3691410677762,
-    "corosLabelId": "476253691410677762",
-    "date": "2026-03-22",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Kao Chalak",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 22.66,
-    "mainKm": 22.66,
-    "avgPace": "6:36",
-    "avgHR": 148,
-    "calories": 1539,
-    "durationSec": 8977,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 87075725412,
-    "corosLabelId": "476230087075725412",
-    "date": "2026-03-21",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "12k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.76,
-    "mainKm": 13.76,
-    "avgPace": "5:16",
-    "avgHR": 142,
-    "calories": 705,
-    "durationSec": 4346,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6188483428354,
-    "corosLabelId": "476186188483428354",
-    "date": "2026-03-19",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "16k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.33,
-    "mainKm": 17.33,
-    "avgPace": "5:04",
-    "avgHR": 152,
-    "calories": 946,
-    "durationSec": 5265,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9620579442690,
-    "corosLabelId": "476139620579442690",
-    "date": "2026-03-17",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Threshold Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.06,
-    "mainKm": 15.06,
-    "avgPace": "5:06",
-    "avgHR": 154,
-    "calories": 852,
-    "durationSec": 4602,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3163249893575,
-    "corosLabelId": "476093163249893575",
-    "date": "2026-03-15",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "24k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 25.2,
-    "mainKm": 25.2,
-    "avgPace": "4:52",
-    "avgHR": 153,
-    "calories": 1359,
-    "durationSec": 7359,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 150288736360,
-    "corosLabelId": "476070150288736360",
-    "date": "2026-03-14",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 18.76,
-    "mainKm": 18.76,
-    "avgPace": "5:06",
-    "avgHR": 151,
-    "calories": 1022,
-    "durationSec": 5736,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7658069295106,
-    "corosLabelId": "476047658069295106",
-    "date": "2026-03-13",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "12k Easy",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.71,
-    "mainKm": 13.71,
+    "totalKm": 17.25,
+    "mainKm": 17.25,
     "avgPace": "5:34",
-    "avgHR": 134,
-    "calories": 540,
-    "durationSec": 4582,
+    "avgHR": 156,
+    "calories": 1079,
+    "durationSec": 5762,
     "wu": {},
     "cd": {},
     "sets": [
@@ -1798,100 +247,23 @@
     ]
   },
   {
-    "id": 3778858532968,
-    "corosLabelId": "476023778858532968",
-    "date": "2026-03-12",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "VO2 6x1000m Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.89,
-    "mainKm": 13.89,
-    "avgPace": "5:13",
-    "avgHR": 148,
-    "calories": 741,
-    "durationSec": 4350,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1621669609675,
-    "corosLabelId": "476001621669609675",
-    "date": "2026-03-11",
+    "id": 5854151000064,
+    "corosLabelId": "477785854151000064",
+    "date": "2026-05-27",
     "type": "easy",
     "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "12k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.4,
-    "mainKm": 12.4,
-    "avgPace": "5:19",
-    "avgHR": 142,
-    "calories": 509,
-    "durationSec": 3961,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4414393966797,
-    "corosLabelId": "475974414393966797",
-    "date": "2026-03-10",
-    "type": "unknown",
-    "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "Kho Chalak Run",
+    "humidity": "",
+    "notes": "15k Easy + 6 Strides",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 13.86,
-    "mainKm": 13.86,
-    "avgPace": "6:56",
-    "avgHR": 157,
-    "calories": 1011,
-    "durationSec": 5773,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1322169196650,
-    "corosLabelId": "475931322169196650",
-    "date": "2026-03-08",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "20k Long Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 21.13,
-    "mainKm": 21.13,
-    "avgPace": "5:38",
+    "totalKm": 16.76,
+    "mainKm": 16.76,
+    "avgPace": "6:10",
     "avgHR": 139,
-    "calories": 1094,
-    "durationSec": 7145,
+    "calories": 956,
+    "durationSec": 6198,
     "wu": {},
     "cd": {},
     "sets": [
@@ -1902,48 +274,23 @@
     ]
   },
   {
-    "id": 8569055658285,
-    "corosLabelId": "475908569055658285",
-    "date": "2026-03-07",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "10k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.24,
-    "mainKm": 12.24,
-    "avgPace": "5:08",
-    "avgHR": 132,
-    "calories": 433,
-    "durationSec": 3765,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4693869330532,
-    "corosLabelId": "475884693869330532",
-    "date": "2026-03-06",
+    "id": 9150322049125,
+    "corosLabelId": "477809150322049125",
+    "date": "2026-05-28",
     "type": "threshold",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "8x1k VO2 interval Run",
+    "humidity": "",
+    "notes": "3x5km Run",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 13.83,
-    "mainKm": 13.83,
-    "avgPace": "5:27",
-    "avgHR": 145,
-    "calories": 761,
-    "durationSec": 4525,
+    "totalKm": 6.22,
+    "mainKm": 6.22,
+    "avgPace": "5:01",
+    "avgHR": 155,
+    "calories": 361,
+    "durationSec": 1873,
     "wu": {},
     "cd": {},
     "sets": [
@@ -1954,958 +301,23 @@
     ]
   },
   {
-    "id": 9430270156801,
-    "corosLabelId": "475839430270156801",
-    "date": "2026-03-04",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "12k Easy + 6 Strides",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.21,
-    "mainKm": 12.21,
-    "avgPace": "4:58",
-    "avgHR": 150,
-    "calories": 511,
-    "durationSec": 3643,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4561337868391,
-    "corosLabelId": "475814561337868391",
-    "date": "2026-03-03",
+    "id": 3091811934213,
+    "corosLabelId": "477833091811934213",
+    "date": "2026-05-29",
     "type": "threshold",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "4x2.5k Threshold Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 18.01,
-    "mainKm": 18.01,
-    "avgPace": "5:25",
-    "avgHR": 147,
-    "calories": 991,
-    "durationSec": 5850,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8858320338952,
-    "corosLabelId": "475768858320338952",
-    "date": "2026-03-01",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "24k aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.14,
-    "mainKm": 20.14,
-    "avgPace": "4:57",
-    "avgHR": 149,
-    "calories": 1042,
-    "durationSec": 5986,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5779852541958,
-    "corosLabelId": "475745779852541958",
-    "date": "2026-02-28",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10k aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.01,
-    "mainKm": 14.01,
-    "avgPace": "5:07",
-    "avgHR": 141,
-    "calories": 684,
-    "durationSec": 4304,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3389382721541,
-    "corosLabelId": "475723389382721541",
-    "date": "2026-02-27",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.52,
-    "mainKm": 10.52,
-    "avgPace": "5:22",
-    "avgHR": 130,
-    "calories": 381,
-    "durationSec": 3391,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9025117479218,
-    "corosLabelId": "475699025117479218",
-    "date": "2026-02-26",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Tempo Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 22.23,
-    "mainKm": 22.23,
-    "avgPace": "5:11",
-    "avgHR": 148,
-    "calories": 1182,
-    "durationSec": 6904,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7055554453706,
-    "corosLabelId": "475677055554453706",
-    "date": "2026-02-25",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.51,
-    "mainKm": 10.51,
-    "avgPace": "5:27",
-    "avgHR": 140,
-    "calories": 437,
-    "durationSec": 3437,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1894281273544,
-    "corosLabelId": "475651894281273544",
-    "date": "2026-02-24",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Running",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 22.4,
-    "mainKm": 22.4,
-    "avgPace": "5:08",
-    "avgHR": 149,
-    "calories": 1186,
-    "durationSec": 6894,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6257045110784,
-    "corosLabelId": "475606257045110784",
-    "date": "2026-02-22",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Long Run marathon pace",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 19.27,
-    "mainKm": 19.27,
-    "avgPace": "5:15",
-    "avgHR": 149,
-    "calories": 1053,
-    "durationSec": 6072,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5404966305794,
-    "corosLabelId": "475585404966305794",
-    "date": "2026-02-21",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "16km aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.41,
-    "mainKm": 10.41,
-    "avgPace": "6:07",
-    "avgHR": 131,
-    "calories": 531,
-    "durationSec": 3816,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6424890826754,
-    "corosLabelId": "475536424890826754",
-    "date": "2026-02-19",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10x1000m",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.86,
-    "mainKm": 15.86,
-    "avgPace": "5:13",
-    "avgHR": 146,
-    "calories": 822,
-    "durationSec": 4959,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4432781320292,
-    "corosLabelId": "475514432781320292",
-    "date": "2026-02-18",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 10.53,
-    "mainKm": 10.53,
-    "avgPace": "5:40",
-    "avgHR": 136,
-    "calories": 426,
-    "durationSec": 3579,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9648133570670,
-    "corosLabelId": "475489648133570670",
-    "date": "2026-02-17",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Threshold Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.64,
-    "mainKm": 17.64,
-    "avgPace": "5:05",
-    "avgHR": 146,
-    "calories": 900,
-    "durationSec": 5387,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7918832861287,
-    "corosLabelId": "475467918832861287",
-    "date": "2026-02-16",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 8.46,
-    "mainKm": 8.46,
-    "avgPace": "5:17",
-    "avgHR": 134,
-    "calories": 312,
-    "durationSec": 2682,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4408974606535,
-    "corosLabelId": "475444408974606535",
-    "date": "2026-02-15",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Long Run marathon pace",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.18,
-    "mainKm": 20.18,
-    "avgPace": "5:08",
-    "avgHR": 149,
-    "calories": 1071,
-    "durationSec": 6206,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7520075997387,
-    "corosLabelId": "475417520075997387",
-    "date": "2026-02-14",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "12k aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.01,
-    "mainKm": 14.01,
-    "avgPace": "5:32",
-    "avgHR": 133,
-    "calories": 535,
-    "durationSec": 4648,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7567000117249,
-    "corosLabelId": "475397567000117249",
-    "date": "2026-02-13",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 12.51,
-    "mainKm": 12.51,
-    "avgPace": "5:57",
-    "avgHR": 127,
-    "calories": 582,
-    "durationSec": 4471,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4126410793162,
-    "corosLabelId": "475374126410793162",
-    "date": "2026-02-12",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10x1000m",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.82,
-    "mainKm": 17.82,
-    "avgPace": "5:14",
-    "avgHR": 146,
-    "calories": 939,
-    "durationSec": 5591,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1599833710692,
-    "corosLabelId": "475351599833710692",
-    "date": "2026-02-11",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "Aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.01,
-    "mainKm": 14.01,
-    "avgPace": "5:21",
-    "avgHR": 136,
-    "calories": 538,
-    "durationSec": 4493,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6880415777169,
-    "corosLabelId": "475326880415777169",
-    "date": "2026-02-10",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Aerobic-Threshold run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 16.0,
-    "mainKm": 16.0,
-    "avgPace": "5:04",
-    "avgHR": 150,
-    "calories": 853,
-    "durationSec": 4868,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2477433257990,
-    "corosLabelId": "475282477433257990",
-    "date": "2026-02-08",
-    "type": "long",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "z2 Long run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 22.01,
-    "mainKm": 22.01,
-    "avgPace": "5:26",
-    "avgHR": 136,
-    "calories": 1077,
-    "durationSec": 7172,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5498340335616,
-    "corosLabelId": "475255498340335616",
-    "date": "2026-02-07",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Indoor Run",
-    "temp": "",
-    "notes": "8 mile aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.72,
-    "mainKm": 14.72,
-    "avgPace": "4:50",
-    "avgHR": 141,
-    "calories": 538,
-    "durationSec": 4266,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1620136550503,
-    "corosLabelId": "475211620136550503",
-    "date": "2026-02-05",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Easy aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.01,
-    "mainKm": 15.01,
-    "avgPace": "5:03",
-    "avgHR": 148,
-    "calories": 779,
-    "durationSec": 4552,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 7594370515046,
-    "corosLabelId": "475187594370515046",
-    "date": "2026-02-04",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 21.32,
-    "mainKm": 21.32,
-    "avgPace": "4:45",
-    "avgHR": 157,
-    "calories": 1147,
-    "durationSec": 6083,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 3491540434949,
-    "corosLabelId": "475163491540434949",
-    "date": "2026-02-03",
-    "type": "unknown",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Bangkok Run",
+    "humidity": "",
+    "notes": "3x5km Run",
     "rpe": 0,
     "highlighted": false,
     "totalKm": 18.15,
     "mainKm": 18.15,
-    "avgPace": "5:18",
-    "avgHR": 147,
-    "calories": 979,
-    "durationSec": 5781,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9391363596489,
-    "corosLabelId": "475119391363596489",
-    "date": "2026-02-01",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "16km aerobic",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 16.01,
-    "mainKm": 16.01,
-    "avgPace": "5:27",
-    "avgHR": 146,
-    "calories": 874,
-    "durationSec": 5235,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6308588249189,
-    "corosLabelId": "475096308588249189",
-    "date": "2026-01-31",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "20k aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.01,
-    "mainKm": 20.01,
-    "avgPace": "5:37",
-    "avgHR": 141,
-    "calories": 1050,
-    "durationSec": 6735,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6786221064397,
-    "corosLabelId": "475026786221064397",
-    "date": "2026-01-28",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8 mile aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 13.02,
-    "mainKm": 13.02,
-    "avgPace": "5:28",
-    "avgHR": 142,
-    "calories": 672,
-    "durationSec": 4275,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4082302672902,
-    "corosLabelId": "474934082302672902",
-    "date": "2026-01-24",
-    "type": "race-marathon",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "Burirum Marathon 2026",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 42.49,
-    "mainKm": 42.49,
-    "avgPace": "4:38",
-    "avgHR": 165,
-    "calories": 2397,
-    "durationSec": 11797,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 9378674540645,
-    "corosLabelId": "474889378674540645",
-    "date": "2026-01-22",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 7.72,
-    "mainKm": 7.72,
-    "avgPace": "5:50",
-    "avgHR": 137,
-    "calories": 405,
-    "durationSec": 2703,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 1326311997742,
-    "corosLabelId": "474841326311997742",
-    "date": "2026-01-20",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10 mile base",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 17.48,
-    "mainKm": 17.48,
-    "avgPace": "5:41",
-    "avgHR": 146,
-    "calories": 986,
-    "durationSec": 5964,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 5058787287242,
-    "corosLabelId": "474795058787287242",
-    "date": "2026-01-18",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "10 mile base",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 24.79,
-    "mainKm": 24.79,
-    "avgPace": "5:33",
-    "avgHR": 146,
-    "calories": 1316,
-    "durationSec": 8247,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8284703899748,
-    "corosLabelId": "474748284703899748",
-    "date": "2026-01-16",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8 mile aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 15.37,
-    "mainKm": 15.37,
-    "avgPace": "5:26",
-    "avgHR": 142,
-    "calories": 816,
-    "durationSec": 5016,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 2805779988480,
-    "corosLabelId": "474682805779988480",
-    "date": "2026-01-14",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "8 mile aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 14.78,
-    "mainKm": 14.78,
-    "avgPace": "4:59",
-    "avgHR": 147,
-    "calories": 763,
-    "durationSec": 4421,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 8304550092803,
-    "corosLabelId": "474638304550092803",
-    "date": "2026-01-12",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "2x6 mile marathon pace",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 28.37,
-    "mainKm": 28.37,
-    "avgPace": "5:29",
-    "avgHR": 149,
-    "calories": 1578,
-    "durationSec": 9336,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 4673918951426,
-    "corosLabelId": "474614673918951426",
-    "date": "2026-01-11",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 8.01,
-    "mainKm": 8.01,
-    "avgPace": "5:40",
-    "avgHR": 143,
-    "calories": 439,
-    "durationSec": 2720,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6094657110221,
-    "corosLabelId": "474586094657110221",
-    "date": "2026-01-09",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "12 mile aerobic endurance",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 20.76,
-    "mainKm": 20.76,
-    "avgPace": "5:17",
+    "avgPace": "5:49",
     "avgHR": 150,
-    "calories": 1143,
-    "durationSec": 6570,
+    "calories": 1062,
+    "durationSec": 6343,
     "wu": {},
     "cd": {},
     "sets": [
@@ -2916,22 +328,50 @@
     ]
   },
   {
-    "id": 4937916645377,
-    "corosLabelId": "474564937916645377",
-    "date": "2026-01-08",
+    "id": 8964629381323,
+    "corosLabelId": "477828964629381323",
+    "date": "2026-05-29",
+    "type": "unknown",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "humidity": "",
+    "notes": "Bangkok Run",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 3,
+    "mainKm": 3,
+    "avgPace": "5:54",
+    "avgHR": 147,
+    "calories": 156,
+    "durationSec": 1062,
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  },
+  {
+    "id": 6830901485670,
+    "corosLabelId": "477856830901485670",
+    "date": "2026-05-30",
     "type": "easy",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "4 mile aerobic endurance run",
+    "humidity": "",
+    "notes": "7k Easy + 6 Strides",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 8.42,
-    "mainKm": 8.42,
-    "avgPace": "5:41",
-    "avgHR": 141,
-    "calories": 448,
-    "durationSec": 2875,
+    "totalKm": 9.16,
+    "mainKm": 9.16,
+    "avgPace": "6:04",
+    "avgHR": 130,
+    "calories": 481,
+    "durationSec": 3334,
     "wu": {},
     "cd": {},
     "sets": [
@@ -2942,76 +382,87 @@
     ]
   },
   {
-    "id": 9985232494794,
-    "corosLabelId": "474539985232494794",
-    "date": "2026-01-07",
-    "type": "threshold",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "6x1 mile threshold",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 16.26,
-    "mainKm": 16.26,
-    "avgPace": "5:06",
-    "avgHR": 152,
-    "calories": 892,
-    "durationSec": 4975,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 6421173346403,
-    "corosLabelId": "474516421173346403",
-    "date": "2026-01-06",
-    "type": "easy",
-    "shoe": "",
-    "surface": "Road",
-    "temp": "",
-    "notes": "4 mile aerobic endurance run",
-    "rpe": 0,
-    "highlighted": false,
-    "totalKm": 7.77,
-    "mainKm": 7.77,
-    "avgPace": "6:29",
-    "avgHR": 135,
-    "calories": 440,
-    "durationSec": 3019,
-    "wu": {},
-    "cd": {},
-    "sets": [
-      {
-        "set": 1,
-        "splits": []
-      }
-    ]
-  },
-  {
-    "id": 760828666059,
-    "corosLabelId": "474470760828666059",
-    "date": "2026-01-04",
+    "id": 52191625516,
+    "corosLabelId": "477880052191625516",
+    "date": "2026-05-31",
     "type": "long",
     "shoe": "",
     "surface": "Road",
     "temp": "",
-    "notes": "10 miles steady marathon pace",
+    "humidity": "",
+    "notes": "30k Marathon Pace Run",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 26.26,
-    "mainKm": 26.26,
-    "avgPace": "5:16",
-    "avgHR": 150,
-    "calories": 1476,
-    "durationSec": 8306,
+    "totalKm": 27.29,
+    "mainKm": 27.29,
+    "avgPace": "5:14",
+    "avgHR": 142,
+    "calories": 1446,
+    "durationSec": 8570,
     "wu": {},
     "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  },
+  {
+    "id": 5552001417419,
+    "corosLabelId": "477925552001417419",
+    "date": "2026-06-02",
+    "type": "threshold",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "humidity": "",
+    "notes": "Threshold Workout",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 10.02,
+    "mainKm": 10.02,
+    "avgPace": "5:29",
+    "avgHR": 149,
+    "calories": 607,
+    "durationSec": 3300,
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  },
+  {
+    "id": 5336361607176,
+    "corosLabelId": "477995336361607176",
+    "date": "2026-06-05",
+    "type": "easy",
+    "shoe": "EVO SL Blue",
+    "surface": "Road",
+    "temp": "0",
+    "humidity": "",
+    "notes": "15 Easy",
+    "rpe": 6,
+    "highlighted": false,
+    "totalKm": 16.25,
+    "mainKm": 16.25,
+    "avgPace": "5:11",
+    "avgHR": 140,
+    "calories": 847,
+    "durationSec": 5061,
+    "wu": {
+      "dist": "",
+      "pace": "",
+      "hr": ""
+    },
+    "cd": {
+      "dist": "",
+      "pace": "",
+      "hr": ""
+    },
     "sets": [
       {
         "set": 1,
