@@ -1180,14 +1180,29 @@ function saveFitAll(){
     const surf=(document.getElementById(`fsu${i}`)&&document.getElementById(`fsu${i}`).value)||'Road';
     // Generate session name from filename timestamp
     const sessionDate=fp.date||new Date().toISOString().split('T')[0];
-    S.push({id:Date.now()+i,
-      date:sessionDate,
-      type,shoe,
-      surface:surf,temp:'',humidity:'',
-      notes:`Send .fit file to Claude in chat to auto-parse splits and biomechanics data.`,
-      rpe:0,highlighted:false,fitFp:fp.fp,
-      fitFile:fp.name,
-      wu:{},cd:{},sets:[{set:1,splits:[]}]});
+    // Try to merge into existing Coros session on same date (no splits yet)
+    const existIdx = S.findIndex(s =>
+      s.date === sessionDate &&
+      !s.fitFp &&
+      (!s.sets || s.sets.every(st => !st.splits || st.splits.length === 0))
+    );
+    if(existIdx >= 0){
+      // Merge: attach fitFp/fitFile to existing Coros session
+      S[existIdx].fitFp = fp.fp;
+      S[existIdx].fitFile = fp.name;
+      if(!S[existIdx].shoe && shoe) S[existIdx].shoe = shoe;
+      if(type !== 'unknown') S[existIdx].type = type;
+      console.log('Merged .fit into existing session:', sessionDate);
+    } else {
+      S.push({id:Date.now()+i,
+        date:sessionDate,
+        type,shoe,
+        surface:surf,temp:'',humidity:'',
+        notes:`Send .fit file to Claude in chat to auto-parse splits and biomechanics data.`,
+        rpe:0,highlighted:false,fitFp:fp.fp,
+        fitFile:fp.name,
+        wu:{},cd:{},sets:[{set:1,splits:[]}]});
+    }
     imported++;
   });
   S.sort((a,b)=>a.date.localeCompare(b.date));
