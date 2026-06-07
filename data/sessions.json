@@ -3030,27 +3030,40 @@
     "notes": "7k Easy + 6 Strides",
     "rpe": 5,
     "highlighted": false,
-    "totalKm": 10.81,
-    "mainKm": 10.81,
-    "avgPace": "5:45",
-    "avgHR": 134,
+    "totalKm": 9.54,
+    "mainKm": 6.0,
+    "avgPace": "5:12",
+    "avgHR": 132,
     "calories": 558,
     "durationSec": 3729,
     "wu": {
-      "dist": "",
-      "pace": "",
-      "hr": ""
+      "dist": "0.77",
+      "pace": "6:29",
+      "hr": "105"
     },
     "cd": {
-      "dist": "",
-      "pace": "",
-      "hr": ""
+      "dist": "2.77",
+      "pace": "6:27",
+      "hr": "141"
     },
     "sets": [
       {
         "set": 1,
-        "splits": []
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:12",
+            "hr": "132",
+            "cadence": "178",
+            "stride": "108.0",
+            "power": "187",
+            "stance": "231.0",
+            "vosc": "8.4",
+            "vratio": "7.8"
+          }
+        ]
       }
-    ]
+    ],
+    "fitFile": "478018476024299621.fit"
   }
 ]
