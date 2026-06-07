@@ -313,20 +313,101 @@
     "notes": "Threshold Workout",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 10.02,
-    "mainKm": 10.02,
+    "totalKm": 9.57,
+    "mainKm": 6.0,
     "avgPace": "5:29",
     "avgHR": 149,
     "calories": 607,
     "durationSec": 3300,
-    "wu": {},
-    "cd": {},
+    "wu": {
+      "dist": "0.8",
+      "pace": "6:15",
+      "hr": "124"
+    },
+    "cd": {
+      "dist": "0.77",
+      "pace": "6:29",
+      "hr": "140"
+    },
     "sets": [
       {
         "set": 1,
-        "splits": []
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:24",
+            "hr": "159",
+            "cadence": "188",
+            "stride": "120.0",
+            "power": "221",
+            "stance": "198.2",
+            "vosc": "7.3",
+            "vratio": "6.1"
+          },
+          {
+            "km": 2,
+            "pace": "4:19",
+            "hr": "166",
+            "cadence": "190",
+            "stride": "120.8",
+            "power": "226",
+            "stance": "193.7",
+            "vosc": "7.0",
+            "vratio": "5.8"
+          },
+          {
+            "km": 3,
+            "pace": "4:20",
+            "hr": "168",
+            "cadence": "191",
+            "stride": "120.1",
+            "power": "224",
+            "stance": "188.5",
+            "vosc": "6.8",
+            "vratio": "5.6"
+          },
+          {
+            "km": 4,
+            "pace": "4:23",
+            "hr": "171",
+            "cadence": "190",
+            "stride": "119.2",
+            "power": "222",
+            "stance": "189.7",
+            "vosc": "6.9",
+            "vratio": "5.7"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:49",
+            "hr": "142",
+            "cadence": "179",
+            "stride": "95.1",
+            "power": "168",
+            "stance": "237.2",
+            "vosc": "7.5",
+            "vratio": "8.0"
+          },
+          {
+            "km": 2,
+            "pace": "5:19",
+            "hr": "150",
+            "cadence": "183",
+            "stride": "102.5",
+            "power": "183",
+            "stance": "224.2",
+            "vosc": "7.5",
+            "vratio": "7.4"
+          }
+        ]
       }
-    ]
+    ],
+    "fitFile": "477925552001417419.fit"
   },
   {
     "id": 52191625516,
