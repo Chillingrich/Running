@@ -3052,14 +3052,69 @@
         "splits": [
           {
             "km": 1,
-            "pace": "5:12",
+            "pace": "5:27",
+            "hr": "123",
+            "cadence": "179",
+            "stride": "102.1",
+            "power": "178",
+            "stance": "233.0",
+            "vosc": "8.3",
+            "vratio": "8.1"
+          },
+          {
+            "km": 2,
+            "pace": "5:16",
+            "hr": "130",
+            "cadence": "178",
+            "stride": "106.1",
+            "power": "185",
+            "stance": "224.4",
+            "vosc": "8.5",
+            "vratio": "8.0"
+          },
+          {
+            "km": 3,
+            "pace": "5:11",
+            "hr": "132",
+            "cadence": "177",
+            "stride": "108.5",
+            "power": "188",
+            "stance": "234.1",
+            "vosc": "8.3",
+            "vratio": "7.6"
+          },
+          {
+            "km": 4,
+            "pace": "5:14",
             "hr": "132",
             "cadence": "178",
-            "stride": "108.0",
-            "power": "187",
-            "stance": "231.0",
+            "stride": "107.2",
+            "power": "186",
+            "stance": "229.7",
+            "vosc": "8.3",
+            "vratio": "7.7"
+          },
+          {
+            "km": 5,
+            "pace": "5:09",
+            "hr": "136",
+            "cadence": "177",
+            "stride": "109.1",
+            "power": "189",
+            "stance": "235.2",
             "vosc": "8.4",
-            "vratio": "7.8"
+            "vratio": "7.7"
+          },
+          {
+            "km": 6,
+            "pace": "5:01",
+            "hr": "139",
+            "cadence": "176",
+            "stride": "112.3",
+            "power": "194",
+            "stance": "228.3",
+            "vosc": "8.6",
+            "vratio": "7.7"
           }
         ]
       }
