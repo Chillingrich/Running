@@ -1,5 +1,31 @@
 [
   {
+    "id": 8476024299621,
+    "corosLabelId": "478018476024299621",
+    "date": "2026-06-06",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "notes": "7k Easy + 6 Strides",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 10.81,
+    "mainKm": 10.81,
+    "avgPace": "5:45",
+    "avgHR": 134,
+    "calories": 558,
+    "durationSec": 3729,
+    "wu": {},
+    "cd": {},
+    "sets": [
+      {
+        "set": 1,
+        "splits": []
+      }
+    ]
+  },
+  {
     "id": 5336361607176,
     "corosLabelId": "477995336361607176",
     "date": "2026-06-05",
