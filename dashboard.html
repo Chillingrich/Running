@@ -823,13 +823,17 @@ function classifySplit(sp){
 }
 
 function totalKmForSession(s){
-  const mainKm=(s.sets||[]).reduce((acc,st)=>(st.splits||[]).length?acc+(st.splits.length):acc,0);
   const wuKm=parseFloat(s.wu&&s.wu.dist)||0;
   const cdKm=parseFloat(s.cd&&s.cd.dist)||0;
-  const fromSplits=mainKm+wuKm+cdKm;
-  // fallback to Coros-synced header value when no splits recorded
-  if(fromSplits===0&&s.totalKm)return parseFloat(s.totalKm)||0;
-  return fromSplits;
+  // Use mainKm from header (set by parser) if available
+  if(s.mainKm){
+    return (parseFloat(s.mainKm)||0)+wuKm+cdKm;
+  }
+  // Fallback: count splits as km (legacy sessions)
+  const splitsKm=(s.sets||[]).reduce((acc,st)=>(st.splits||[]).length?acc+(st.splits.length):acc,0);
+  if(splitsKm>0) return splitsKm+wuKm+cdKm;
+  // Last fallback: totalKm from Coros header
+  return parseFloat(s.totalKm)||0;
 }
 
 function calcZoneMileage(){
@@ -911,7 +915,7 @@ function openPopup(id){
   const totalKm=totalKmForSession(s);
   const meta=[
     {l:'Total KM',v:()=>totalKm>0?totalKm.toFixed(1)+' km':'—'},
-    {l:'Main KM',v:()=>sp.length+' km'},
+    {l:'Main KM',v:()=>(s.mainKm?parseFloat(s.mainKm).toFixed(1):sp.length)+' km'},
     {l:'WU',v:()=>s.wu&&s.wu.dist?s.wu.dist+' km':'—'},
     {l:'CD',v:()=>s.cd&&s.cd.dist?s.cd.dist+' km':'—'},
     {l:'Avg Pace',v:()=>{const x=avgF(sp,'pace');return x?s2p(x)+'/km':(s.avgPace?s.avgPace+'/km':'—');}},

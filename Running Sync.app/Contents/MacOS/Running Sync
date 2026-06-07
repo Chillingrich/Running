@@ -1,0 +1,3 @@
+#!/bin/bash
+python3 "$HOME/Documents/Running/sync_running.py"
+open -a "Google Chrome" https://chillingrich.github.io/Running/dashboard.html
