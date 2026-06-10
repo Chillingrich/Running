@@ -1017,6 +1017,7 @@ function toggleHL(){const s=S.find(x=>x.id===curId);if(!s)return;s.highlighted=!
 function savePop(){
   const s=S.find(x=>x.id===curId);if(!s)return;
   s.notes=document.getElementById('pNotes').value;
+  s.shoe=document.getElementById('pShoe').value||s.shoe||'';
   s.wu={dist:document.getElementById('wuDist').value,pace:document.getElementById('wuPace').value,hr:document.getElementById('wuHR').value};
   s.cd={dist:document.getElementById('cdDist').value,pace:document.getElementById('cdPace').value,hr:document.getElementById('cdHR').value};
   save();closePopup();render();
@@ -1681,6 +1682,7 @@ async function loadShoes(){
         localStorage.setItem('rdshoes',JSON.stringify(SHOES));
         console.log('Shoes loaded from GitHub:',SHOES.length);
         updateShoeDatalist();
+        render();
       }
     }
   }catch(e){
