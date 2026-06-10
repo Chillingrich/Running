@@ -810,6 +810,9 @@ function updateShoeDatalist(){
   const datalistOpts=allOpts.map(sh=>`<option value="${sh}">`).join('');
   ['sdl','sdl2'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=datalistOpts;});
   
+  // Sort alphabetically
+  allOpts.sort((a,b)=>a.localeCompare(b));
+
   // Update pShoe select dropdown
   const sel=document.getElementById('pShoe');
   if(sel){
@@ -1299,6 +1302,7 @@ function renderShoeMgr(){
   SHOES.forEach(p=>{
     if(!modelMap[p.model])modelMap[p.model]={pairs:[],color:sc(p.nickname||p.model)};
     modelMap[p.model].pairs.push(p);
+    modelMap[p.model].pairs.sort((a,b)=>(a.nickname||'').localeCompare(b.nickname||''));
   });
   // Also add any session shoes not in profiles
   allShoes().forEach(shoe=>{
@@ -1308,8 +1312,8 @@ function renderShoeMgr(){
     }
   });
 
-  // Model list
-  const modelHtml=Object.entries(modelMap).map(([model,info])=>{
+  // Model list — sorted alphabetically
+  const modelHtml=Object.entries(modelMap).sort((a,b)=>a[0].localeCompare(b[0])).map(([model,info])=>{
     const modelKm=getModelKm(model);
     const pairsHtml=info.pairs.map(p=>{
       const km=getShoeKm(p.nickname||p.model);
