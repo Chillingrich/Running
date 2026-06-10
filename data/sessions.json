@@ -1,5 +1,449 @@
 [
   {
+    "id": 1781102033427,
+    "corosLabelId": "478087299396043052",
+    "date": "2026-06-09",
+    "type": "threshold",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "notes": "",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 8.02,
+    "mainKm": 8.0,
+    "avgPace": "5:03",
+    "avgHR": 152,
+    "fitFile": "478087299396043052.fit",
+    "wu": {},
+    "cd": {
+      "dist": "0.02",
+      "pace": "11:05",
+      "hr": "142"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:26",
+            "hr": "126",
+            "cadence": "178",
+            "stride": "102.9",
+            "power": "179",
+            "stance": "232.6",
+            "vosc": "8.4",
+            "vratio": "8.2"
+          },
+          {
+            "km": 2,
+            "pace": "5:06",
+            "hr": "143",
+            "cadence": "179",
+            "stride": "108.4",
+            "power": "190",
+            "stance": "228.1",
+            "vosc": "8.3",
+            "vratio": "7.7"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "3:58",
+            "hr": "163",
+            "cadence": "186",
+            "stride": "134.9",
+            "power": "244",
+            "stance": "180.0",
+            "vosc": "8.2",
+            "vratio": "6.1"
+          }
+        ]
+      },
+      {
+        "set": 3,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:05",
+            "hr": "164",
+            "cadence": "186",
+            "stride": "131.2",
+            "power": "237",
+            "stance": "194.6",
+            "vosc": "8.1",
+            "vratio": "6.2"
+          }
+        ]
+      },
+      {
+        "set": 4,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:00",
+            "hr": "168",
+            "cadence": "189",
+            "stride": "131.0",
+            "power": "242",
+            "stance": "186.7",
+            "vosc": "7.2",
+            "vratio": "5.6"
+          }
+        ]
+      },
+      {
+        "set": 5,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:16",
+            "hr": "151",
+            "cadence": "181",
+            "stride": "104.3",
+            "power": "184",
+            "stance": "227.9",
+            "vosc": "7.5",
+            "vratio": "7.3"
+          },
+          {
+            "km": 2,
+            "pace": "5:14",
+            "hr": "155",
+            "cadence": "181",
+            "stride": "104.8",
+            "power": "186",
+            "stance": "229.9",
+            "vosc": "7.6",
+            "vratio": "7.2"
+          },
+          {
+            "km": 3,
+            "pace": "6:07",
+            "hr": "145",
+            "cadence": "180",
+            "stride": "90.3",
+            "power": "159",
+            "stance": "248.6",
+            "vosc": "7.2",
+            "vratio": "8.0"
+          },
+          {
+            "km": 4,
+            "pace": "6:10",
+            "hr": "142",
+            "cadence": "178",
+            "stride": "90.0",
+            "power": "158",
+            "stance": "254.0",
+            "vosc": "7.7",
+            "vratio": "8.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1781102033261,
+    "corosLabelId": "478065840923639914",
+    "date": "2026-06-08",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "notes": "",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 7.65,
+    "mainKm": 6.49,
+    "avgPace": "6:13",
+    "avgHR": 124,
+    "fitFile": "478065840923639914.fit",
+    "wu": {
+      "dist": "0.61",
+      "pace": "8:09",
+      "hr": "110"
+    },
+    "cd": {
+      "dist": "0.55",
+      "pace": "9:06",
+      "hr": "113"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "6:18",
+            "hr": "115",
+            "cadence": "174",
+            "stride": "90.8",
+            "power": "154",
+            "stance": "252.2",
+            "vosc": "8.4",
+            "vratio": "9.3"
+          },
+          {
+            "km": 2,
+            "pace": "5:55",
+            "hr": "119",
+            "cadence": "176",
+            "stride": "95.6",
+            "power": "165",
+            "stance": "239.2",
+            "vosc": "8.3",
+            "vratio": "8.7"
+          },
+          {
+            "km": 3,
+            "pace": "5:42",
+            "hr": "124",
+            "cadence": "177",
+            "stride": "98.9",
+            "power": "171",
+            "stance": "239.2",
+            "vosc": "8.2",
+            "vratio": "8.3"
+          },
+          {
+            "km": 4,
+            "pace": "5:30",
+            "hr": "133",
+            "cadence": "175",
+            "stride": "103.0",
+            "power": "177",
+            "stance": "238.5",
+            "vosc": "8.5",
+            "vratio": "8.2"
+          },
+          {
+            "km": 5,
+            "pace": "5:34",
+            "hr": "135",
+            "cadence": "174",
+            "stride": "102.7",
+            "power": "175",
+            "stance": "244.2",
+            "vosc": "8.6",
+            "vratio": "8.4"
+          },
+          {
+            "km": 6,
+            "pace": "5:34",
+            "hr": "139",
+            "cadence": "175",
+            "stride": "101.8",
+            "power": "175",
+            "stance": "238.1",
+            "vosc": "8.2",
+            "vratio": "8.0"
+          },
+          {
+            "km": 7,
+            "pace": "5:35",
+            "hr": "138",
+            "cadence": "174",
+            "stride": "102.1",
+            "power": "174",
+            "stance": "240.7",
+            "vosc": "8.0",
+            "vratio": "7.8"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1781102033073,
+    "corosLabelId": "478042409203171431",
+    "date": "2026-06-07",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "notes": "",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 13.94,
+    "mainKm": 11.0,
+    "avgPace": "5:54",
+    "avgHR": 138,
+    "fitFile": "478042409203171431.fit",
+    "wu": {
+      "dist": "0.59",
+      "pace": "8:31",
+      "hr": "102"
+    },
+    "cd": {
+      "dist": "2.35",
+      "pace": "9:03",
+      "hr": "118"
+    },
+    "sets": [
+      {
+        "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:44",
+            "hr": "123",
+            "cadence": "176",
+            "stride": "98.8",
+            "power": "169",
+            "stance": "248.6",
+            "vosc": "8.4",
+            "vratio": "8.6"
+          },
+          {
+            "km": 2,
+            "pace": "5:25",
+            "hr": "136",
+            "cadence": "178",
+            "stride": "103.3",
+            "power": "180",
+            "stance": "245.4",
+            "vosc": "8.4",
+            "vratio": "8.2"
+          },
+          {
+            "km": 3,
+            "pace": "5:15",
+            "hr": "141",
+            "cadence": "177",
+            "stride": "106.8",
+            "power": "185",
+            "stance": "243.3",
+            "vosc": "8.6",
+            "vratio": "8.0"
+          },
+          {
+            "km": 4,
+            "pace": "5:14",
+            "hr": "143",
+            "cadence": "178",
+            "stride": "106.6",
+            "power": "186",
+            "stance": "233.1",
+            "vosc": "8.4",
+            "vratio": "7.9"
+          },
+          {
+            "km": 5,
+            "pace": "5:11",
+            "hr": "143",
+            "cadence": "178",
+            "stride": "107.8",
+            "power": "187",
+            "stance": "234.8",
+            "vosc": "8.3",
+            "vratio": "7.7"
+          },
+          {
+            "km": 6,
+            "pace": "5:53",
+            "hr": "135",
+            "cadence": "171",
+            "stride": "97.8",
+            "power": "165",
+            "stance": "274.2",
+            "vosc": "8.0",
+            "vratio": "8.3"
+          }
+        ]
+      },
+      {
+        "set": 2,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "4:29",
+            "hr": "151",
+            "cadence": "184",
+            "stride": "120.6",
+            "power": "216",
+            "stance": "214.2",
+            "vosc": "8.0",
+            "vratio": "6.7"
+          },
+          {
+            "km": 2,
+            "pace": "4:24",
+            "hr": "162",
+            "cadence": "184",
+            "stride": "123.1",
+            "power": "221",
+            "stance": "208.2",
+            "vosc": "7.8",
+            "vratio": "6.3"
+          },
+          {
+            "km": 3,
+            "pace": "4:32",
+            "hr": "162",
+            "cadence": "182",
+            "stride": "120.4",
+            "power": "214",
+            "stance": "202.6",
+            "vosc": "7.9",
+            "vratio": "6.5"
+          },
+          {
+            "km": 4,
+            "pace": "4:29",
+            "hr": "164",
+            "cadence": "184",
+            "stride": "121.0",
+            "power": "217",
+            "stance": "201.7",
+            "vosc": "7.7",
+            "vratio": "6.3"
+          },
+          {
+            "km": 5,
+            "pace": "4:29",
+            "hr": "166",
+            "cadence": "184",
+            "stride": "120.7",
+            "power": "217",
+            "stance": "206.3",
+            "vosc": "7.5",
+            "vratio": "6.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1781102033089,
+    "corosLabelId": "478057347088941358",
+    "date": "2026-06-07",
+    "type": "easy",
+    "shoe": "",
+    "surface": "Road",
+    "temp": "",
+    "notes": "",
+    "rpe": 0,
+    "highlighted": false,
+    "totalKm": 0.63,
+    "mainKm": 0,
+    "avgPace": "6:19",
+    "avgHR": 120,
+    "fitFile": "478057347088941358.fit",
+    "wu": {},
+    "cd": {
+      "dist": "0.63",
+      "pace": "6:19",
+      "hr": "120"
+    },
+    "sets": []
+  },
+  {
     "id": 8476024299621,
     "corosLabelId": "478018476024299621",
     "date": "2026-06-06",
@@ -314,24 +758,51 @@
     "rpe": 0,
     "highlighted": false,
     "totalKm": 9.57,
-    "mainKm": 6.0,
+    "mainKm": 8.0,
     "avgPace": "5:29",
     "avgHR": 149,
     "calories": 607,
     "durationSec": 3300,
     "wu": {
       "dist": "0.8",
-      "pace": "6:15",
+      "pace": "6:17",
       "hr": "124"
     },
     "cd": {
       "dist": "0.77",
-      "pace": "6:29",
+      "pace": "6:28",
       "hr": "140"
     },
     "sets": [
       {
         "set": 1,
+        "splits": [
+          {
+            "km": 1,
+            "pace": "5:10",
+            "hr": "147",
+            "cadence": "186",
+            "stride": "103.5",
+            "power": "188",
+            "stance": "221.4",
+            "vosc": "7.4",
+            "vratio": "7.1"
+          },
+          {
+            "km": 2,
+            "pace": "5:31",
+            "hr": "147",
+            "cadence": "186",
+            "stride": "96.2",
+            "power": "176",
+            "stance": "230.5",
+            "vosc": "7.0",
+            "vratio": "7.8"
+          }
+        ]
+      },
+      {
+        "set": 2,
         "splits": [
           {
             "km": 1,
@@ -380,7 +851,7 @@
         ]
       },
       {
-        "set": 2,
+        "set": 3,
         "splits": [
           {
             "km": 1,
@@ -420,7 +891,7 @@
     "notes": "30k Marathon Pace Run",
     "rpe": 0,
     "highlighted": false,
-    "totalKm": 26.75,
+    "totalKm": 26.81,
     "mainKm": 25.0,
     "avgPace": "5:14",
     "avgHR": 142,
@@ -432,9 +903,9 @@
       "hr": "113"
     },
     "cd": {
-      "dist": "1.01",
-      "pace": "11:04",
-      "hr": "114"
+      "dist": "1.07",
+      "pace": "10:58",
+      "hr": "138"
     },
     "sets": [
       {
