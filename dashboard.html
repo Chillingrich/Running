@@ -697,7 +697,7 @@ let fitPending=[],zoneEditMode='pace';
 let SHOES=[];
 let periodStart=null,periodEnd=null; // null = all time
 
-const COLORS=['#00ff88','#ff6b35','#4d9fff','#ff4dff','#ffd700','#ff4444','#00ccff','#ff99cc','#99ff44','#cc88ff'];
+const COLORS=['#00ff88','#ff6b35','#4d9fff','#ff4dff','#ffd700','#ff4444','#00ccff','#ff99cc','#99ff44','#cc88ff','#ff8c00','#00e5ff','#adff2f','#ff1493','#7fff00','#ff6347','#00fa9a','#da70d6','#ffa500','#40e0d0'];
 const TYPE_COLORS={'race-5k':'#ff2d55','race-10k':'#ff375f','race-half':'#ff6584','race-full':'#ff8fa3','race-other':'#ffb3c1','3x5km':'#00ff88','3x3km':'#4d9fff','5km':'#ffd700','10km':'#ff6b35','long':'#ff4dff','easy':'#7d8590','unknown':'#444d56'};
 const ZONE_COLORS=['#4dd9ff','#00ff88','#ffd700','#ff9500','#ff6b35','#ff2d55'];
 const ZONE_LABELS=['Z1 Recovery','Z2 Aerobic End.','Z3 Aerobic Pwr','Z4 Threshold','Z5 Anaerobic End.','Z6 Anaerobic Pwr'];
@@ -730,7 +730,14 @@ function defaultZones(){
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function allShoes(){return[...new Set(S.map(s=>s.shoe).filter(sh=>sh&&sh.trim()!==''))];}
-function sc(shoe){const shoes=allShoes();return COLORS[shoes.indexOf(shoe)%COLORS.length]||'#7d8590';}
+function sc(shoe){
+  // Use SHOES profiles for consistent color assignment (sorted alphabetically)
+  const profileNames=SHOES.map(p=>p.nickname||p.model).filter(Boolean).sort((a,b)=>a.localeCompare(b));
+  const sessionOnly=allShoes().filter(n=>!profileNames.includes(n)).sort((a,b)=>a.localeCompare(b));
+  const allList=[...profileNames,...sessionOnly];
+  const idx=allList.indexOf(shoe);
+  return idx>=0?COLORS[idx%COLORS.length]:'#7d8590';
+}
 function p2s(str){if(!str)return null;str=str.trim().replace(/['"]/g,'');const p=str.split(':');if(p.length===2)return parseInt(p[0])*60+parseFloat(p[1]);return parseFloat(str)*60;}
 function s2p(sec){if(!sec||isNaN(sec))return'—';const m=Math.floor(sec/60),s=Math.round(sec%60).toString().padStart(2,'0');return`${m}:${s}`;}
 function avgF(splits,field){if(!splits||!splits.length)return null;const v=splits.map(sp=>field==='pace'?p2s(sp.pace):parseFloat(sp[field])).filter(x=>x!=null&&!isNaN(x)&&x>0);if(!v.length)return null;return v.reduce((a,b)=>a+b,0)/v.length;}
