@@ -695,7 +695,7 @@ let curId=null,curSet=0,collapsed=new Set();
 let lineChart=null,pieZoneChart=null,pieTypeChart=null;
 let fitPending=[],zoneEditMode='pace';
 // Shoe profiles: {id, model, nickname, purchaseDate, retireKm, status, notes}
-let SHOES=JSON.parse(localStorage.getItem('rdshoes')||'[]');
+let SHOES=[];
 let periodStart=null,periodEnd=null; // null = all time
 
 const COLORS=['#00ff88','#ff6b35','#4d9fff','#ff4dff','#ffd700','#ff4444','#00ccff','#ff99cc','#99ff44','#cc88ff'];
@@ -762,7 +762,21 @@ async function pushToGitHub(){
     console.log('Saved to GitHub');
   }catch(e){console.log('GitHub save failed:',e);}
 }
-function saveShoeProfiles(){localStorage.setItem('rdshoes',JSON.stringify(SHOES));}
+function saveShoeProfiles(){
+  localStorage.setItem('rdshoes',JSON.stringify(SHOES));
+  const token=localStorage.getItem('gh_token');
+  if(!token)return;
+  fetch('https://api.github.com/repos/Chillingrich/Running/contents/data/shoes.json',
+    {headers:{'Authorization':'token '+token}})
+  .then(r=>r.json()).then(d=>{
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(SHOES,null,2))));
+    return fetch('https://api.github.com/repos/Chillingrich/Running/contents/data/shoes.json',{
+      method:'PUT',headers:{'Authorization':'token '+token,'Content-Type':'application/json'},
+      body:JSON.stringify({message:'update shoes',content,sha:d.sha,branch:'main'})
+    });
+  }).then(()=>console.log('Shoes saved to GitHub'))
+  .catch(e=>console.log('Shoes GitHub save failed:',e));
+}
 function getShoeModel(shoeStr){
   // Match nickname to model, or return as-is
   if(!shoeStr)return'';
@@ -1657,6 +1671,25 @@ async function loadSessions(){
 }
 
 // Auto-load on page start
+async function loadShoes(){
+  try{
+    const res=await fetch('https://raw.githubusercontent.com/Chillingrich/Running/main/data/shoes.json?t='+Date.now());
+    if(res.ok){
+      const remote=await res.json();
+      if(remote&&remote.length>0){
+        SHOES=remote;
+        localStorage.setItem('rdshoes',JSON.stringify(SHOES));
+        console.log('Shoes loaded from GitHub:',SHOES.length);
+        updateShoeDatalist();
+      }
+    }
+  }catch(e){
+    // fallback to localStorage
+    const cached=JSON.parse(localStorage.getItem('rdshoes')||'[]');
+    if(cached.length>0){SHOES=cached;console.log('Shoes from cache:',SHOES.length);}
+  }
+}
+loadShoes();
 loadSessions();
 
 </script>

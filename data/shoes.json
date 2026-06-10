@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1748000000001,
+    "model": "Adidas EVO SL",
+    "nickname": "EVO SL Blue",
+    "purchaseDate": "",
+    "retireKm": 800,
+    "usage": "race",
+    "notes": ""
+  },
+  {
+    "id": 1748000000002,
+    "model": "Nike AF3",
+    "nickname": "AF3 Green",
+    "purchaseDate": "",
+    "retireKm": 800,
+    "usage": "race",
+    "notes": ""
+  },
+  {
+    "id": 1748000000003,
+    "model": "Nike AF3",
+    "nickname": "AF3 EK",
+    "purchaseDate": "",
+    "retireKm": 800,
+    "usage": "race",
+    "notes": ""
+  },
+  {
+    "id": 1748000000004,
+    "model": "Nike VF4",
+    "nickname": "VF4 Red",
+    "purchaseDate": "",
+    "retireKm": 800,
+    "usage": "race",
+    "notes": ""
+  },
+  {
+    "id": 1748000000005,
+    "model": "Others",
+    "nickname": "Others",
+    "purchaseDate": "",
+    "retireKm": 800,
+    "usage": "training",
+    "notes": "Daily training / old shoes"
+  }
+]
