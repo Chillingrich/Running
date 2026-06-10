@@ -463,8 +463,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
             <span>Shoe</span>
             <button onclick="openShoeEdit(null)" style="background:none;border:none;color:var(--acc3);font-family:var(--mono);font-size:8px;cursor:pointer;padding:0">+ new</button>
           </div>
-          <input id="pShoe" list="pShoeList" style="background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:2px 0;outline:none;width:100%" placeholder="Type or select…" onchange="updSessionField('shoe',this.value)">
-          <datalist id="pShoeList"></datalist>
+          <select id="pShoe" style="background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:var(--mono);font-size:11px;padding:2px 0;outline:none;width:100%" onchange="updSessionField('shoe',this.value)"><option value="">— select —</option></select>
         </div>
         <div class="mc">
           <div class="mc-lbl">Surface</div>
@@ -802,12 +801,22 @@ function getModelKm(model){
 function saveZonesCfg(){localStorage.setItem('rdzones',JSON.stringify(ZONES));}
 function fmt(v,dec=0){return v!=null&&!isNaN(v)?parseFloat(v).toFixed(dec):'—';}
 function updateShoeDatalist(){
-  // Combine: session shoes + shoe profile nicknames (no duplicates)
-  const fromSessions=allShoes();
-  const fromProfiles=SHOES.map(p=>p.nickname||p.model).filter(n=>n&&!fromSessions.includes(n));
-  const allOpts=[...fromSessions,...fromProfiles];
-  const opts=allOpts.map(sh=>`<option value="${sh}">`).join('');
-  ['sdl','sdl2','pShoeList'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=opts;});
+  // Combine: shoe profile nicknames + session shoes (no duplicates)
+  const fromProfiles=SHOES.map(p=>p.nickname||p.model).filter(Boolean);
+  const fromSessions=allShoes().filter(n=>!fromProfiles.includes(n));
+  const allOpts=[...fromProfiles,...fromSessions];
+  
+  // Update datalists (for FIT import)
+  const datalistOpts=allOpts.map(sh=>`<option value="${sh}">`).join('');
+  ['sdl','sdl2'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=datalistOpts;});
+  
+  // Update pShoe select dropdown
+  const sel=document.getElementById('pShoe');
+  if(sel){
+    const cur=sel.value;
+    sel.innerHTML='<option value="">— select —</option>'+allOpts.map(sh=>`<option value="${sh}">${sh}</option>`).join('');
+    if(cur&&allOpts.includes(cur))sel.value=cur;
+  }
 }
 
 // ─── MILEAGE ZONE CALC ────────────────────────────────────────────────────────
@@ -922,7 +931,7 @@ function openPopup(id){
   document.getElementById('btnStar').classList.toggle('on',!!s.highlighted);
   // Populate editable fields
   updateShoeDatalist();
-  const pShoe=document.getElementById('pShoe');if(pShoe)pShoe.value=s.shoe||'';
+  const pShoe=document.getElementById('pShoe');if(pShoe){updateShoeDatalist();pShoe.value=s.shoe||'';}
   const pSurf=document.getElementById('pSurface');if(pSurf)pSurf.value=s.surface||'Road';
   const pTemp=document.getElementById('pTemp');if(pTemp)pTemp.value=s.temp||'';
   const sp=allSplits(s);
